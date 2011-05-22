@@ -58,11 +58,14 @@ literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
 
 # `load` and `require`
 
+<!-- see also 4.1.2 sidebar -->
+
 * `load` inserts a file's contents into the current file
 * `require` makes a *feature* available to the current file
   * skips already-loaded files
   * omits the trailing `.rb`
   * can also be used for extensions written in C (`.so`, `.dll`, etc.)
+
 
 <!-- Section 1.4 -->
 
