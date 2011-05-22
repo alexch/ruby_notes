@@ -54,7 +54,7 @@ prints `I'm a thing.` to the console
   * the object `thing` receives the message `talk` and executes the method `talk`
   * dot (`.`) is the *message operator*
 
-<!-- move these three further up? -->
+<!-- move these three further up? they're about functions, not objects so much -->
 # Expression values
 
 In Ruby, every expression evaluates to some value
@@ -90,88 +90,9 @@ In Ruby, every expression evaluates to some value
     boiling = 100
     thing.to_fahrenheit(boiling)
 
+* Note that the variable names don't have to match!
 * In this code, `boiling` is an argument and `celcius` is a parameter
-* In practice, the two terms are interchangeable
-
-# Getter and setter methods
-
-    @@@ ruby
-    def thing.age=(years_old)
-      @age = years_old
-    end
-    def thing.age
-      @age
-    end
-
-    thing.age = 17
-    thing.age #=> 17
-    thing.@age #=> SyntaxError
-
-# The setter gotcha
-
-* Inside an object, you can't call that object's setter methods directly
-* Why not? Because "`age = 2`" looks like a *local variable* action, which takes preference
-* Syntax ambiguity! Oh noes!
-* Solution: use "`self.age = 2`"
-
-# The Linugistic Metaphor
-
-* Objects are nouns
-* Methods are verbs
-* Properties are adjectives
-
-# Boolean methods
-
-    @@@ ruby
-    def thing.child?
-      @age < 18
-    end
-
-    thing.age = 16
-    thing.child? #=> false
-
-# Bang methods
-
-    @@@ ruby
-    def thing.birthday!
-      @age = @age + 1
-    end
-
-* "`!`" is pronounced "bang"
-* usually means "watch out" or "destructive" or "side effect"
-  * could also mean "may raise an exception"
-  * no real rule, so watch out
-
-<!-- Section 2.3. The innate behaviors of an object -->
-# The `methods` method
-
-    @@@ ruby
-    >> thing.methods
-    => [:age=, :age, :to_fahrenheit, :child?, :nil?, ...]
-    >> thing.methods(false)
-    => [:age=, :age, :to_fahrenheit, :child?]
-
-also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
-
-# Sending a message by name
-
-    @@@ ruby
-    >> thing.age
-    => 16
-    >> thing.send(:age)
-    => 16
-    >> property = "age"
-    => "age"
-    >> thing.send(property)
-    => 16
-
-
-# Object equality
-
-* Many ways to compare objects
-  * `==` params are equal (overridable)
-  * `.eql?` params are equal *and* the same type
-  * `.equal?` params are identical (same `object_id`)
+  * In practice, the two terms are interchangeable
 
 # Splat arguments
 
@@ -199,6 +120,44 @@ also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
 
     >> thing.eat "arugula"
     Yum, arugula!
+
+<!-- todo: copy to hashes slides -->
+# The default hash parameter
+
+When calling a method, if the final argument is a hash, you can **leave off** the curly braces
+
+    @@@ ruby
+    def print_value_plus(amount, hash)
+      hash.each_pair {|k,v| puts v + amount }
+    end
+    
+    print_value_plus 2, :x => 1, :y => 2
+    # same as...
+    print_value_plus(2, {:x => 1, :y => 2})
+
+<!-- Section 2.3. The innate behaviors of an object -->
+# The `methods` method
+
+    @@@ ruby
+    >> thing.methods
+    => [:greet, :eat, :to_fahrenheit, :nil?, ...]
+    >> thing.methods(false)
+    => [:greet, :eat, :to_fahrenheit]
+
+also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
+
+# Sending a message by name
+
+    @@@ ruby
+    >> thing.age
+    => 16
+    >> thing.send(:age)
+    => 16
+    >> property = "age"
+    => "age"
+    >> thing.send(property)
+    => 16
+
 
 # References and side effects
 

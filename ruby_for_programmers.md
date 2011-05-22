@@ -408,19 +408,40 @@ We don't care what an object is as long as it does what we want
 Ruby has a mixin-based inheritance system that is somewhat like multiple inheritance with one primary ancestor class.
 
 !SLIDE
+# Array Assignment
 
-# advanced ruby
+    @@@ ruby
+    @width, @height = width, height
+    @width, @height = [width, height]
 
-* meta-programming
-* creating Domain-Specific Languages (DSLs)
+    def dimensions
+      [10, 20]
+    end
+    @width, @height = dimensions
+
 
 !SLIDE
 
-#Rails
-#Rake
-#Cucumber
-#Rspec
-#etc
+# Metprogramming
+
+* macros (class methods)
+  * `attr_accessor`
+  * `has_many`
+
+!SLIDE
+# Classes are objects
+
+* class methods are really just methods on the class object
+* code evaluated in the scope of a class definition acts on the class object
+
+!SLIDE
+# Domain-Specific Languages (DSLs)
+
+* Rails
+* Rake
+* Cucumber
+* Rspec
+* etc.
 
 !SLIDE
 
@@ -447,13 +468,6 @@ the `method_missing` method
     end
 
     1.even? #=> false
-
-!SLIDE
-
-# Classes are objects
-
-* class methods are really just methods on the class object
-* code evaluated in the scope of a class definition acts on the class object
 
 !SLIDE
 # Credits
