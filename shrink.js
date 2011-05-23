@@ -21,15 +21,20 @@ $(".slide").bind("showoff:show", function (event) {
     
   // shrink pre (non-wrapping) text
   // (do this after the page has shrunk, in case that fixed it already)
-  content.find('pre > code').each(function(i, element) {
-    var slideWidth = slide.innerWidth();
-    var preWidth = $(element).width();
-    if (preWidth > slideWidth) { // todo: deal with margins
-      var ratio = slide.innerWidth() / $(element).width() - .15; // extra 15% for luck
+  content.find('pre').each(function(i, element) {
+    var pre = $(element);
+    var code = $(pre.find("code"));
+    var codeWidth = code.width();
+    var preWidth = pre.width();
+
+    var nominalWidth = preWidth - 
+      parseInt(pre.css('padding-left')) - 
+      parseInt(pre.css('padding-right'));
+
+    if (codeWidth > nominalWidth) {
+      var ratio = nominalWidth / codeWidth - .035; // extra 3.5% for luck
       var percent = "" + parseInt(ratio * 100) + "%";
       console.log("Shrinking code by " + percent);
-      var code = $(element);
-      var pre = code.parent("pre");
       code.css('font-size', percent);
       pre.css('line-height', percent);
     }
