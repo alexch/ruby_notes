@@ -24,8 +24,6 @@ $(".slide").bind("showoff:show", function (event) {
   content.find('pre > code').each(function(i, element) {
     var slideWidth = slide.innerWidth();
     var preWidth = $(element).width();
-    console.log(slideWidth);
-    console.log(preWidth);
     if (preWidth > slideWidth) { // todo: deal with margins
       var ratio = slide.innerWidth() / $(element).width() - .15; // extra 15% for luck
       var percent = "" + parseInt(ratio * 100) + "%";
@@ -33,6 +31,4 @@ $(".slide").bind("showoff:show", function (event) {
       $(element).css('font-size', percent);
     }
   });
-  
-  
 });
