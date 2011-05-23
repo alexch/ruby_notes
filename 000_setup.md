@@ -1,2 +1,2 @@
 
-<script src="file/setup.js" />
+<script src="file/shrink.js" />
