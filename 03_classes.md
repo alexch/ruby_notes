@@ -354,9 +354,12 @@ Remember, `self` points to the *class* inside a class definition.
     end
 
     >> alice = Person.from_string("Alice Andrews 17")
-    => #<Person:0x000001009eca90 @first="Alice", @last="Andrews", @age=17>
+    => #<Person:0x000001009eca90 
+       @first="Alice", @last="Andrews", @age=17>
+       
     >> bob = Person.from_string("Bob Barker 67")
-    => #<Person:0x000001009e3af8 @first="Bob", @last="Barker", @age=67>
+    => #<Person:0x000001009e3af8 
+       @first="Bob", @last="Barker", @age=67>
 
 # Counters
 

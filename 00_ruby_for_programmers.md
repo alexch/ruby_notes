@@ -362,16 +362,13 @@ It gets evaluated and stuck inside the string
       puts "hi"
     end
 
-!SLIDE incremental
-
+!SLIDE
 * Blocks can also take parameters or return a value
 * The `map` iterator translates each item in an array
 
-!SLIDE
-
-    @@@ ruby
-    >> ["hello", "world"].map{ |string| string.upcase }
-    => ["HELLO", "WORLD"]
+        @@@ ruby
+        >> ["hello", "world"].map{ |string| string.upcase }
+        => ["HELLO", "WORLD"]
 
 !SLIDE subsection
 

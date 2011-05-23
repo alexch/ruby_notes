@@ -39,11 +39,6 @@ An object encapsulates state and behavior.
 * talk is a *method*
   * aka function, procedure, subroutine
 
-!SLIDE
-
-![method definition](method_definition.png)
-(screengrabbed from _The Well-Grounded Rubyist_ PDF)
-
 # Sending messages
 
     @@@ ruby
@@ -53,6 +48,12 @@ prints `I'm a thing.` to the console
 
   * the object `thing` receives the message `talk` and executes the method `talk`
   * dot (`.`) is the *message operator*
+
+!SLIDE
+
+![method definition](method_definition.png)
+
+(screengrabbed from _The Well-Grounded Rubyist_ PDF)
 
 <!-- move these three further up? they're about functions, not objects so much -->
 # Expression values

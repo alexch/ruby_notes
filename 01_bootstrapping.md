@@ -29,21 +29,14 @@ or
 
 # <!--1.1.3--> Ruby identifiers
 
-`local_variable` - start with letter or underscore, contain letters, numbers, underscored
-
-`@instance_variable` - start with `@`
-
-`@@class_variable` - start with `@@`
-
-`$global_variable` - start with `$`
-
-`Constant` - start with uppercase letter
-
-`method_name?` - same as local, but can end with `?` or `!` or `=`
-
-keywords - about 40 reserved words (`def`) and weirdos (`__FILE__`)
-
-literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
+* `local_variable` - start with letter or underscore, contain letters, numbers, underscored
+* `@instance_variable` - start with `@`
+* `@@class_variable` - start with `@@`
+* `$global_variable` - start with `$`
+* `Constant` - start with uppercase letter
+* `method_name?` - same as local, but can end with `?` or `!` or `=`
+* keywords - about 40 reserved words (`def`) and weirdos (`__FILE__`)
+* literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
 
 <!-- 1.1.4 Messages, Methods, Objects -->
 
