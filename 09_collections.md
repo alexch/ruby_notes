@@ -15,13 +15,13 @@
 
 # Accessing array items
 
-* Arrays are zero-indexed
+Arrays are zero-indexed
 
-        @@@ ruby
-        fruit = ["apple", "banana", "cherry"]
-        fruit[0] #=> "apple"
-        fruit[2] #=> "cherry"
-        fruit[3] #=> nil
+    @@@ ruby
+    fruit = ["apple", "banana", "cherry"]
+    fruit[0] #=> "apple"
+    fruit[2] #=> "cherry"
+    fruit[3] #=> nil
         
 # Zero > One
 
@@ -36,16 +36,16 @@
     @@@ ruby
     fruit = ["apple", "banana", "cherry"]
 
-* negative indexes count from the back
+negative indexes count from the back
 
-        @@@ ruby
-        a[-1] #=> "cherry"
+    @@@ ruby
+    a[-1] #=> "cherry"
         
-* range indexes
+range indexes
 
-        @@@ ruby
-        fruit[1..2]  #=> ["banana", "cherry"]
-        fruit[1...3] #=> ["banana", "cherry"]
+    @@@ ruby
+    fruit[1..2]  #=> ["banana", "cherry"]
+    fruit[1...3] #=> ["banana", "cherry"]
 
 # Multidimensional arrays (aka matrices)
 

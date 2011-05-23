@@ -1,7 +1,13 @@
-# _The Well-Grounded Rubyist_
-# Chapter 1. Bootstrapping your Ruby literacy
+!SLIDE subsection
+# Basic Ruby Literacy
 
-# 1.1. Basic Ruby language literacy
+
+<!-- 
+see _The Well-Grounded Rubyist_
+Chapter 1. Bootstrapping your Ruby literacy
+-->
+
+
 
 # <!--1.1.1--> irb
 
@@ -68,35 +74,35 @@ literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
 
 
 <!-- Section 1.4 -->
-
+<!SLIDE subsection>
 # command-line tools
 
-## ruby
+# ruby
 
-`-w` - warnings
-`-v` - version or verbose
-`--help`
-`-c` - check syntax
+* `-w` - warnings
+* `-v` - version or verbose
+* `--help`
+* `-c` - check syntax
 
-## irb
+# irb
 
-## ri and rdoc
+# ri and rdoc
 
-## rake
+# rake
 
 * one `Rakefile` contains many "tasks" which can be run a la `rake test`
 * rake looks up the directory tree for a Rakefile
 * `rake --tasks` shows all defined tasks in the current Rakefile
   * also `rake -T`
 
-## gem
+# gem
 
 * aka RubyGems
 * gem = Ruby package = library or program or plugin
 * `gem install foo` - downloads and installs the "foo" gem from rubygems.org
 * `gem`, `rvm` and `bundler` live in uneasy harmony
 
-## rvm
+# rvm
 
 * Ruby Version Manager
 * manages lots of different versions and distros of Ruby on a single computer
@@ -106,8 +112,9 @@ literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
   * `rvm gemset create teaching`
   * `rvm use 1.9.2@teaching`
 
-## Alex's `rvm` bash prompt:
+# Alex's `rvm` bash prompt:
 
+    @@@ sh
     export Normal='\[\e[0m\]'
     export Bright='\[\e[1m\]'
     export Red='\[\e[0;31m\]'
@@ -117,7 +124,7 @@ literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
 
 (put the above in `~/.bash_profile`)
 
-## bundler
+# bundler
 
 * manages lots of different sets of gems and versions thereof
 * bundler is a gem itself

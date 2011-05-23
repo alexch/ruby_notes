@@ -318,19 +318,19 @@ same as...
 <!SLIDE>
 # Defining class methods (outside)
 
-@@@ ruby
-def Person.oldest(people)
-  people.max_by(:&age)  # nevermind
-end
+    @@@ ruby
+    def Person.oldest(people)
+      people.max_by(:&age)  # nevermind
+    end
 
 # Defining class methods (inside)
 
-@@@ ruby
-class Person
-  def self.oldest(people)
-    people.max_by(:&age)  # nevermind
-  end
-end
+    @@@ ruby
+    class Person
+      def self.oldest(people)
+        people.max_by(:&age)  # nevermind
+      end
+    end
 
 Remember, `self` points to the *class* inside a class definition.
 

@@ -1,15 +1,15 @@
 !SLIDE subsection
 # Introduction to Ruby for Programmers
 
-<img src="img/ruby-logo.jpg" width="250">
+<img src="ruby-logo.jpg" width="250">
 
 !SLIDE
 
 ## Ruby is a Language
-<img src="img/ruby-logo.jpg" height="125" width="125">
+<img src="ruby-logo.jpg" height="125" width="125">
 
 ## Rails is a Framework
-<img src="img/rails_logo.jpg" height="125" width="125">
+<img src="rails_logo.jpg" height="125" width="125">
 
 <!SLIDE incremental>
 
@@ -37,9 +37,8 @@
   * MacRuby
   * IronRuby
 
-!SLIDE smbullets
 
-## Ruby Language Overview
+# Ruby Language Overview
 * Dynamically typed
 * Interpreted
 * Can be modified at runtime
@@ -157,7 +156,7 @@ These are equivalent:
     >> "Hello".gsub("H", "h").reverse
     => "olleh"
 
-!SLIDE  bullets
+!SLIDE
 # Variables
 
 variables are implicitly declared
@@ -365,8 +364,8 @@ It gets evaluated and stuck inside the string
 
 !SLIDE incremental
 
-# Blocks can also take parameters or return a value
-# The `map` iterator translates each item in an array
+* Blocks can also take parameters or return a value
+* The `map` iterator translates each item in an array
 
 !SLIDE
 
@@ -378,9 +377,9 @@ It gets evaluated and stuck inside the string
 
 # more neat things about ruby
 
-!SLIDE
+!SLIDE incremental
 
-## duck typing
+# duck typing
 
 If it looks like a duck, and quacks like a duck...
 
@@ -401,7 +400,7 @@ We don't care what an object is as long as it does what we want
     print_even_or_odd [1, 2, 3]
     print_even_or_odd 1..3
 
-!SLIDE
+!SLIDE incremental
 
 # Modules and Mixins
 
@@ -427,13 +426,13 @@ We don't care what an object is as long as it does what we want
 
 !SLIDE
 
-# Metprogramming
+# Metaprogramming
 
 * macros (class methods)
   * `attr_accessor`
   * `has_many`
 
-!SLIDE
+!SLIDE incremental
 # Classes are objects
 
 * class methods are really just methods on the class object
@@ -450,13 +449,11 @@ We don't care what an object is as long as it does what we want
 
 !SLIDE
 
-the `method_missing` method
+# the `method_missing` method
 
-!SLIDE
+!SLIDE incremental
 
-#### private vs public
-
-!SLIDE
+# private vs public
 
 * Private really just means "please don't come in."
 * If someone has access to your runtime environment, they are trusted.
@@ -483,7 +480,7 @@ the `method_missing` method
     
 * Means "if @name has a value, use it, but otherwise make it 'Anonymous'"
 * Relies on "logical or" and "nil is false" semantics
-* also "plus-equals" (`+=`) and so forth
+* There's also "plus-equals" (`+=`) and so forth
 
 !SLIDE
 # Credits
