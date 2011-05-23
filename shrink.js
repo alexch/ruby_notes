@@ -28,7 +28,10 @@ $(".slide").bind("showoff:show", function (event) {
       var ratio = slide.innerWidth() / $(element).width() - .15; // extra 15% for luck
       var percent = "" + parseInt(ratio * 100) + "%";
       console.log("Shrinking code by " + percent);
-      $(element).css('font-size', percent);
+      var code = $(element);
+      var pre = code.parent("pre");
+      code.css('font-size', percent);
+      pre.css('line-height', percent);
     }
   });
 });
