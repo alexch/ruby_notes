@@ -9,7 +9,8 @@ Chapter 1. Bootstrapping your Ruby literacy
 
 
 
-# <!--1.1.1--> irb
+# irb
+<!--1.1.1--> 
 
     irb --simple-prompt
 
@@ -17,8 +18,8 @@ or
 
     echo "IRB.conf[:PROMPT_MODE] = :SIMPLE" >> ~/.irbrc
 
-# <!-- 1.1.2--> Ruby syntax cheatsheet
-
+# Ruby syntax cheatsheet
+<!-- 1.1.2--> 
 <!-- todo: use "montage" (ImageMagick) or Photoshop to merge them -->
 
 ![cheatsheet](cheatsheet/cheatsheet1.png)
@@ -27,7 +28,8 @@ or
 
 (screengrabbed from _The Well-Grounded Rubyist_ PDF)
 
-# <!--1.1.3--> Ruby identifiers
+# Ruby identifiers
+<!--1.1.3--> 
 
 * `local_variable` - start with letter or underscore, contain letters, numbers, underscored
 * `@instance_variable` - start with `@`
@@ -40,7 +42,7 @@ or
 
 <!-- 1.1.4 Messages, Methods, Objects -->
 
-# 1.1.4 Messages and Methods
+# Messages and Methods
 
 * an object is referenced by a variable or a literal
 * the dot operator (`.`) sends a message to an object

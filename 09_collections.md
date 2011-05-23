@@ -1,3 +1,13 @@
+!SLIDE subsection
+# Collections
+
+* Arrays
+* Hashes
+* Ranges
+* Sets
+
+!SLIDE subsection
+# Arrays
 
 # Adding to an array
 
@@ -67,6 +77,9 @@ range indexes
         => 6
                 
 
+!SLIDE subsection
+# Hash
+
 # Array vs. Hash
 
 An array is an ordered list of values
@@ -78,7 +91,35 @@ A hash has a key that can be any object (number, string, another hash, etc.)
 Array is also called List, Vector
 Hash is also called Map, Dictionary
 
-# Hash#merge
+# Hash literal
 
-# Hash#merge!
+    {:foo => "bar", :baz => "baf"}
+
+# Hash access
+
+    hash[:foo] = "bar"
+    hash[:foo] #=> "bar"
+
+# Hash methods
+
+* each, each_pair
+* keys, values
+* has_key?, has_value?
+* merge, merge!
+* delete, delete_if
+
+# Hash arguments
+
+braces are optional...
+
+...**if** the hash is the final argument
+
+(except for a default block)
+
+!SLIDE subsection
+# Ranges
+
+!SLIDE subsection
+# Sets
+
 

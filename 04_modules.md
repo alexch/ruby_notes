@@ -26,6 +26,7 @@
     
 # Module usage
     
+    @@@ ruby
     class Person
       include Greeter
     end
@@ -157,8 +158,9 @@ Allows chaining/overriding of `method_missing` calls, or fallback to `NoMethodEr
 
 # Module Organization Example
 
-`whiz.rb`:
+## `whiz.rb`:
 
+    @@@ ruby
     module Whiz
       VERSION = "1.0.2"
       class GeeGaw
@@ -166,8 +168,9 @@ Allows chaining/overriding of `method_missing` calls, or fallback to `NoMethodEr
       end
     end
 
-`whiz/bang.rb`:
+## `whiz/bang.rb`:
 
+    @@@ ruby
     module Whiz
       class Bang
         def geegaw
@@ -177,8 +180,9 @@ Allows chaining/overriding of `method_missing` calls, or fallback to `NoMethodEr
       end
     end
 
-`client.rb`:
+## `client.rb`:
 
+    @@@ ruby
     require "whiz"
     require "whiz/bang"
 

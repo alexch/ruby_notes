@@ -23,6 +23,17 @@
 
 &nbsp;- Matz (Yukihiro Matsumoto)
 
+!SLIDE incremental
+# Oh, the humanity
+
+Ruby has a *humane interface*
+
+(contrast to *minimal interface*)
+
+readability and variety over concision and perfection
+
+sometimes makes code hard to understand (but usually makes it easier)
+
 !SLIDE
 
 ## Ruby 1.0 released in 1996
@@ -142,6 +153,20 @@ These are equivalent:
     end
 
     def inc(x); x + 1; end
+    
+# Gotcha
+
+    @@@ ruby
+    x = 1 + 2
+    x #=> 3
+    
+    x = 1
+      + 2      
+    x #=> 1
+
+    x = 1 +
+        2      
+    x #=> 3
 
 !SLIDE
 
@@ -175,6 +200,9 @@ variables are implicitly declared
 * Arrays
 * Hashes
 * Strings
+* Ranges
+* Numbers
+* Boolean
 
 !SLIDE
 
@@ -202,8 +230,9 @@ In Ruby, we prefer symbols over hardcoded globals or strings. They're very light
     @@@ ruby
     a = [1, 2, 3]
     a.push "four" #=> [1, 2, 3, "four"]
-    a.pop #=> "four"
-    a[0] #=> 1
+    a.pop         #=> "four"
+    a             #=> [1, 2, 3]
+    a[0]          #=> 1
 
 !SLIDE incremental
 
@@ -218,8 +247,8 @@ In Ruby, we prefer symbols over hardcoded globals or strings. They're very light
 * can be defined *literally* (inline) e.g.
 
         @@@ ruby
-        letter_fruits => {"A" => "apple",
-        "B" => "banana"}
+        letter_fruits = {"A" => "apple",
+          "B" => "banana"}
 
 
 !SLIDE
@@ -235,6 +264,10 @@ In Ruby, we prefer symbols over hardcoded globals or strings. They're very light
     @@@ ruby
     my_hash = {:a_symbol => 3, "a string" => 4}
     my_hash[:a_symbol] #=> 3
+    
+    my_hash[:foo] = "bar"
+    my_hash #=> {:a_symbol => 3, "a string" => 4, :foo => "bar"}
+    
 
 !SLIDE
 # String
@@ -252,6 +285,12 @@ In Ruby, we prefer symbols over hardcoded globals or strings. They're very light
 Any Ruby code can go inside the braces
 
 It gets evaluated and stuck inside the string
+
+same as:
+
+    @@@ ruby
+    "boyz " + (1 + 1).to_s + " men"
+
 
 !SLIDE
 
@@ -276,7 +315,7 @@ It gets evaluated and stuck inside the string
 !SLIDE
 
     @@@ ruby
-    my_array = ["cat", "dog", ”world"]
+    my_array = ["cat", "dog", "world"]
     my_array.each do |item|
       puts "hello " + item
     end
@@ -291,6 +330,65 @@ It gets evaluated and stuck inside the string
       puts "My " + key.to_s + " is " + value
     end
 
+
+!SLIDE incremental
+# The Default Block
+
+* Methods can take block arguments
+* Use either `do...end` or `{...}` at the very end of the argument list
+* Inside the method, call the default block with `yield`
+
+!SLIDE
+
+    @@@ ruby
+    fruits = ["apple, "banana", "cherry", "date"]
+    my_array.each do |item|        #<< start of default block
+      puts "Yum! I love #{item}!"
+    end                            #<< end of default block   
+
+!SLIDE
+
+    @@@ ruby
+    def twice
+       yield
+       yield
+    end
+
+    twice do
+      puts "hi"
+    end
+    
+"twice do" kind of almost resembles English a little, right?
+
+!SLIDE
+Blocks can also take parameters or return a value
+
+The `map` iterator translates each item in an array into a new array
+
+
+    @@@ ruby
+    >> ["hello", "world"].map{ |string| string.upcase }
+    => ["HELLO", "WORLD"]
+
+!SLIDE
+# Variable Scoping
+
+    @@@ ruby
+    var
+    @var
+    @@var
+    $var
+    VAR
+
+!SLIDE
+# Variable Scoping
+
+    @@@ ruby
+    var   # could be a local variable
+    @var  # instance variable
+    @@var # class variable
+    $var  # global variable
+    VAR   # constant
 
 !SLIDE subsection
 
@@ -314,61 +412,6 @@ It gets evaluated and stuck inside the string
       end
     end
 
-
-!SLIDE
-# Scoping
-
-    @@@ ruby
-    var
-    @var
-    @@var
-    $var
-    VAR
-
-!SLIDE
-# Scoping
-
-    @@@ ruby
-    var   # could be a local variable
-    @var  # instance variable
-    @@var # class variable
-    $var  # global variable
-    VAR   # constant
-
-!SLIDE incremental
-# The Default Block
-
-* Methods can take block arguments
-* Use either `do...end` or `{...}` at the very end of the argument list
-* Inside the method, call the default block with `yield`
-
-!SLIDE
-
-    @@@ ruby
-    my_array = ["cat", "dog", ”world"]
-    my_array.each do |item|
-      puts "hello " + item
-    end
-
-!SLIDE
-
-    @@@ ruby
-    def twice
-       yield
-       yield
-    end
-
-    twice do
-      puts "hi"
-    end
-
-!SLIDE
-* Blocks can also take parameters or return a value
-* The `map` iterator translates each item in an array
-
-        @@@ ruby
-        >> ["hello", "world"].map{ |string| string.upcase }
-        => ["HELLO", "WORLD"]
 
 !SLIDE subsection
 
@@ -420,7 +463,6 @@ We don't care what an object is as long as it does what we want
     end
     @width, @height = dimensions
 
-
 !SLIDE
 
 # Metaprogramming
@@ -455,6 +497,13 @@ We don't care what an object is as long as it does what we want
 * Private really just means "please don't come in."
 * If someone has access to your runtime environment, they are trusted.
 * Spend your time writing code (and testing it), not protecting yourself from other code
+
+!SLIDE
+# bang and question methods
+
+* method names can end with `!` or `?`
+  * `!` means "watch out!"
+  * `?` means "boolean"
 
 !SLIDE
 # Reopening classes

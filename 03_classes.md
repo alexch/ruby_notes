@@ -156,6 +156,7 @@ Note: query methods return a boolean by *convention* only
 * usually means "watch out" or "destructive" or "side effect"
   * could also mean "may raise an exception"
   * no real rule, so watch out
+* normally there's a non-bang equivalent
 
 # Object equality
 
@@ -278,7 +279,10 @@ then instances of B have the behaviors of both class A and class B
 
 <!SLIDE>
 
-`class Person` is syntactic sugar
+    @@@ ruby
+    class Person
+
+is syntactic sugar
 
 same as 
 
