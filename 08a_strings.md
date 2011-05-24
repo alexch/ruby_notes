@@ -13,9 +13,20 @@
   * just like single-quote only you don't need a backslash for '
 * %q-any delimiter will do-
 
+# Multiline strings
+
+* newlines do *not* end a string
+
+        "Now is the winter of our discontent
+        made glorious summer by this son of York."
+        
+=>
+
+        "now is the winter of our discontent\nmade glorious summer by this son of York."
+
 # Here Docs
 
-    x = <<END
+    first_quatrain = <<END
     My mistress' eyes are nothing like the sun;
     Coral is far more red than her lips' red;
     If snow be white, why then her breasts are dun;
@@ -24,24 +35,26 @@
     
 # Here docs with indentation
 
-    def foo
+    def second_quatrain
       x = <<-HTML
-    <blockquote>
-      I have seen roses damask'd, red and white,
-      But no such roses see I in her cheeks; 
-      And in some perfumes is there more delight
-      Than in the breath that from my mistress reeks.
-    </blockquote>
+        <blockquote>
+          I have seen roses damask'd, red and white,
+          But no such roses see I in her cheeks; 
+          And in some perfumes is there more delight
+          Than in the breath that from my mistress reeks.
+        </blockquote>
       HTML
+      x
     end
     
 # Here docs don't have to end the expression
 
+    @@@ruby
     x = <<-NUM.to_i * 10
     5
     NUM
-    puts x
-     
+    x  # => 50
+
 Weird, huh?
 
 # substrings
@@ -83,6 +96,11 @@ Takes any ruby expression, calls `to_s` on it, and smooshes it inside a string
 
     "nothing compares #{1+1} u" #=> "nothing compares 2 u"
 
+anything can go in there, including operators and quotes
+
+    "i love #{girlfriend or "nobody"}"
+
+
 `nil.to_s` is the empty string, which can be convenient
 
     "i love #{girlfriend.name if girlfriend}"
@@ -108,9 +126,12 @@ Takes any ruby expression, calls `to_s` on it, and smooshes it inside a string
 * `s.upcase`
 * `s.downcase`
 * `s.capitalize`
+  * `s.split.map{|s|s.capitalize}.join(' ')`
 * `s.strip`
-* `s.center(width)`
+  * removes whitespace, not clothes, from the ends of the string
 * `s.chomp`
+  * removes the final character, but only if it's a "\n"
+* `s.center(width)`
 * `s.delete(substr)`
 
 some of these have `!` versions which modify the string in place

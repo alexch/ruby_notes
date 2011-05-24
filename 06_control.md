@@ -30,6 +30,8 @@
     else
       statement3
     end
+    
+## spelled `elsif` **not** `elseif` or `else if`
 
 # `not`
 

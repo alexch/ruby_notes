@@ -4,7 +4,7 @@
 # to_x
 
 * `to_i` converts to integer
-* `to_f` converts to integer
+* `to_f` converts to float
 * `to_s` converts to string
 * `to_a` converts to array
 

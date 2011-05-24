@@ -119,17 +119,6 @@
 
 <http://matthewcarriere.com/2008/06/23/using-select-reject-collect-inject-and-detect/>
 
-!SLIDE
->  Not marble, nor the gilded monuments
->
->  Of princes, shall outlive this powerful rhyme;
->
->  But you shall shine more bright in these contents
->
->  Than unswept stone, besmear'd with sluttish time.
-
-Shakespeare, Sonnet 55
-
 # lethal `inject`ion
 
 * `inject` is a really fun iterator, but it's really weird

@@ -40,21 +40,25 @@ Arrays are zero-indexed
 ![array indexing](array_indexing.png)
 
 * This allows consistent length and looping semantics
+  * It's always "less than the limit" 
+  * and "the limit *is* the size" 
+  * i.e. a[0,3] has 3 things in it, indexed 0,1,2
+
 
 # Fun with Array Indexes
 
     @@@ ruby
-    fruit = ["apple", "banana", "cherry"]
+    fruit = ["apple", "banana", "cherry", "date"]
 
 negative indexes count from the back
 
     @@@ ruby
-    a[-1] #=> "cherry"
+    a[-1] #=> "date"
         
 range indexes
 
     @@@ ruby
-    fruit[1..2]  #=> ["banana", "cherry"]
+    fruit[1..3]  #=> ["banana", "cherry", "date"]
     fruit[1...3] #=> ["banana", "cherry"]
 
 # Multidimensional arrays (aka matrices)
