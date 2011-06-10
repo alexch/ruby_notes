@@ -18,8 +18,6 @@ An object encapsulates state and behavior.
 * in Ruby, you can add behavior to an object directly
 * class inheritance is complicated; we'll cover that later
 
-<!-- * Section 2.1. Talking to objects -->
-
 # Creating an object
 
     @@@ ruby
@@ -55,7 +53,6 @@ prints `I'm a thing.` to the console
 
 (screengrabbed from _The Well-Grounded Rubyist_ PDF)
 
-<!-- move these three further up? they're about functions, not objects so much -->
 # Expression values
 
 In Ruby, every expression evaluates to some value
@@ -122,7 +119,6 @@ In Ruby, every expression evaluates to some value
     >> thing.eat "arugula"
     Yum, arugula!
 
-<!-- todo: copy to hashes slides -->
 # The default hash parameter
 
 When calling a method, if the final argument is a hash, you can **leave off** the curly braces
@@ -136,7 +132,6 @@ When calling a method, if the final argument is a hash, you can **leave off** th
     # same as...
     print_value_plus(2, {:x => 1, :y => 2})
 
-<!-- Section 2.3. The innate behaviors of an object -->
 # The `methods` method
 
     @@@ ruby

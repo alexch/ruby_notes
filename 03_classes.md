@@ -41,7 +41,7 @@
 * same behavior, but different data
 
 <!SLIDE >
-<!-- 3.2 in WGR -->
+
 # Instance variables
 
 * represent object state
@@ -89,14 +89,12 @@ is the same as
 
 
 <!SLIDE >
-<!-- 3.4 -->
 # Attributes
 
 * An *attribute* is a property with named getter and/or setter methods
 * Usually corresponds to an instance variable
 
 <!SLIDE >
-<!-- 3.4 -->
 # Attribute Shortcuts
 
         @@@ ruby
@@ -246,8 +244,6 @@ A Ruby version would add the line
 >
 > &nbsp; - Spider Monkey
 
-<!--3.5 -->
-
 <!SLIDE subsection >
 # Class Inheritance
 
@@ -315,7 +311,7 @@ then instances of B have the behaviors of both class A and class B
 
 <!SLIDE subsection>
 # Classes as objects
-<!-- 3.6 -->
+
 
 <!SLIDE>
 
