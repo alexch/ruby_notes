@@ -11,7 +11,17 @@
 ## Rails is a Framework
 <img src="rails_logo.jpg" height="125" width="125">
 
-<!SLIDE incremental>
+!SLIDE
+
+Originally by Yukihiro "Matz" Matsumoto
+
+"Ruby is designed for programmer productivity and fun, following the principles of good user interface design. He stresses that systems design needs to emphasize human, rather than computer, needs."
+
+Source: `http://en.wikipedia.org/wiki/Ruby_(programming_language)#Philosophy`
+
+Ruby 1.0 was released in 1996.
+
+!SLIDE incremental
 
 "People want to express themselves when they program."
 
@@ -48,6 +58,10 @@ sometimes makes code hard to understand (but usually makes it easier)
   * MacRuby
   * IronRuby
 
+## Versions common today
+
+ * 1.8.7
+ * 1.9.2
 
 # Ruby Language Overview
 * Dynamically typed
@@ -139,7 +153,9 @@ so punctuation and boilerplate are minimal
 
 !SLIDE
 
-# Optional semicolons, parens, and `return`
+# Method Definition
+
+## Optional semicolons, parens, and `return`
 
 These are equivalent:
 
@@ -217,6 +233,9 @@ In Ruby, we prefer symbols over hardcoded globals or strings. They're very light
 !SLIDE
 # Array
 
+
+## More in Chapter 9.2, page 249ff
+
 * sized dynamically
 * can contain mixed types
 * zero-indexed
@@ -238,18 +257,15 @@ In Ruby, we prefer symbols over hardcoded globals or strings. They're very light
 
 # Hash
 
+## More in Chapter 9.3, page 258ff
+
 * also known as...
   * Map
   * Associative Array
   * Dictionary
   * Name/Value Pair Store
   * Key/Value Pair Store
-* can be defined *literally* (inline) e.g.
-
-        @@@ ruby
-        letter_fruits = {"A" => "apple",
-          "B" => "banana"}
-
+* can be defined *literally* (inline)
 
 !SLIDE
 
@@ -272,7 +288,15 @@ In Ruby, we prefer symbols over hardcoded globals or strings. They're very light
 !SLIDE
 # String
 
-[todo]
+## More in Chapter 8, page 213ff
+
+    @@@ruby
+    s = "I'm a string"
+    s[0..2]  # => "I'm"
+    s+= '!'  # => "I'm a string!"
+    
+    "Today is #{Time.now}"
+
 
 !SLIDE
 
@@ -314,25 +338,69 @@ same as:
 
 !SLIDE
 
+# each
+## More in Chapter 10.1, page 279
+
     @@@ ruby
     my_array = ["cat", "dog", "world"]
+    
     my_array.each do |item|
       puts "hello " + item
     end
 
-!SLIDE
+# each for Hashes
 
     @@@ ruby
     my_hash = { :type => "cat",
                 :name => "Beckett",
                 :breed => "alley cat" }
+
     my_hash.each do |key, value|
       puts "My " + key.to_s + " is " + value
     end
 
+Note that there are two iteration variables for each element of the hash, the key and the value
+
+# `each_with_index`
+
+## More in Chapter 10.5, page 292
+
+    @@@ruby
+    my_array = ["cat", "dog", "world"]
+
+    my_array.each_with_index do |item, index|
+      puts "Item No. #{index}: #{item}"
+    end
+
+# Select items with `select`
+
+## More in Chapter 10.3.2, page 285
+
+    @@@ruby
+    my_array = ["cat", "dog", "world"]
+
+    containing_o = my_array.select do |item|
+      item =~ /o/
+    end
+
+    # => ["dog", "world"]
+
+# Transform arrays with `map`
+
+## More in Chapter 10.6, page 296
+
+    @@@ruby
+    my_array = ["cat", "dog", "world"]
+
+    upcased = my_array.map do |item|
+      item.upcase
+    end
+
+    # => ["CAT", "DOG", "WORLD"]
+
 
 !SLIDE incremental
-# The Default Block
+# Ruby Blocks
 
 * Methods can take block arguments
 * Use either `do...end` or `{...}` at the very end of the argument list
@@ -342,9 +410,10 @@ same as:
 
     @@@ ruby
     fruits = ["apple, "banana", "cherry", "date"]
-    my_array.each do |item|        #<< start of default block
+
+    my_array.each do |item|        #<< start of block
       puts "Yum! I love #{item}!"
-    end                            #<< end of default block   
+    end                            #<< end of block
 
 !SLIDE
 
@@ -383,12 +452,14 @@ The `map` iterator translates each item in an array into a new array
 !SLIDE
 # Variable Scoping
 
+(in decreasing order of frequency of use)
+
     @@@ ruby
     var   # could be a local variable
     @var  # instance variable
     @@var # class variable
-    $var  # global variable
     VAR   # constant
+    $var  # global variable
 
 !SLIDE subsection
 
@@ -481,9 +552,9 @@ We don't care what an object is as long as it does what we want
 # Domain-Specific Languages (DSLs)
 
 * Rails
-* Rake
+* rake
 * Cucumber
-* Rspec
+* RSpec
 * etc.
 
 !SLIDE
@@ -503,7 +574,8 @@ We don't care what an object is as long as it does what we want
 
 * method names can end with `!` or `?`
   * `!` means "watch out!"
-  * `?` means "boolean"
+  * `?` means returns a "boolean"
+* these are _conventions_, not enforced rules
 
 !SLIDE
 # Reopening classes

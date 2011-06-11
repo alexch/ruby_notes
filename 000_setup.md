@@ -9,22 +9,24 @@ Ready...
 !SLIDE
 # Ruby and Rails Bootcamp
 
-Taught by Alex Chaffee
+Taught by Wolfram Arnold
+
+wolfram@rubyfocus.biz
+
+GitHub/Twitter/LinkeIn: wolframarnold
+
+In Collaboration with Alex Chaffee and Marakana
 
 # Schedule
 
-Mon/Tue - Ruby
+## Mon/Tue -- Ruby
 
-## Textbook
-* The Well-Grounded Rubyist
-  
-## Exercises
-* Ruby Koans
-* Learn Ruby Test First 
+Textbook: The Well-Grounded Rubyist
 
-Wed/Thu/Fri - Rails
+Exercises: Learn Ruby Test First
 
-## Textbook and Exercises
+## Tue/Wed/Thu -- Rails
 
-  Rails Tutorial by Michael Hartl
-  
+Textbook and Exercises: Rails Tutorial by Michael Hartl
+
+## Fri -- Fluxx

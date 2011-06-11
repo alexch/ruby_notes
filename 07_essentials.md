@@ -20,7 +20,6 @@
 * `inspect` produces a *debug*-ready representation of the object
 * usually contains lots of information
 * not to be shown to users, but good in log files or console
-* plug: Wrong and the "d" method
 
 
 

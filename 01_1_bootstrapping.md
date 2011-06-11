@@ -2,15 +2,7 @@
 # Basic Ruby Literacy
 
 
-<!-- 
-see _The Well-Grounded Rubyist_
-Chapter 1. Bootstrapping your Ruby literacy
--->
-
-
-
 # irb
-<!--1.1.1--> 
 
     irb --simple-prompt
 
@@ -19,8 +11,6 @@ or
     echo "IRB.conf[:PROMPT_MODE] = :SIMPLE" >> ~/.irbrc
 
 # Ruby syntax cheatsheet
-<!-- 1.1.2--> 
-<!-- todo: use "montage" (ImageMagick) or Photoshop to merge them -->
 
 ![cheatsheet](cheatsheet/cheatsheet1.png)
 ![cheatsheet](cheatsheet/cheatsheet2.png)
@@ -29,7 +19,6 @@ or
 (screengrabbed from _The Well-Grounded Rubyist_ PDF)
 
 # Ruby identifiers
-<!--1.1.3--> 
 
 * `local_variable` - start with letter or underscore, contain letters, numbers, underscored
 * `@instance_variable` - start with `@`
@@ -39,8 +28,6 @@ or
 * `method_name?` - same as local, but can end with `?` or `!` or `=`
 * keywords - about 40 reserved words (`def`) and weirdos (`__FILE__`)
 * literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
-
-<!-- 1.1.4 Messages, Methods, Objects -->
 
 # Messages and Methods
 
@@ -55,11 +42,7 @@ or
 * Every object has a class, `Object` if nothing else
 
 
-<!-- Section 1.3. Ruby extensions and programming libraries -->
-
 # `load` and `require`
-
-<!-- see also 4.1.2 sidebar -->
 
 * `load` inserts a file's contents into the current file
 * `require` makes a *feature* available to the current file
@@ -68,7 +51,6 @@ or
   * can also be used for extensions written in C (`.so`, `.dll`, etc.)
 
 
-<!-- Section 1.4 -->
 <!SLIDE subsection>
 # command-line tools
 
@@ -101,6 +83,7 @@ or
 
 * Ruby Version Manager
 * manages lots of different versions and distros of Ruby on a single computer
+  * `rvm list`
   * `rvm install 1.9.2`
   * `rvm use 1.9.2`
 * also manages gemsets

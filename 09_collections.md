@@ -86,14 +86,14 @@ range indexes
 
 # Array vs. Hash
 
-An array is an ordered list of values
-A hash is an unordered set of key/value pairs
+* An array is an ordered list of values
+* A hash is an unordered set of key/value pairs
 
-An array has an index that must be an integer
-A hash has a key that can be any object (number, string, another hash, etc.)
+* An array has an index that must be an integer
+* A hash has a key that can be any object (number, string, another hash, etc.)
 
-Array is also called List, Vector
-Hash is also called Map, Dictionary
+* Array is also called List, Vector
+* Hash is also called Map, Dictionary
 
 # Hash literal
 
@@ -106,11 +106,11 @@ Hash is also called Map, Dictionary
 
 # Hash methods
 
-* each, each_pair
-* keys, values
-* has_key?, has_value?
-* merge, merge!
-* delete, delete_if
+* `each`, `each_pair`
+* `keys`, `values`
+* `has_key?`, `has_value?`
+* `merge`, `merge!`
+* `delete`, `delete_if`
 
 # Hash arguments
 
