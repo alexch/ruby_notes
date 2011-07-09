@@ -103,7 +103,6 @@ anything can go in there, including operators and quotes
 
     "i love #{girlfriend or "nobody"}"
 
-
 `nil.to_s` is the empty string, which can be convenient
 
     "i love #{girlfriend.name if girlfriend}"

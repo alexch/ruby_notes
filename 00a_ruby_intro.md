@@ -145,6 +145,15 @@ Solution: always put operators on top line
     full_name = first_name + last_name
     #=> "SantaClaus"
 
+# String interpolation
+
+    @@@ ruby
+    "boyz #{1 + 1} men"
+    => "boyz 2 men"
+
+* Any Ruby code can go inside the braces
+* It gets evaluated and stuck inside the string
+
 # Built-in Types
 
 * Numbers

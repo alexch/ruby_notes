@@ -35,6 +35,20 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
           puts "hi"
         end
 
+# `yield` calls the default block
+
+    @@@ ruby
+    def twice
+       yield
+       yield
+    end
+
+    twice do
+      puts "hi"
+    end
+
+"twice do" kind of almost resembles English a little, right?
+
 # Block parameters
 
     @@@ ruby
