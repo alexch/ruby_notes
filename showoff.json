@@ -1,0 +1,10 @@
+{
+  "name": "Ruby For Programmers",
+  "description": "a two-day introduction to the Ruby programming language",
+  "sections": [
+	{"section":"000_setup.md"},		
+	{"section":"ruby-basics"},
+	{"section":"ruby-objects"},
+	{"section":"ruby-advanced"}
+  ]
+}

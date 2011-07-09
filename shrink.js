@@ -1,8 +1,11 @@
-$(".slide").bind("showoff:show", function (event) {
+// TODO: make it bind to a good event, not a timeout
+setTimeout(function() {
+$(".content").bind("showoff:show", function (event) {
   var content = $(event.target);
   var slide = content.parent(".slide");
   var slideHeight = $(slide).innerHeight();
   var contentHeight = $(content).height();
+  console.log("contentHeight", contentHeight, "slideHeight", slideHeight)
   var tooBig = (contentHeight > slideHeight);
   if (tooBig) {
     
@@ -40,3 +43,4 @@ $(".slide").bind("showoff:show", function (event) {
     }
   });
 });
+}, 500);

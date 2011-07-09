@@ -12,15 +12,13 @@ Ref. WGR Chapter 3, Organizing objects with classes
 * state is frosting
 * users are hungry!
 
-<!SLIDE >
+<!SLIDE incremental>
 # The Linugistic Metaphor
 
 * Objects are nouns
 * Methods are verbs
 * Attributes are adjectives
 
-
-<!SLIDE >
 # Constructor? I just met 'er!
 
 * To *instantiate* an object, call the *new* method on its class
@@ -35,18 +33,12 @@ Ref. WGR Chapter 3, Organizing objects with classes
 
         thing = Thing.new  # *not* Thing.initialize!
 
-<!SLIDE >
 # Instance methods
 
 * defined inside the class
 * instance methods are shared among all instances
 * same behavior, but different data
 
-<!SLIDE >
-<<<<<<< HEAD
-
-=======
->>>>>>> c8ab177
 # Instance variables
 
 * represent object state

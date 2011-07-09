@@ -160,6 +160,7 @@ Solution: always put operators on top line
 * Any Ruby code can go inside the braces
 * It gets evaluated and stuck inside the string
 
+!SLIDE custom
 # Built-in Types
 
 * Numbers
