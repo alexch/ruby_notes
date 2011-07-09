@@ -78,6 +78,7 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
 
 * Ruby Version Manager
 * manages lots of different versions and distros of Ruby on a single computer
+  * `rvm list`
   * `rvm install 1.9.2`
   * `rvm use 1.9.2`
 * also manages gemsets

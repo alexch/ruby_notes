@@ -31,7 +31,7 @@ This section is intended as a brief, lightweight overview of the Ruby language; 
 &nbsp;- Matz (Yukihiro Matsumoto)
 
 !SLIDE incremental
-# Oh, the humanity
+# Ruby Philosophy, Applied
 
 * Ruby has a *humane interface*
   * many ways to do things
@@ -54,6 +54,12 @@ This section is intended as a brief, lightweight overview of the Ruby language; 
   * MagLev
   * MacRuby
   * IronRuby
+  
+# Versions common today
+
+* MRI 1.8.7
+* MRI 1.9.2
+* JRuby
 
 # Ruby Language Overview
 
