@@ -6,14 +6,15 @@ Ref. WGR Chapter 8, Section 8.1, Working with strings
 # String literals
 
 * double-quotes `"foo"`
-  * allow interpolation
+  * allow interpolation, e.g. `"Welcome, #{name}"`
 * single-quotes `'foo'`
   * no interpolation
-* %Q `%Q{don't worry, "man"}`
+* %Q -- `%Q{don't worry, "man"}`
     * just like double-quote only you don't need a backslash for "
-* %q `%q{don't #{interpolate}, "man"}`
+* %q -- `%q{don't #{interpolate}, "man"}`
   * just like single-quote only you don't need a backslash for '
-* %q-any delimiter will do-
+* %Q, %q -- any delimiter will do
+  * `%Q|...|`, `%Q{...}`, `%Q(...)`, etc.
 
 # Multiline strings
 

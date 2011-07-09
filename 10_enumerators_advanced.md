@@ -8,7 +8,7 @@ Ref. WGR Chapter 10
 # Enumerable
 
 * `Enumerable` is a module you can mix in to your own classes
-* you also have to define an `each` method
+* Your class has to define an `each` method (only requirement)
 
 # Enumerable Methods
 

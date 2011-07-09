@@ -103,6 +103,7 @@ Moral: use `not` in conditions, or use `unless`
   * aka "threequal"
 * it's normally the same as `==` but can be overridden
   * e.g. for Class, it means `is_a?`, so you can do
+
         @@@ ruby
         case input
         when String

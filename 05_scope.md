@@ -77,15 +77,18 @@ Methods defined inside main become *private* methods of *`Object`*
 # The setter gotcha
 
 * Inside an object, you can't call that object's setter methods directly
-* Why not? Because "`age = 2`" looks like a *local variable* action, which takes preference
-* Syntax ambiguity! Oh noes!
+* Why not?
+  * Because "`age = 2`" looks like a *local variable* assignment, which takes precedence
+  * It _eclipses_ the setter method!
+  * Syntax ambiguity! Oh noes!
 * Solution: use "`self.age = 2`"
 
-# A Nice Object, using implicit self
+# An Elegant Object, using implicit self
 
     @@@ruby
     class Student
       attr_accessor :first_name, :middle_name, :last_name
+
       def initialize first_name, middle_name, last_name
         @first_name, @middle_name, @last_name = 
           first_name, middle_name, last_name
@@ -112,7 +115,7 @@ Methods defined inside main become *private* methods of *`Object`*
     => "alex chaffee"
     
 <!SLIDE subsection>
-# More About Scoping
+# Global and Class Variable Scope
 
 # Global Variables
 
@@ -143,11 +146,16 @@ Methods defined inside main become *private* methods of *`Object`*
 * can be replaced with *class instance variables*
   * single-`@` vars inside class methods
 
+
+<!SLIDE subsection>
+# Method Scope (Public/Protected/Private)
+
 # private methods
 * declared with `private` keyword
-* only accessible to that instance
+* only accessible to that specific instance
   * i.e. from inside an instance method of that class
-
+  * i.e. when `self` is the receiving object
+  
 # you can't even access your siblings' private parts
 
     @@@ ruby
@@ -183,20 +191,22 @@ Methods defined inside main become *private* methods of *`Object`*
     
         m1.take_gold_from(m2)
         => 30
-        
-        
+
 # scoping toggles
 
-* `private`, `protected`, and `public` without arguments turn scoping on and off
-* all upcoming methods assume that scope, until another scope is set, or the class definition ends
+* `private`, `protected`, and `public` without arguments turn scoping on or off
+* all *upcoming* methods assume that scope, until another scope is set, or the class definition ends
+* this is the normal way to mark methods' scope
 
 # weird top-level scope
+
+## (advanced topic)
 
 1. methods defined outside any class or module become *private methods on `Object`* and are available everywhere
 2. private methods defined inside the `Kernel` are also available everywhere
 
 `require`, `load`, `raise` etc. are Kernel methods
 
-@@@ruby
-ruby -e 'print Kernel.private_instance_methods(false)'
+    @@@ruby
+    ruby -e 'print Kernel.private_instance_methods(false)'
 

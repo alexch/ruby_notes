@@ -33,8 +33,6 @@ In Ruby, every expression evaluates to some value
 
 # Arguments vs. Parameters
 
-* technically speaking, *arguments* are passed and *parameters* are declared
-
     @@@ ruby
     def thing.to_fahrenheit(celcius)
       celcius * 9.0 / 5 + 32
@@ -42,6 +40,7 @@ In Ruby, every expression evaluates to some value
     boiling = 100
     thing.to_fahrenheit(boiling)
 
+* Technically speaking, *arguments* are passed and *parameters* are declared
 * Note that the variable names don't have to match!
 * In this code, `boiling` is an argument and `celcius` is a parameter
   * In practice, the two terms are interchangeable
@@ -72,7 +71,6 @@ In Ruby, every expression evaluates to some value
 
     >> thing.eat "arugula"
     Yum, arugula!
-
 
 # The default hash parameter
 

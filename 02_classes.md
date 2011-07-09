@@ -43,7 +43,10 @@ Ref. WGR Chapter 3, Organizing objects with classes
 * same behavior, but different data
 
 <!SLIDE >
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8ab177
 # Instance variables
 
 * represent object state
@@ -85,10 +88,11 @@ is the same as
 # The setter gotcha
 
 * Inside an object, you can't call that object's setter methods directly
-* Why not? Because "`age = 2`" looks like a *local variable* action, which takes preference
-* Syntax ambiguity! Oh noes!
+* Why not?
+  * Because "`age = 2`" looks like a *local variable* assignment, which takes precedence
+  * It _eclipses_ the setter method!
+  * Syntax ambiguity! Oh noes!
 * Solution: use "`self.age = 2`"
-
 
 <!SLIDE >
 # Attributes
@@ -157,46 +161,7 @@ Note: query methods return a boolean by *convention* only
   * could also mean "may raise an exception"
   * no real rule, so watch out
 * normally there's a non-bang equivalent
-
-# Waka Waka Poem
-
-> The following poem appeared in the May/June 1990 issue of Infocus magazine and has since been floating around the Internet. The original authors were Fred Bremmer and Steve Kroese of Calvin College & Seminary of Grand Rapids, Michigan.
-
-    < > ! * ' ' #
-    ^ " ` $ $ -
-    ! * = @ $ _
-    % * < > ~ # 4
-    & [ ] . . /
-    | { , ,  SYSTEM HALTED
-
-# Waka Waka Poem Transliterated
-
-    <    >    !    *     '    '    #
-    Waka waka bang splat tick tick hash,
-
-    ^     "     `         $      $      -
-    Caret quote back-tick dollar dollar dash,
-
-    !    *     =     @  $      _
-    Bang splat equal at dollar underscore,
-
-    %       *     <    >    ~     #      4
-    Percent splat waka waka tilde number four,
-
-    &         [       ]       .   .   /
-    Ampersand bracket bracket dot dot slash,
-    
-    |            {             ,     ,     SYSTEM HALTED
-    Vertical-bar curly-bracket comma comma CRASH.
-
-
-# Waka Waka Ruby Poem
-
-A Ruby version would add the line
-
-    <=> => << >> HashWithIndifferentAccess
-    
-    flying saucer hashrocket shovel shovel Mash
+* in ActiveRecord, "`!`" means: raise exception if failure
 
 # Object equality
 
@@ -204,8 +169,9 @@ A Ruby version would add the line
   * `==` params are equal (overridable)
   * `.eql?` params are equal *and* the same type
   * `.equal?` params are identical (same `object_id`)
+* `==` is what you want, unless you know otherwise
 
-# A Nice Object
+# An Elegant Object
 
     @@@ruby
     class Student
@@ -236,7 +202,6 @@ A Ruby version would add the line
           end
         end
 
-<!SLIDE incremental>
 # Monkey Patching
 
 * Reopening a system or library class is known pejoratively as Monkey Patching
@@ -252,7 +217,9 @@ A Ruby version would add the line
 <!SLIDE>
 If class B inherits from class A
 
-then instances of B have the behaviors of both class A and class B
+then instances of B have the behaviors
+
+of both class A and class B
 
 <!SLIDE>
 # Inheritance Example
@@ -279,7 +246,7 @@ then instances of B have the behaviors of both class A and class B
 # Single vs. Multiple Inheritance
 * Ruby has *single inheritance*
   * each class has one and only one parent class
-  * except for BasicObject
+  * [except for BasicObject]
 * Ruby can simulate *multiple inheritance* using Modules
   * more later
 
@@ -295,8 +262,7 @@ then instances of B have the behaviors of both class A and class B
         @width * @height
       end
     end
-
-    class Square
+    class Square < Rectangle
       def initialize(width)
         super(width, width)
       end
@@ -305,57 +271,44 @@ then instances of B have the behaviors of both class A and class B
     Square.new(10).area #=> 100
 
 <!SLIDE>
+
 # A Design Note
 
 * inheritance is often more trouble than it's worth
 * there are many ways to solve object-oriented design problems
 * also try *delegation*, *configuration*, etc.
 
-<!SLIDE subsection>
-# Classes as objects
-<!-- 3.6 -->
+# Faster than a speeding bullet
+# More powerful than a locomotive
+# Able to leap tall buildings with a single bound
+# Look! Up in the sky!
+# It's a bird!
+# It's a plane!
+# It's...
 
-<!SLIDE>
+<!SLIDE incremental>
+# super
+* `super` jumps up and calls the next method with the same name as this one
 
-    @@@ ruby
-    class Person
+#
+* `super` with some arguments passes those arguments
+* `super` with no arguments passes the same arguments that were originally passed to this method
+* `super()` with an empty argument list calls the parent method with *no* arguments
+  * needed to resolve the ambiguity of the bareword `super` call
 
-is syntactic sugar
+# `method_missing`
 
-same as 
+If method dispatch fails, then it starts all over again!
 
-    @@@ ruby
-    Person = Class.new
+Only this time it's looking for a method named `method_missing`
 
-Note that `Person` is just a regular constant!
-    
+Useful for "builder pattern" objects
 
-<!SLIDE>
+# `method_missing` + `super`
 
-    @@@ ruby
-    class Person
-      def name
-        "Alice"
-      end
-    end
-    
-same as...
+From inside `method_missing`, `super` looks up the chain for another `method_missing` method
 
-    @@@ ruby
-    Person = Class.new
-    Person.class_eval do
-      def name
-        "Alice"
-      end
-    end
-    
-<!SLIDE>
-# Back to attribute shortcuts
-
-* Inside a class definition, `self` is pointing to the *class instance*
-* So "barewords" call methods on the *class* or its *ancestors*
-* `attr_reader` et al. are defined on `Object`...
-* ...so they're available inside all class definitions!
+Allows chaining/overriding of `method_missing` calls, or fallback to `NoMethodError`
 
 <!SLIDE>
 # Defining class methods (outside)
@@ -445,4 +398,41 @@ By convention, constants who are values are in `ALL_CAPS`, and constants who are
     Math::PI
     RUBY_VERSION
     RUBY_RELEASE_DATE
-    
+
+<!SLIDE subsection>
+# Classes as objects
+
+<!SLIDE>
+
+    @@@ ruby
+    class Person
+
+is syntactic sugar
+
+same as
+
+    @@@ ruby
+    Person = Class.new
+
+Note that `Person` is just a regular constant!
+
+
+<!SLIDE>
+
+    @@@ ruby
+    class Person
+      def name
+        "Alice"
+      end
+    end
+
+same as...
+
+    @@@ ruby
+    Person = Class.new
+    Person.class_eval do
+      def name
+        "Alice"
+      end
+    end
+

@@ -63,8 +63,10 @@ Ref. WGR Chapter 4, Modules and program organization
 * They all sound so similar!
 * **load** inserts a file's contents
   * `load 'config.rb'`
+  * The same file can be `load`ed more than once, last one sticks
 * **require** inserts a file's parsed contents
   * `require 'config'`
+  * `require`ing the same file more than once has no effect, first one sticks
 * **include** mixes in a module into this class' instances
   * `include Config`
 * **extend** mixes in a module into `self`, usually to add class methods
@@ -118,38 +120,6 @@ Schematically:
           include B
           include A  #<< ignored!
         end
-
-# Faster than a speeding bullet
-# More powerful than a locomotive
-# Able to leap tall buildings with a single bound
-# Look! Up in the sky!
-# It's a bird!
-# It's a plane!
-# It's...
-
-<!SLIDE incremental>
-# super
-* `super` jumps up and calls the next method with the same name as this one
-
-# 
-* `super` with some arguments passes those arguments
-* `super` with no arguments passes the same arguments that were originally passed to this method
-* `super()` with an empty argument list calls the parent method with *no* arguments
-  * needed to resolve the ambiguity of the bareword `super` call
-
-# `method_missing`
-
-If method dispatch fails, then it starts all over again!
-
-Only this time it's looking for a method named `method_missing`
-
-Useful for "builder pattern" objects
-
-# `method_missing` + `super`
-
-From inside `method_missing`, `super` looks up the chain for another `method_missing` method
-
-Allows chaining/overriding of `method_missing` calls, or fallback to `NoMethodError`
 
 <!SLIDE subsection>
 # Using Modules for Organization

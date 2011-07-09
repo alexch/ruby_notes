@@ -116,11 +116,18 @@ prints `I'm a thing` to the console
 * the object `thing` receives the message `talk` and executes the method `talk`
 * dot (`.`) is the *message operator*
 
-!SLIDE
+# Why sending messages?
 
+## Rather than calling functions?
+
+* A function call (in compiled languages) is guaranteed to be made
+* A message may or may not be received
+
+!SLIDE
+# Method Definition Schematic
 ![method definition](method_definition.png)
 
-(screengrabbed from _The Well-Grounded Rubyist_ PDF, Fig. 2.1)
+Ref. _The Well-Grounded Rubyist_ PDF, Fig. 2.1
 
 # The `methods` method
 
