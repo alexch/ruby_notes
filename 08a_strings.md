@@ -1,6 +1,8 @@
 !SLIDE subsection
 # Strings
 
+Ref. WGR Chapter 8, Section 8.1, Working with strings
+
 # String literals
 
 * double-quotes `"foo"`

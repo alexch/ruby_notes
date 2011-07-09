@@ -1,53 +1,16 @@
-
 <!SLIDE subsection>
-# Code Blocks
+# Iterators 
+ 
+Ref. WGR Section 6.3, "Iterators and code blocks"
 
-# do...end
+# Loops as Methods
 
-    @@@ruby
-    3.times do 
-      puts "Hip! Hip! Hooray!"
-    end
-
-* Anywhere you see "do" in Ruby, it's the start of a *block*
-* Also known as a *closure*
-
-# {...}
-
-    @@@ruby
-    3.times { puts "Hip! Hip! Hooray!" } 
-
-* Blocks can also be wrapped in curly braces
-* By convention, braces are for a single line, do...end for multiple lines
-
-# The Default Block
-
-* Every method, no matter what its parameter list, might get an optional magic block parameter
-* This is called "the default block" and the method can call it using `yield`
-
-        @@@ ruby
-        def foo
-          yield
-        end
-    
-        foo do
-          puts "hi"
-        end
-
-# Block parameters
-
-    @@@ ruby
-    def foo
-      yield "alice"
-      yield "bob"
-    end
-
-    foo do |name|
-      puts "hi, #{name}"
-    end
-
-!SLIDE subsection
-# Iterators
+* An Iterator is a method that allows you to loop through all the members of a collection
+* Works like "for" or "while" but without any extra language keywords
+* It executes a *block* again and again
+* Usually this block is the *default block*
+  * this lets you define the block **during** the method call
+  * concise and readable (arguably)
 
 # `times` is on your side
 
@@ -107,17 +70,18 @@
 # Other Awesome Iterators
 
 * `select`
-  * returns items for whom the block returns true(ish)
+  * returns all items for which the block returns true(ish)
 * `reject`
-  * returns items for whom the block returns true(ish)
-* `collect` (aka `map`)
+  * returns all items for which the block returns true(ish)
+* `collect` (alias `map`)
   * makes a new array out of whatever the block returns
-* `detect` (aka `find`)
-  * returns a single item, the first for whom the block returns true(ish)
+* `detect` (alias `find`)
+  * returns a single item, not an array
+  * returns the first item which makes the block return true(ish)
 * `inject`
   * accumulates (huh?)
 
-<http://matthewcarriere.com/2008/06/23/using-select-reject-collect-inject-and-detect/>
+Ref. <http://matthewcarriere.com/2008/06/23/using-select-reject-collect-inject-and-detect/>
 
 # lethal `inject`ion
 
@@ -136,4 +100,3 @@
       [1,2,3].sum #=> 6
 
 
-      

@@ -1,6 +1,8 @@
 <!SLIDE subsection>
 # Modules
 
+Ref. WGR Chapter 4, Modules and program organization
+
 <!SLIDE>
 # Modules and Mixins
 

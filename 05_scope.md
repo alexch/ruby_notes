@@ -1,4 +1,11 @@
 <!SLIDE subsection>
+# Ruby Scope
+
+This section covers `self` and additional scoping concerns (e.g. globals, class variables, and private/protected).
+
+Ref.: WGR Ch. 5, The default object (self), scope, and visibility
+
+<!SLIDE subsection>
 # Identity Crisis
 
 * All Ruby programs suffer from multiple personality disorder
@@ -192,3 +199,4 @@ Methods defined inside main become *private* methods of *`Object`*
 
 @@@ruby
 ruby -e 'print Kernel.private_instance_methods(false)'
+

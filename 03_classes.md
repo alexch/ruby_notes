@@ -1,6 +1,8 @@
 <!SLIDE subsection>
 # Classes and Instances
 
+Ref. WGR Chapter 3, Organizing objects with classes
+
 <!SLIDE incremental>
 # The Cookie Metaphor
 
@@ -311,7 +313,7 @@ then instances of B have the behaviors of both class A and class B
 
 <!SLIDE subsection>
 # Classes as objects
-
+<!-- 3.6 -->
 
 <!SLIDE>
 

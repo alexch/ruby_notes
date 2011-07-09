@@ -1,6 +1,8 @@
 !SLIDE subsection
 # Exceptions
 
+Ref. WGR Chapter 6, Control-flow techniques, Section 6.4, Error handling and exceptions
+
 # "exception" is a nice way of saying "error"
 
 # Some common exceptions

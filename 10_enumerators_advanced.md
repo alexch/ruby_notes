@@ -1,5 +1,9 @@
 !SLIDE subsection
-# Iterators
+# Enumerators
+
+This topic is too advanced for a two-day Ruby class.
+
+Ref. WGR Chapter 10
 
 # Enumerable
 

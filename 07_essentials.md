@@ -1,6 +1,8 @@
 !SLIDE subsection
 # Conversions
 
+Ref. WGR Chapter 7, Built-in essentials
+
 # to_x
 
 * `to_i` converts to integer
@@ -21,8 +23,6 @@
 * usually contains lots of information
 * not to be shown to users, but good in log files or console
 * plug: Wrong and the "d" method
-
-
-
+  * <http://github.com/sconover/wrong>
 
 

@@ -1,6 +1,8 @@
 <!SLIDE subsection>
 # Control Flow
 
+Ref. WGR Chapter 6, Control-flow techniques
+
 # `if`
 
     if condition

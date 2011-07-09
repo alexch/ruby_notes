@@ -1,4 +1,11 @@
-## Chapter 2. Objects, methods, and local variables
+<!SLIDE subsection>
+# Ruby Objects
+
+This section introduces Ruby's object-oriented programming model, including instances, methods, parameters, and memory management (instances and references). Later sections cover *classes* and *modules* and further topics.
+
+Ref: WGR Chapter 2. Objects, methods, and local variables
+
+Note: Following WGR's lead, in this section we define methods on instances (not on classes), to keep the lessons simple.
 
 <!SLIDE incremental>
 
@@ -25,112 +32,95 @@ An object encapsulates state and behavior.
 
 * now `thing` refers to an object *instance*
   * unique storage location in memory
-  * *instance variables* stored in that location
+  * *instance data* stored in that location
+
+# Creating an object *literally*
+
+    @@@ ruby
+    fruit = "apple"
+
+* `"apple"` is a *string literal*
+* `fruit` now refers to a new object *instance*
+
+# References and Instances
+
+* Imagine computer memory with two compartments: *references* and *instances*
+  * also known as "the stack" and "the heap"
+* References include *parameters* and *local variables*
+* Instances contain the "real" data
+* Each reference points at the location of an instance
+  * every reference is the same size (just 32 bits, or maybe 64 bits)
+
+# Literals create instances
+
+    @@@ ruby
+    fruit = "apple"        
+    dessert = "apple"
+
+* `fruit` refers to a new object *instance*
+* `dessert` refers to a *different*, new object instance
+
+# References are independent of instances
+
+    @@@ ruby
+    fruit = "apple"        
+    dessert = fruit
+    fruit = "banana"
+    dessert = fruit
+
+What are the values of `fruit` and `dessert` after each line?
+
+# Object ID
+
+How can you tell if two references point to the same instance?
+
+    @@@ ruby
+    fruit = "apple"        
+    dessert = "apple"
+    >> fruit.object_id
+    => 2165091560
+    >> dessert.object_id
+    => 2165084200
+    
+Ref. WGR Ch.2, Section 2.3.1
+
+# Garbage Collection
+
+    @@@ ruby
+    fruit = "apple"        
+    fruit = "banana"
+    
+* Now the instance containing "apple" is *unreferenced*
+* So it can (and eventually will) be *garbage collected*
 
 # Defining behavior
 
     @@@ ruby
     def thing.talk
-      puts "I'm a thing."
+      puts "I'm a thing"
     end
     
 * talk is a *method*
   * aka function, procedure, subroutine
+* `def thing.` ("def thing dot") means "define a method *on* thing"
 
-# Sending messages
+# Invoking behavior
+
+Behavior comes from *messages* and *methods*.
 
     @@@ ruby
     thing.talk
 
-prints `I'm a thing.` to the console
+prints `I'm a thing` to the console
 
-  * the object `thing` receives the message `talk` and executes the method `talk`
-  * dot (`.`) is the *message operator*
+* the object `thing` receives the message `talk` and executes the method `talk`
+* dot (`.`) is the *message operator*
 
 !SLIDE
 
 ![method definition](method_definition.png)
 
-(screengrabbed from _The Well-Grounded Rubyist_ PDF)
-
-# Expression values
-
-In Ruby, every expression evaluates to some value
-
-    @@@ ruby
-    >> 2 + 2
-    => 4
-    >> (2+2).zero?
-    => false
-    >> "zero" if (2+2).zero?
-    => nil
-
-# Parameters and return values
-
-    @@@ ruby
-    def thing.to_fahrenheit(celcius)
-      celcius * 9.0 / 5 + 32
-    end
-
-* `celcius` is a parameter
-* the value of a function is the value of the final statement
-  * in this case, the only statement
-* the keyword `return` is available, but usually unnecessary
-
-# Arguments vs. Parameters
-
-* technically speaking, *arguments* are passed and *parameters* are declared
-
-    @@@ ruby
-    def thing.to_fahrenheit(celcius)
-      celcius * 9.0 / 5 + 32
-    end
-    boiling = 100
-    thing.to_fahrenheit(boiling)
-
-* Note that the variable names don't have to match!
-* In this code, `boiling` is an argument and `celcius` is a parameter
-  * In practice, the two terms are interchangeable
-
-# Splat arguments
-
-    @@@ ruby
-    def thing.greet(greeting, *names)
-      names.each do |name|
-        puts "#{greeting}, #{name}!"
-      end
-    end
-
-    >> thing.greet("Hello", "Alice", "Bob", "Charlie")
-    Hello, Alice!
-    Hello, Bob!
-    Hello, Charlie!
-
-# Default values
-
-    @@@ ruby
-    def thing.eat(food = "chicken")
-      puts "Yum, #{food}!"
-    end
-
-    >> thing.eat
-    Yum, chicken!
-
-    >> thing.eat "arugula"
-    Yum, arugula!
-
-# The default hash parameter
-
-When calling a method, if the final argument is a hash, you can **leave off** the curly braces
-
-    @@@ ruby
-    def print_value_plus(amount, hash)
-      hash.each_pair {|k,v| puts v + amount }
-    end
-    
-    print_value_plus 2, :x => 1, :y => 2
-    # same as...
-    print_value_plus(2, {:x => 1, :y => 2})
+(screengrabbed from _The Well-Grounded Rubyist_ PDF, Fig. 2.1)
 
 # The `methods` method
 
@@ -141,6 +131,15 @@ When calling a method, if the final argument is a hash, you can **leave off** th
     => [:greet, :eat, :to_fahrenheit]
 
 also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
+
+# The `respond_to?` method
+
+    @@@ ruby
+    if thing.respond_to? :talk
+      thing.talk
+    else
+      puts "thing is mute"
+    end
 
 # Sending a message by name
 
@@ -153,7 +152,6 @@ also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
     => "age"
     >> thing.send(property)
     => 16
-
 
 # References and side effects
 
