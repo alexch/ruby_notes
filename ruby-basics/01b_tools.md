@@ -87,17 +87,6 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
 * overlaps with `gem` and Bundler
   * in sometimes odd ways
 
-# Alex's `rvm` bash prompt:
+# RSpec
 
-(todo: put in a gist)
-
-    @@@ sh
-    export Normal='\[\e[0m\]'
-    export Bright='\[\e[1m\]'
-    export Red='\[\e[0;31m\]'
-    export Green='\[\e[0;32m\]'
-    export BrightGreen='\[\e[1;32m\]'
-    export PS1="\h:${Bright}\W${Normal} [${BrightGreen}\`which_ruby\`${Normal}] \u\$ "
-
-(put the above in `~/.bash_profile` or equivalent)
-
+* testing framework

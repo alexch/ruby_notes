@@ -36,3 +36,5 @@ A Ruby version would add the line
     <=> => << >> HashWithIndifferentAccess
     
     flying saucer hashrocket shovel shovel Mash
+
+(written by Alex C, no credit required nor desired)

@@ -2,8 +2,31 @@
   "name": "Ruby For Programmers",
   "description": "a two-day introduction to the Ruby programming language",
   "sections": [
-	{"section":"000_setup.md"},		
-	{"section":"ruby-basics"},
+	"000_setup.md",
+	{"section":"current_class.md"},
+
+	{"section":"ruby-basics/00a_ruby_intro.md"},
+	{"section":"ruby-basics/00b_more_neat_things.md"},
+	{"section":"ruby-basics/01b_tools.md"},
+	{"section":"ruby-basics/02a_functions.md"},
+	{"section":"ruby-basics/06_control.md"},
+	{"section":"ruby-basics/06a_blocks.md"},
+	{"section":"ruby-basics/06b_iterators.md"},
+	{"section":"ruby-basics/06c_exceptions.md"},
+	{"section":"ruby-basics/07_essentials.md"},
+	{"section":"ruby-basics/08a_strings.md"},
+	{"section":"ruby-basics/08b_symbols.md"},
+	{"section":"ruby-basics/08c_numbers.md"},
+	{"section":"ruby-basics/08d_time.md"},
+	{"section":"ruby-basics/09_collections.md"},
+	{"section":"ruby-basics/09a_arrays.md"},
+	{"section":"ruby-basics/09b_hashes.md"},
+	{"section":"ruby-basics/09c_ranges.md"},
+	{"section":"ruby-basics/10_enumerators_advanced.md"},
+	{"section":"ruby-basics/11_regexp.md"},
+	{"section":"ruby-basics/12_io.md"},
+	{"section":"ruby-basics/rspec.md"},
+
 	{"section":"ruby-objects"},
 	{"section":"ruby-advanced"}
   ]
