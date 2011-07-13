@@ -4,13 +4,11 @@ Sat 7/9
 5:00 - 6:30
 
 Wed 7/13
-3:30 - 
+3:30 - 4:30
 
 
 Todo
 
-rename
-put showoff.jsons in subdirs (if possible)
 sync with labs
 put bashrc in gist
 

@@ -217,11 +217,7 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
 
 # Ruby syntax cheatsheet
 
-[TODO: merge pngs]
-
-![cheatsheet](cheatsheet/cheatsheet1.png)
-![cheatsheet](cheatsheet/cheatsheet2.png)
-![cheatsheet](cheatsheet/cheatsheet3.png)
+![cheatsheet](cheatsheet/cheatsheet.png)
 
 (screengrabbed from _The Well-Grounded Rubyist_ PDF)
 
