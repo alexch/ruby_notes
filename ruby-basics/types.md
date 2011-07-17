@@ -1,7 +1,26 @@
 !SLIDE subsection
-# Conversions
+# Types and Conversions
 
 Ref. WGR Chapter 7, Built-in essentials
+
+# Built-in Types
+
+* Numbers
+  * `42`
+* Booleans
+  * `true`
+  * `false`
+* Strings
+  * `"apple"`
+  * `'banana'`
+* Symbols
+  * `:apple`
+* Arrays
+  * `["apple", "banana"]`
+* Hashes
+  * `{:apple => 'red', :banana => 'yellow'}`
+* Ranges
+  * `(1..10)`
 
 # to_x
 
@@ -9,6 +28,7 @@ Ref. WGR Chapter 7, Built-in essentials
 * `to_f` converts to float
 * `to_s` converts to string
 * `to_a` converts to array
+* `to_sym` converts to symbol
 
 # to_s
 

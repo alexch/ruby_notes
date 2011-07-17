@@ -5,6 +5,8 @@
 
 This section is intended as a brief, lightweight overview of the Ruby language; following sections will cover all these topics in much more detail. Students are encouraged to ask questions, but instructors are encouraged to answer, "We'll cover that later."
 
+(Originally based upon [Ruby Quickstart for Refugees](https://gist.github.com/190567) but improved by many.)
+
 !SLIDE
 
 # Ruby vs. Rails
@@ -79,6 +81,8 @@ This section is intended as a brief, lightweight overview of the Ruby language; 
     => 4
     >> 4+4
     => 8
+
+Please fire up `irb` on your computer and try this out!
 
 # Everything evaluates to something
 
@@ -209,17 +213,11 @@ Solution: always put operators on top line
   * `!` means "watch out!"
   * `?` means "boolean"
 
-
-!SLIDE subsection
-# More Basic Ruby Literacy
-
-Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
-
 # Ruby syntax cheatsheet
 
 ![cheatsheet](cheatsheet/cheatsheet.png)
 
-(screengrabbed from _The Well-Grounded Rubyist_ PDF)
+(_The Well-Grounded Rubyist_, p. 5, section 1.1.2)
 
 # Ruby identifiers
 
@@ -260,9 +258,4 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
   * skips already-loaded files
   * omits the trailing `.rb`
   * can also be used for extensions written in C (`.so`, `.dll`, etc.)
-
-# Credits
-
-* Based upon [Ruby Quickstart for Refugees](https://gist.github.com/190567)
-* Improved by Sarah Allen, Alex Chaffee, and others
 

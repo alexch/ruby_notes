@@ -15,11 +15,39 @@ Three dots: exclusive
     @@@ruby
     up_to_99 = 1...100
     
-# Ranges are like virtual arrays
+# Ranges can turn into arrays
+
+    @@@ruby
+    >> (1..10).to_a
+    => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Ranges act like virtual arrays
 
     @@@ruby
     >> (1..10).map{|x| x*2}
     => [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+# String ranges
+
+    @@@ruby
+    >> alphabet = "a".."z"
+    => "a".."z"
+
+# Common uses of ranges
+
+* Ranges are primarily used for 
+  * looping
+  
+        @@@ruby
+        (1..10).each do |i|
+          puts "#{i} mississippi"
+        end
+
+  * string or array indexing
+
+        @@@ruby
+        >> "my bologna has a first name"[3..10]
+        => "bologna "
 
 # Range methods
 
@@ -37,11 +65,8 @@ Three dots: exclusive
     >> up_to_10.include? 15
     => false
 
-# String ranges
+# String ranges have weird semantics (advanced)
 
-    @@@ruby
-    >> alphabet = "a".."z"
-    => "a".."z"
     >> alphabet.include? "c"
     => true
     >> alphabet.include? "abc"

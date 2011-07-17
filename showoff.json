@@ -9,30 +9,82 @@
     "ruby-basics/more_neat_things.md",
     "ruby-basics/tools.md",
     "ruby-basics/functions.md",
-    "ruby-basics/control.md",
-    "ruby-basics/blocks.md",
-    "ruby-basics/iterators.md",
-    "ruby-basics/exceptions.md",
-    "ruby-basics/essentials.md",
+
+    "# Lab: Hello",
+
+    "ruby-basics/types.md",
     "ruby-basics/strings.md",
+
+    "# Lab: Simon Says",
+
     "ruby-basics/symbols.md",
     "ruby-basics/numbers.md",
-    "ruby-basics/time.md",
+
+    "# Lab: Temperature",
+
+    "ruby-basics/control.md",
+    "ruby-basics/loops.md",
+
+    "# Lab: Calculator",
+
     "ruby-basics/collections.md",
     "ruby-basics/arrays.md",
-    "ruby-basics/hashes.md",
-    "ruby-basics/ranges.md",
-    "ruby-basics/enumerators_advanced.md",
-    "ruby-basics/regexp.md",
-    "ruby-basics/io.md",
-    "ruby-basics/rspec.md",
 
-    "ruby-objects/classes.md",
+    /* todo: lab on arrays */
+
+    "ruby-basics/ranges.md",
+    "ruby-basics/hashes.md",
+
+    /* todo: lab on hashes */
+    
+    "ruby-basics/blocks.md",
+    
+    "# Lab: Blocks, Performance Monitor",
+    
+    "ruby-basics/iterators.md",
+
+    "# Lab: Mega Calculator",
+
+    "ruby-basics/regexp.md",
+
+    "# Lab: Pig Latin",
+
     "ruby-objects/objects.md",
-    "ruby-objects/modules.md",
-    "ruby-objects/scope.md",
+    "ruby-objects/classes.md",
+
+    "# Labs:\n* Hello Friend\n* Temperature Object\n* Book Titles\n* Timer\n* Dictionary\n",
+    
     "ruby-objects/waka-waka.md",
 
-    "ruby-advanced/more_blocks.md"
+    "# Lab:\n* RPN Calculator",
+    
+    "ruby-objects/class_inheritance.md",
+    "ruby-objects/dispatch.md",
+    "ruby-basics/rspec.md",
+
+    "# Lab:\n* XML Builder",
+
+    "ruby-objects/class_methods.md",
+
+    "ruby-objects/reopening_classes.md",
+    "# Labs:\n* Array Extensions\n* In Words\n",
+
+
+    "ruby-objects/modules.md",
+    "ruby-objects/scope.md",
+
+    "# Advanced Topics",
+
+    "ruby-basics/exceptions.md",
+    /* todo: exception exercise */
+    
+    "ruby-advanced/more_blocks.md",
+    "ruby-basics/enumerators_advanced.md",
+    "ruby-objects/classes_as_objects.md"
+
+    /* "ruby-basics/time.md", */
+    /* "ruby-basics/io.md",  */
+    /* todo: file/io exercise, like scraper */
+
   ]
 }

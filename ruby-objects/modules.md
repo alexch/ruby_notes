@@ -40,7 +40,8 @@ Ref. WGR Chapter 4, Modules and program organization
 
     Greeter.new #=> undefined method `new' for Greeter:Module
 
-# Modules have no state, but they can fake it pretty well
+# Modules have no state
+## but they can fake it pretty well
 
     @@@ ruby
     module Stacky
@@ -72,41 +73,6 @@ Ref. WGR Chapter 4, Modules and program organization
 * **extend** mixes in a module into `self`, usually to add class methods
   * `extend Config`
 
-<!SLIDE subsection>
-# Method Dispatch
-
-# Method Lookup Order
-If an object receives a message, then Ruby looks for a receiver of the same name, in this order:
-
-1. its singleton class
-2. its class
-3. its modules, in reverse order of inclusion
-4. its superclass
-5. its superclass' modules
-
-... and so on
-
-This chain ends with `Object`, which mixes in `Kernel`, and finally `BasicObject` (which has no mixins)
-
-# ancestors
-
-Check out the `ancestors` class method
-
-    >> String.ancestors
-    => [String, Comparable, Object, Kernel, BasicObject]
-
-Schematically:
-
-    @@@ ruby
-    class BasicObject
-    end
-    class Object
-      include Kernel
-    end
-    class String
-      include Comparable
-    end
-
 <!SLIDE incremental>
 # module lookup gotchas
 
@@ -126,7 +92,7 @@ Schematically:
 
 * Modules are used as namespaces
 * Classes are also modules
-  * `class Class < Module`
+        class Class < Module
 
 # Module Organization Example
 

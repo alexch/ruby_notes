@@ -26,15 +26,23 @@ Ref. WGR Chapter 9, Section 9.2, Collection handling with arrays
 
     @@@ ruby
     a = []
-
     a << "x"       #=> ["x"]
+
+`<<` is the "shovel" operator
+
+# More ways to add to an array
+
+    @@@ ruby
+    a = ["x"]
     a.push "y"     #=> ["x", "y"]
     a + "z"        #=> can't convert String into Array
-    a + ["z"]      #=> ["x", "y", "z"]
+    a + ["z"]      #=> ["x", "y", "z"] (but a is unchanged)
+    a += ["z"]     #=> ["x", "y", "z"]
     a.concat ["w"] #=> ["x", "y", "z", "w"]
 
-* Note: "push" is destructive; "concat" makes a copy
-* Why doesn't push end in a bang?
+* `concat` and `+` make a copy
+* `push` and `+=` are destructive
+  * Q: Why doesn't push end in a bang?
 
 # Accessing array items
 
@@ -45,9 +53,10 @@ Arrays are zero-indexed
     fruit[0] #=> "apple"
     fruit[2] #=> "cherry"
     fruit[3] #=> nil
-        
-# Zero > One
 
+Q: which is better -- zero-based indexing or one-based indexing?
+
+# Zero Is Better Than One
 * Think of the index as pointing to the **space between** items
 
 ![array indexing](array_indexing.png)
@@ -56,7 +65,6 @@ Arrays are zero-indexed
   * It's always "less than the limit" 
   * and "the limit *is* the size" 
   * i.e. a[0,3] has 3 things in it, indexed 0,1,2
-
 
 # Fun with Array Indexes
 

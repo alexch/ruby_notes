@@ -1,68 +1,17 @@
 Sat 7/9
 10:00 - 1:00
 2:30 - 4:30
-5:00 - 6:30
+5:00 - 6:30 meet with wolf
 
 Wed 7/13
 3:30 - 4:30
 
+Sat
+3:00 - 4:15 working
+4:30 - 6:30 meet with wolf
+7:00 - 9:00 working
 
 Todo
 
-sync with labs
 put bashrc in gist
 
-move "functions" later?
-
-
-strings
-	= hello
-	= simon says
-
-symbols
-
-numbers
-
-functions
-	= calculator
-	= temperature
-
-arrays 
-	= pig_latin
-
-hashes
-	= new hash
-
-flow
-
-object basics
-	= hello_friend [to teach objects]
-	= temperature_object
-	- book_titles
-	- array_sum
-    	- in_words
-    	- timer    
-
-objects
-classes
-	- array [reopening]
-	- rpn_calculator
-	- dictionary
-    
-exceptions
-	= new error exercise
-	
-
-blocks
-	- blocks
-	
-mocks and stubs
-	- performance_monitor
-    
-method_missing
-	- builder
-
-io
-	- screen_scrape
-
----

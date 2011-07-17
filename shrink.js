@@ -6,7 +6,8 @@ $(".content").bind("showoff:show", function (event) {
   var slideHeight = $(slide).innerHeight();
   var contentHeight = $(content).height();
   console.log("contentHeight", contentHeight, "slideHeight", slideHeight)
-  var tooBig = (contentHeight > slideHeight);
+  var fudge = 20;
+  var tooBig = (contentHeight + fudge > slideHeight);
   if (tooBig) {
     
     // shrink text
@@ -17,8 +18,10 @@ $(".content").bind("showoff:show", function (event) {
     
     // shrink images
     content.find('img').each(function(i, element) {
-      $(element).css('height', parseInt($(element).height() * ratio));
-      $(element).css('width', parseInt($(element).width() * ratio));
+      var newHeight = parseInt($(element).height() * ratio);
+      var newWidth = parseInt($(element).width() * ratio);
+      
+      $(element).css('height', newHeight).css('width', newWidth);
     });
   }  
     

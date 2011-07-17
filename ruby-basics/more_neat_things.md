@@ -1,5 +1,6 @@
 !SLIDE subsection
 # More Neat Things About Ruby
+## (If You Think Programming Languages Are Neat)
 
 This section is a continuation of "ruby intro", covering more advanced topics. It is still intended as a brief, lightweight overview of the Ruby language; following sections will cover all these topics in much more detail. 
 

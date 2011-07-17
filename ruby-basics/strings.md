@@ -99,6 +99,8 @@ Takes any ruby expression, calls `to_s` on it, and smooshes it inside a string
 
     "nothing compares #{1+1} u" #=> "nothing compares 2 u"
 
+# string interpolation - advanced
+
 anything can go in there, including operators and quotes
 
     "i love #{girlfriend or "nobody"}"
@@ -109,11 +111,12 @@ anything can go in there, including operators and quotes
 
 # string comparison
 
-    "a" <=> "b"  #=> -1
     "a" < "b"    #=> true
     "a" < "A"    #=> false
+    "a" <=> "b"  #=> -1
     
 * `Array#sort` uses `<=>`
+  * the "flying saucer" operator
 * `String#==` compares the characters in each string
 
 # `gsub`
@@ -123,12 +126,32 @@ anything can go in there, including operators and quotes
 * performs a regular expression search-and-replace on the string
 * `gsub!` modifies the string in place
 
+# `split`
+
+    "apple banana cherry".split
+    => ["apple", "banana", "cherry"]
+    
+* turns a string into an array
+* splits on whitespace by default
+  * or you can pass in a delimiter
+    
+# Digression: A Ruby Idiom    
+
+    @@@ ruby
+    title.split.map{|s|s.capitalize}.join(' ')
+    
+* this technique is called *method chaining*
+* each operation changes the result of the previous operation
+* in this case, it
+  * splits a title into words
+  * capitalizes each word
+  * joins the words back together
+
 # more string methods
 
 * `s.upcase`
 * `s.downcase`
 * `s.capitalize`
-  * `s.split.map{|s|s.capitalize}.join(' ')`
 * `s.strip`
   * removes whitespace, not clothes, from the ends of the string
 * `s.chomp`

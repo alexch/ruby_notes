@@ -5,7 +5,7 @@ Taught by Wolfram Arnold
 
 wolfram@rubyfocus.biz
 
-GitHub/Twitter/LinkeIn: wolframarnold
+GitHub/Twitter/LinkedIn: wolframarnold
 
 In Collaboration with Alex Chaffee and Marakana
 
