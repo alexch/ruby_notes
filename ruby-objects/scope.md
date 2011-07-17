@@ -6,7 +6,7 @@ This section covers `self` and additional scoping concerns (e.g. globals, class 
 Ref.: WGR Ch. 5, The default object (self), scope, and visibility
 
 <!SLIDE subsection>
-# Identity Crisis
+# Who Am I?
 
 * All Ruby programs suffer from multiple personality disorder
 * `self` is the *default message receiver*
