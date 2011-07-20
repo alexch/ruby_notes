@@ -48,6 +48,8 @@
     "ruby-basics/regexp.md",
 
     "# Lab: Pig Latin",
+    
+    /* day two */
 
     "ruby-objects/objects.md",
     "ruby-objects/classes.md",
