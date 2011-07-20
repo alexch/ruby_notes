@@ -4,6 +4,7 @@
   "sections": [
     "000_setup.md",
     "current_class.md",
+    "credits.md",
 
     "ruby-basics/ruby_intro.md",
     "ruby-basics/more_neat_things.md",
