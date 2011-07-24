@@ -1,0 +1,24 @@
+License for "Ruby Notes" slides and source code.
+
+Unless otherwise declared, these materials are Copyright (c) 2010-2011 by Alex Chaffee.
+
+Sample code is in the public domain. Anyone can use it in any project for any reason.
+
+Slides and notes are placed under a Creative Commons Attribution-ShareAlike license (CC BY-SA). You are free:
+
+to Share — to copy, distribute and transmit the work
+to Remix — to adapt the work
+to make commercial use of the work
+
+Under the following conditions:
+
+Attribution — You must attribute the work to Alex Chaffee during any public presentation or publication (but not in any way that suggests that they endorse you or your use of the work). You must also attribute sponsorship to Marakana. For example: 
+
+"Ruby Notes created by Alex Chaffee and sponsored by Marakana"
+
+Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.
+
+Full license text at:
+http://creativecommons.org/licenses/by-sa/3.0/
+http://creativecommons.org/licenses/by-sa/3.0/legalcode
+
