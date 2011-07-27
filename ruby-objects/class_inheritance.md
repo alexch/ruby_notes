@@ -15,6 +15,7 @@ of both class A and class B
     class Publication
       attr_accessor :publisher
     end
+    
     class Magazine < Publication
       attr_accessor :editor
     end
@@ -24,6 +25,7 @@ of both class A and class B
 
     m.is_a? Magazine #=> true
     m.is_a? Publication #=> true
+    m.class == Publication #=> false
     
 <!SLIDE>
 * `<` is pronounced "inherits from"

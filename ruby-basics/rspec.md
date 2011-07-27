@@ -30,3 +30,15 @@
 * `be_empty` invokes `empty?` on its target
 * `be_valid` invokes `valid?` on its target
 * and so on
+
+# before and after
+
+    @@@ruby
+    before do
+      @data = [1,2,3]
+    end
+
+* defines some code that will be executed before *each* of the specs in that `describe` block
+* there's also `before :all do..end` which executes only once
+* there's also `after` with similar semantics
+

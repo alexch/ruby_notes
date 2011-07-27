@@ -22,3 +22,7 @@ Ref. WGR Chapter 9, Collection and container objects
 * Hash is also called Map, Dictionary
 
 ---
+* Array literals are defined with [ ]
+* Hash literals are defined with { }
+* **both** are accessed with [ ]
+

@@ -9,30 +9,33 @@
     "ruby-basics/ruby_intro.md",
     "ruby-basics/more_neat_things.md",
     "ruby-basics/tools.md",
+
     "ruby-basics/functions.md",
 
     "# Lab: Hello",
 
     "ruby-basics/types.md",
-    "ruby-basics/strings.md",
-
-    "# Lab: Simon Says",
-
-    "ruby-basics/symbols.md",
     "ruby-basics/numbers.md",
 
     "# Lab: Temperature",
+    "# Lab: Calculator",
 
+    "ruby-basics/strings.md",
+
+    "# Lab: Simon Says",
+    "# Lab: Pig Latin",
+
+
+    "ruby-basics/symbols.md",
     "ruby-basics/control.md",
     "ruby-basics/loops.md",
 
-    "# Lab: Calculator",
+    "# Lab: Mega Calculator",
 
     "ruby-basics/collections.md",
     "ruby-basics/arrays.md",
-
     /* todo: lab on arrays */
-
+    
     "ruby-basics/ranges.md",
     "ruby-basics/hashes.md",
 
@@ -44,11 +47,9 @@
     
     "ruby-basics/iterators.md",
 
-    "# Lab: Mega Calculator",
 
     "ruby-basics/regexp.md",
 
-    "# Lab: Pig Latin",
     
     /* day two */
 

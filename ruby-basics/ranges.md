@@ -32,6 +32,13 @@ Three dots: exclusive
     @@@ruby
     >> alphabet = "a".."z"
     => "a".."z"
+    >> alphabet.to_a
+    => ["a", "b", "c", "d", "e", "f", 
+        "g", "h", "i", "j", "k", "l", 
+        "m", "n", "o", "p", "q", "r", 
+        "s", "t", "u", "v", "w", "x", 
+        "y", "z"]
+
 
 # Common uses of ranges
 
@@ -54,14 +61,19 @@ Three dots: exclusive
     @@@ruby
     >> up_to_10 = 1..10
     => 1..10
+    
     >> up_to_10.begin
     => 1
+    
     >> up_to_10.end
     => 10
+    
     >> up_to_10.exclude_end?
     => false
+    
     >> up_to_10.include? 5
     => true
+    
     >> up_to_10.include? 15
     => false
 

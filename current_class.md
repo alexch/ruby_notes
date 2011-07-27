@@ -72,4 +72,4 @@ Conceived by Sarah Allen and Alex Chaffee
 
     cd learn_ruby
 
-    open index.html in browser
+    open index.html # (open in browser)

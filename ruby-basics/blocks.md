@@ -12,6 +12,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 * Anywhere you see "do" in Ruby, it's the start of a *block*
 * Also known as a *closure* or a *proc* or a *lambda*
+* Blocks 
 
 # {...}
 
@@ -20,6 +21,19 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 * Blocks can also be wrapped in curly braces
 * By convention, braces are for a single line, do...end for multiple lines
+
+# What are blocks like?
+
+* anonymous functions
+* function pointers
+* callbacks
+* runnable objects
+
+# What are blocks for?
+
+> A block is a piece of code that is declared but not run in the place it's written. The idea is to leave is up to the receiver of the block to decide when to call it.
+>
+> -- Wolfram Arnold
 
 # The Default Block
 

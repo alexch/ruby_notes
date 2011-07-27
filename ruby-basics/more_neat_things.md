@@ -20,9 +20,11 @@ This section is a continuation of "ruby intro", covering more advanced topics. I
 # Methods are messages
 
     @@@ ruby
-    thing.do(4)
-    thing.do 4
-    thing.send "do", 4
+    thing.munge(4, 10)
+    thing.munge 4, 10
+    thing.send "munge", 4, 10
+    
+All of the above send the object "thing" the message "munge" with the parameters 4 and 10.
 
 # Operators are Methods
 
@@ -150,6 +152,8 @@ This section is a continuation of "ruby intro", covering more advanced topics. I
 
 # the `method_missing` method
 
+What do you do when you don't know what to do?
+
 !SLIDE incremental
 
 # private vs public
@@ -163,13 +167,31 @@ This section is a continuation of "ruby intro", covering more advanced topics. I
 
     @@@ ruby
     class Fixnum
-      def even?
-        self % 2 == 0
+      def divisible_by? n
+        self % n == 0
       end
     end
 
-    1.even? #=> false
+    4.divisible_by? 3 #=> false
 
+!SLIDE incremental
+# No Function Overloading
+
+* Some OO languages allow several methods with the same name but different parameters...
+* ...but not Ruby!
+* If you redefine a method, the new one *replaces* the old one
+* There are tricks to save the old method if you need to call it
+  * `alias`, `alias_method`, `alias_method_chain`
+
+# Operator Overriding
+
+* operators like `+`, `*`, `<<`, etc. are defined as methods
+* so they can be overridden
+* `String` has some great ones
+        "abc" * 3           #=> "abcabcabc"
+        "abc" << "def"      #=> "abcdef"
+        "%d live crew" % 2  #=> "2 live crew"
+        
 !SLIDE
 # or-equals
 

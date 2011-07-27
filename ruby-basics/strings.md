@@ -65,7 +65,8 @@ Weird, huh?
     @@@ruby
     s = "Ruby rocks"
     s[5]    #=> "r"
-    s[5,8]  #=> "rocks"
+    s[5,3]  #=> "roc"
+    s[5,100]  #=> "rocks"
     s[-3]   #=> "c"
     s[2..6] #=> "by ro"
 
@@ -134,6 +135,7 @@ anything can go in there, including operators and quotes
 * turns a string into an array
 * splits on whitespace by default
   * or you can pass in a delimiter
+* `join` turns an array into a string
     
 # Digression: A Ruby Idiom    
 

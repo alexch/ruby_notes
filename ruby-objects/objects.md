@@ -93,6 +93,8 @@ Ref. WGR Ch.2, Section 2.3.1
 * Now the instance containing "apple" is *unreferenced*
 * So it can (and eventually will) be *garbage collected*
 
+---
+
 # Defining behavior
 
     @@@ ruby
@@ -177,4 +179,13 @@ also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
 * `dup` makes a copy of the object's data, so you can change it without affecting the original
 * `freeze` makes it so when you try to modify an object, it raises an exception instead
 * `clone` is like `dup`, but cloning a frozen object freezes the new clone too
+  * also it copies the singleton methods
+  
+          >> thing.methods(false)
+          => [:talk, :yell]
+          >> thing.clone.methods(false)
+          => [:talk, :yell]
+          >> thing.dup.methods(false)
+          => []
+
 

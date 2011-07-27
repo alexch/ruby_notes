@@ -14,6 +14,15 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # `times` is on your side
 
+    potatoes = nil
+    3.my_times do |i|
+      potatoes = i+1
+      puts "#{potatoes} potato"
+    end
+    puts potatoes + 1
+
+# implementing `times` using `until`
+
     @@@ruby
     class Integer
       def my_times
@@ -25,14 +34,27 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
       end
     end
     
-    potatoes = nil
-    3.my_times do |i|
-      potatoes = i+1
-      puts "#{potatoes} potato"
-    end
-    puts potatoes + 1
 
 # to `each` his own
+
+    ["apple", "banana", "cherry"].my_each do |fruit|
+      puts "I love #{fruit}!"
+    end
+
+# warning: each returns the *collection*, not the *value*
+
+    def count_chars strings
+      c = 0
+      strings.each do |s|
+        c += s.length
+      end
+      c
+    end
+
+    count_chars ["apple", "banana", "cherry"]
+    => 17
+
+# implementing `each` using `until`
 
     @@@ruby
     class Array
@@ -45,11 +67,14 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
       end
     end
 
-    ["apple", "banana", "cherry"].my_each do |fruit|
-      puts "I love #{fruit}!"
-    end
-
 # the `map` is not the territory
+
+    ["apple", "banana", "cherry"].map do |fruit|
+      fruit.reverse
+    end
+    => ["elppa", "ananab", "yrrehc"]
+
+# implementing `map` using `each`
 
     @@@ruby
     class Array
@@ -62,11 +87,6 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
       end
     end
 
-    ["apple", "banana", "cherry"].my_map do |fruit|
-      fruit.reverse
-    end
-    => ["elppa", "ananab", "yrrehc"]
-    
 # Other Awesome Iterators
 
 * `select`
@@ -79,7 +99,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
   * returns a single item, not an array
   * returns the first item which makes the block return true(ish)
 * `inject`
-  * accumulates (huh?)
+  * accumulates (huh?) -- more on this later
 
 Ref. <http://matthewcarriere.com/2008/06/23/using-select-reject-collect-inject-and-detect/>
 
@@ -88,15 +108,17 @@ Ref. <http://matthewcarriere.com/2008/06/23/using-select-reject-collect-inject-a
 * `inject` is a really fun iterator, but it's really weird
 * it passes a persistent "accumulator" to each iteration
 * the return value of the block becomes the next accumulator
-* `sum` is a good example:
+
+# `inject` example
 
       @@@ruby
       class Array
         def sum
-          inject(0) {|acc,n| acc + n}
+          inject(0) {|t,n| t + n}
         end
       end
       
       [1,2,3].sum #=> 6
 
+* To help understand this, write out a table with the values of t, n, and the return value for each iteration.
 

@@ -212,6 +212,12 @@ Solution: always put operators on top line
 * method names can end with `!` or `?`
   * `!` means "watch out!"
   * `?` means "boolean"
+  
+# equal, double-equal, and threequal
+
+* `x = 1` means "put the value `1` in the variable `x`"
+* `x == 2` means "`true` if `x` is `2`, otherwise `false`"
+* `x === 3` means the same as `==` but sometimes more
 
 # Ruby syntax cheatsheet
 
@@ -229,6 +235,18 @@ Solution: always put operators on top line
 * `method_name?` - same as local, but can end with `?` or `!` or `=`
 * keywords - about 40 reserved words (`def`) and weirdos (`__FILE__`)
 * literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
+
+# Ruby Naming Conventions
+
+methods and variables are in `snake_case`
+
+classes and modules are in `CamelCase`
+
+constants are in `ALL_CAPS`
+
+> Standard is better than better.
+>
+> -- Anon.
 
 # Variable Scopes
 
