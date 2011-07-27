@@ -22,15 +22,19 @@ This section is intended as a brief, lightweight overview of the Ruby language; 
 <!SLIDE subsection incremental>
 # Ruby Philosophy
 
-"People want to express themselves when they program."
+Q: Did you have a guiding philosophy when designing Ruby?
 
-"They don't want to fight with the language."
+A: Yes, it's called the "principle of least surprise." 
 
-"Programming languages must feel natural to programmers."
+I believe people want to express themselves when they program. 
 
-"I tried to make people enjoy programming and concentrate on the fun and creative part of programming when they use Ruby."
+They don't want to fight with the language. 
 
-&nbsp;- Matz (Yukihiro Matsumoto)
+Programming languages must feel natural to programmers. 
+
+I tried to make people enjoy programming and concentrate on the fun and creative part of programming when they use Ruby.
+
+&nbsp;&nbsp;- [Matz](http://linuxdevcenter.com/pub/a/linux/2001/11/29/ruby.html) (Yukihiro Matsumoto), Ruby creator
 
 !SLIDE incremental
 # Ruby Philosophy, Applied
