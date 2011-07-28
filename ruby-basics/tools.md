@@ -32,9 +32,10 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
 # ri and rdoc
 
 * generate and/or display documentation
-* per file or class
-* can be useful; usually not sufficient
-  * <http://gotapi.com/rubyrails> is a great RDoc browser
+  * per file or class or gem
+* `ri` can be useful, but usually not sufficient
+* <http://gotapi.com/rubyrails> is a great RDoc browser
+* RDoc Syntax described at <http://rdoc.rubyforge.org/RDoc/Markup.html>
   
 # cheat
 

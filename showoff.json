@@ -6,7 +6,8 @@
     "current_class.md",
     "credits.md",
 
-    "ruby-basics/ruby_intro.md",
+    "ruby-intro.md",
+    
     "ruby-basics/more_neat_things.md",
     "ruby-basics/tools.md",
 
@@ -24,7 +25,6 @@
 
     "# Lab: Simon Says",
     "# Lab: Pig Latin",
-
 
     "ruby-basics/symbols.md",
     "ruby-basics/control.md",

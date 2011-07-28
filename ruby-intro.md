@@ -15,7 +15,7 @@ This section is intended as a brief, lightweight overview of the Ruby language; 
 <img src="ruby-logo.jpg" height="125" width="125">
 
 ## Rails is a Framework
-<img src="rails_logo.jpg" height="125" width="125">
+<img src="rails-logo.jpg" height="125" width="125">
 
 ## Rails is written in Ruby
 
@@ -281,3 +281,9 @@ constants are in `ALL_CAPS`
   * omits the trailing `.rb`
   * can also be used for extensions written in C (`.so`, `.dll`, etc.)
 
+# Credits
+
+* "Ruby Intro" slides based on [Ruby Quickstart for Refugees](https://gist.github.com/190567) by [Jacob Rothstein](http://about.me/jbr)
+* Improved by Alex Chaffee, Sarah Allen, Wolfram Arnold
+  
+  
