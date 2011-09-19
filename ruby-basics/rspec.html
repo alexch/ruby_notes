@@ -1,0 +1,68 @@
+<p>!SLIDE subsection</p>
+
+<h1>RSpec Explained</h1>
+
+<h1>describe</h1>
+
+<ul>
+<li>defines a <em>context</em></li>
+<li>takes a class or a string as its name</li>
+</ul>
+
+
+<h1>it</h1>
+
+<ul>
+<li>defines an <em>example</em> (aka <em>spec</em> or <em>test</em>)</li>
+</ul>
+
+
+<h1>should</h1>
+
+<ul>
+<li>defines an <em>assertion</em></li>
+<li>every test needs at least one assertion
+
+<ul>
+<li>or else you're not really testing anything</li>
+</ul>
+</li>
+</ul>
+
+
+<h1>matchers</h1>
+
+<ul>
+<li>passed to <code>should</code></li>
+<li>perform a test on the object that <code>should</code> is called on</li>
+</ul>
+
+
+<h1>be matchers</h1>
+
+<pre><code>@@@ ruby
+[].should be_empty
+</code></pre>
+
+<ul>
+<li>uses <code>method_missing</code> magic</li>
+<li><code>be_empty</code> invokes <code>empty?</code> on its target</li>
+<li><code>be_valid</code> invokes <code>valid?</code> on its target</li>
+<li>and so on</li>
+</ul>
+
+
+<h1>before and after</h1>
+
+<pre><code>@@@ruby
+before do
+  @data = [1,2,3]
+end
+</code></pre>
+
+<ul>
+<li>defines some code that will be executed before <em>each</em> of the specs in that <code>describe</code> block</li>
+<li>there's also <code>before :all do..end</code> which executes only once</li>
+<li>there's also <code>after</code> with similar semantics</li>
+</ul>
+
