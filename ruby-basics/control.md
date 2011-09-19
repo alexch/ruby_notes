@@ -110,15 +110,15 @@ Moral: use `not` in conditions, or use `unless`, or use `!=`
 * case comparison uses the `===` operator
   * aka "threequal"
 * it's normally the same as `==` but can be overridden
-  * e.g. for Class, it means `is_a?`, so you can do
+  * e.g. for Class, `===` also means `is_a?`, so you can do
 
         @@@ ruby
         case input
+        when Fixnum
+          input
         when String
           input.to_i
         when Array
           input.first.to_i
-        else
-          input
         end
         

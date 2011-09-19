@@ -4,6 +4,21 @@
 
 This section is a continuation of "ruby intro", covering more advanced topics. It is still intended as a brief, lightweight overview of the Ruby language; following sections will cover all these topics in much more detail. 
 
+# Every statement has a value
+
+    @@@ ruby
+    if summer?
+      temp = 80
+    else
+      temp = 50
+    end
+
+    temp = if summer?
+      80
+    else
+      50
+    end
+
 # Everything is an object
 
     @@@ ruby
@@ -19,64 +34,25 @@ This section is a continuation of "ruby intro", covering more advanced topics. I
 
 # Methods are messages
 
+Equivalent:
+
     @@@ ruby
     thing.munge(4, 10)
     thing.munge 4, 10
     thing.send "munge", 4, 10
     
-All of the above send the object "thing" the message "munge" with the parameters 4 and 10.
+> send the object `thing` the message `munge` with the parameters `4` and `10`
 
 # Operators are Methods
+
+Equivalent:
 
     @@@ ruby
     1 + 2
     1.+(2)
     1.send "+", 2
 
-# Array Iterators
-
-    @@@ ruby
-    my_array = ["cat", "dog", "world"]
-    my_array.each do |item|
-      puts "hello " + item
-    end
-
-# Hash Iterators
-
-    @@@ ruby
-    my_hash = { :type => "cat",
-                :name => "Beckett",
-                :breed => "alley cat" }
-    my_hash.each do |key, value|
-      puts "My " + key.to_s + " is " + value
-    end
-
-<!SLIDE incremental>
-# The Default Block
-
-* Methods can take block arguments
-* Use either `do...end` or `{...}` at the very end of the argument list
-* Inside the method, call the default block with `yield`
-
-# Iterators use the Default Block
-
-    @@@ ruby
-    fruits = ["apple, "banana", "cherry", "date"]
-    my_array.each do |item|        #<< start of default block
-      puts "Yum! I love #{item}!"
-    end                            #<< end of default block   
-
-# Blocks are like mini-functions
-
-* Blocks can also take parameters or return a value
-* e.g. the `map` iterator translates each item in an array into a new array
-
-        @@@ ruby
-        >> ["hello", "world"].map {|string| string.upcase}
-        => ["HELLO", "WORLD"]
-
-* `{|string| string.upcase}` defines a block
-
+> send the object `1` the message `+` with the parameter `2`
 
 !SLIDE incremental
 
@@ -85,7 +61,9 @@ All of the above send the object "thing" the message "munge" with the parameters
 * If it looks like a duck...
 * and it quacks like a duck...
 * then it is a duck!
-* In other words, we don't care what an object is as long as it does what we want
+* In other words
+  * we don't care what an object is; 
+  * we care what it does
 
 # duck typing example
 
@@ -96,9 +74,6 @@ All of the above send the object "thing" the message "munge" with the parameters
       end
     end
 
-!SLIDE
-
-    @@@ ruby
     print_even_or_odd [1, 2, 3]
     print_even_or_odd 1..3
 
@@ -154,14 +129,6 @@ All of the above send the object "thing" the message "munge" with the parameters
 
 What do you do when you don't know what to do?
 
-!SLIDE incremental
-
-# private vs public
-
-* Private really just means "please don't come in."
-* If someone has access to your runtime environment, they are trusted.
-* Spend your time writing code (and testing it), not protecting yourself from other code
-
 !SLIDE
 # Reopening classes
 
@@ -172,6 +139,7 @@ What do you do when you don't know what to do?
       end
     end
 
+    4.divisible_by? 2 #=> true
     4.divisible_by? 3 #=> false
 
 !SLIDE incremental
@@ -186,7 +154,7 @@ What do you do when you don't know what to do?
 # Operator Overriding
 
 * operators like `+`, `*`, `<<`, etc. are defined as methods
-* so they can be overridden
+* they can be overridden like any method
 * `String` has some great ones
         "abc" * 3           #=> "abcabcabc"
         "abc" << "def"      #=> "abcdef"
@@ -199,7 +167,57 @@ What do you do when you don't know what to do?
       @name ||= "Anonymous"
     end
     
-* Means "if @name has a value, use it, but otherwise make it 'Anonymous'"
+* Means "if `@name` has a value, cool, but otherwise make it `'Anonymous'`"
 * Relies on "logical or" and "nil is false" semantics
 * There's also "plus-equals" (`+=`) and so forth
 
+
+# Array Iterators
+
+    @@@ ruby
+    my_array = ["cat", "dog", "world"]
+    my_array.each do |item|
+      puts "hello " + item
+    end
+    
+* calls the block with `item = "cat"`
+* then calls the block with `item = "dog"`
+* then calls the block with `item = "world"`
+
+# Hash Iterators
+
+    @@@ ruby
+    my_hash = { :species => "cat",
+                :name => "Beckett" }
+    my_hash.each do |key, value|
+      puts "My " + key.to_s + " is " + value
+    end
+
+* calls the block with `key = :species` and `value = "cat"`
+* then calls the block with `key = :name` and `value = "Beckett"`
+
+<!SLIDE incremental>
+# The Default Block
+
+* Methods can take block arguments
+* Use either `do...end` or `{...}` at the very end of the argument list
+* Inside the method, call the default block with `yield`
+
+# Iterators use the Default Block
+
+    @@@ ruby
+    fruits = ["apple, "banana", "cherry", "date"]
+    my_array.each do |item|        #<< "do" starts the block
+      puts "Yum! I love #{item}s!"
+    end                            #<< "end" ends the block   
+
+# Blocks are like mini-functions
+
+* Blocks can also take parameters or return a value
+* e.g. the `map` iterator translates each item in an array into a new array
+
+        @@@ ruby
+        >> ["hello", "world"].map {|string| string.upcase}
+        => ["HELLO", "WORLD"]
+
+* `{|string| string.upcase}` defines a block

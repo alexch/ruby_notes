@@ -3,6 +3,8 @@
 
 Ref. WGR Chapter 6, Control-flow techniques
 
+Most people don't use loops, they use iterators, so you can just skim this part.
+
 # `loop`
 
     @@@ ruby

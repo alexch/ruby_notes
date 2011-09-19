@@ -90,6 +90,7 @@ range indexes
 
 # getting out of bounds
 
+    @@@ ruby
     >> a = ["apple", "banana", "cherry"]
     => ["apple", "banana", "cherry"]
     >> a.length
@@ -105,6 +106,7 @@ moral: getting past the end returns `nil`, not error
 
 # setting out of bounds
 
+    @@@ ruby
     >> a
     => ["apple", "banana", "cherry"]
     >> a[9] = "jicama"
@@ -112,7 +114,8 @@ moral: getting past the end returns `nil`, not error
     >> a.size
     => 10
     >> a
-    => ["apple", "banana", "cherry", nil, nil, nil, nil, nil, nil, "jicama"]
+    => ["apple", "banana", "cherry", nil, nil, 
+        nil, nil, nil, nil, "jicama"]
 
 moral: setting past the end autofills with `nil`
 

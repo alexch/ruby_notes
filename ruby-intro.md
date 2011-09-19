@@ -173,6 +173,7 @@ Solution: always put operators on top line
 
 * Numbers
   * `42`
+  * `3.14159`
 * Booleans
   * `true`
   * `false`
@@ -181,10 +182,14 @@ Solution: always put operators on top line
   * `'banana'`
 * Symbols
   * `:apple`
+
+# Built-in Types (cont.)
+
 * Arrays
   * `["apple", "banana"]`
 * Hashes
   * `{:apple => 'red', :banana => 'yellow'}`
+  * `{apple: 'red', banana: 'yellow'}`
 * Ranges
   * `(1..10)`
 
