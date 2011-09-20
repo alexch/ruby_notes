@@ -71,7 +71,6 @@ I tried to make people enjoy programming and concentrate on the fun and creative
 
 * Dynamically typed
 * Interpreted
-* Can be modified at runtime
 * Object oriented
 * Blocks / lambdas / closures
 * Perl-like regular expressions
@@ -88,7 +87,7 @@ I tried to make people enjoy programming and concentrate on the fun and creative
 
 Please fire up `irb` on your computer and try this out!
 
-# Everything evaluates to something
+# Every statement has a value
 
     @@@ ruby
     >> 2 + 2
@@ -104,26 +103,24 @@ Please fire up `irb` on your computer and try this out!
     foo
     => nil
 
-# Hash mark comments, like perl
-
-    @@@ ruby
-    # is a comment
-    2 + 2 # is a comment
-
 # Optional semicolons, parens, and `return`
 
 These are equivalent:
 
     @@@ ruby
-    def inc x
-      x + 1
-    end
-
     def inc(x)
       return x + 1;
     end
 
+    def inc x
+      x + 1
+    end
+
+    def inc(x) x + 1; end
+
     def inc(x); x + 1; end
+
+    def inc(x) x + 1; end
     
 # Line Break Gotcha
 
@@ -144,7 +141,10 @@ Solution: always put operators on top line
 # Use parens when you need them
 
     @@@ ruby
-    >> "Hello".gsub 'H', 'h'
+    >> "Hello".gsub "H", "h"
+    => "hello"
+
+    >> "Hello".gsub "H", "h".reverse
     => "hello"
 
     >> "Hello".gsub("H", "h").reverse
@@ -185,6 +185,8 @@ Solution: always put operators on top line
 
 # Built-in Types (cont.)
 
+* Regular Expressions
+  * `/fo*/i`
 * Arrays
   * `["apple", "banana"]`
 * Hashes
@@ -285,6 +287,23 @@ constants are in `ALL_CAPS`
   * skips already-loaded files
   * omits the trailing `.rb`
   * can also be used for extensions written in C (`.so`, `.dll`, etc.)
+
+# Hash mark comments, like perl
+
+    @@@ ruby
+    # is a comment
+    2 + 2 # is a comment
+
+Ruby has a syntax for multiline comments too, but it's silly and nobody uses it.
+
+# Bundler vs. RVM
+
+* RVM manages multiple gemsets on a single machine
+* Bundler manages the same gemset on multiple machines
+
+# irb's REPL
+
+Read Eval Print Loop
 
 # Credits
 

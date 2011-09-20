@@ -1,6 +1,5 @@
 !SLIDE subsection
 # More Neat Things About Ruby
-## (If You Think Programming Languages Are Neat)
 
 This section is a continuation of "ruby intro", covering more advanced topics. It is still intended as a brief, lightweight overview of the Ruby language; following sections will cover all these topics in much more detail. 
 
@@ -171,6 +170,24 @@ What do you do when you don't know what to do?
 * Relies on "logical or" and "nil is false" semantics
 * There's also "plus-equals" (`+=`) and so forth
 
+# or-equals expanded
+
+These are equivalent:
+
+      @@@ruby
+      @name ||= "Alex"
+
+      @name || (@name = "Alex")
+
+      if (@name != nil)
+        @name
+      else
+        @name = "Alex"
+        @name
+      end
+      
+!SLIDE subsection
+# Iterators and Blocks
 
 # Array Iterators
 

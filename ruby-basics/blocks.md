@@ -31,7 +31,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # What are blocks for?
 
-> A block is a piece of code that is declared but not run in the place it's written. The idea is to leave is up to the receiver of the block to decide when to call it.
+> A block is a piece of code that is declared but not run in the place it's written. The idea is to leave it up to the receiver of the block to decide when to call it.
 >
 > -- Wolfram Arnold
 
@@ -63,7 +63,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 "twice do" kind of almost resembles English a little, right?
 
-# Block parameters
+# Blocks can accept parameters
 
     @@@ ruby
     def foo
@@ -75,3 +75,40 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
       puts "hi, #{name}"
     end
 
+# Block parameters vs. Function parameters
+
+    @@@ ruby
+    # for_each is a less cool version of `each`
+    def for_each(array)
+      i = 0
+      while i < array.size
+        yield array[i]
+        i += 1
+      end
+    end
+
+    a = ["alice", "bob", "charlie"]
+    for_each(a) do |item|
+      puts "hi, #{item}"
+    end
+
+* `array` is a parameter to the `for_each` function
+* `item` is a parameter to the block
+
+# Making the default block visible
+
+    @@@ ruby
+    def for_each(array, &block)
+      i = 0
+      while i < array.size
+        block.call(array[i])
+        i += 1
+      end
+    end
+    
+    a = ["alice", "bob", "charlie"]
+    for_each(a) do |item|
+      puts "hi, #{item}"
+    end
+
+Which is less confusing, `&` or `yield`?

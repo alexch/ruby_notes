@@ -11,4 +11,14 @@ In Ruby, we prefer symbols over hardcoded globals or strings. They're very light
 
 They also look better in code and are easier to type (by one character).
 
+# In Alex's Humble Opinion
 
+* Symbols are silly
+  * or, symbols are a good experiment with a negative result
+* Symbols' main function is to confuse people about hash keys
+  * the existence of `HashWithIndifferentAccess` is an argument against the existence of symbols
+  * if you use JSON or Rails, you must code defensively
+* Proposal:
+  * keep the symbol syntax
+  * symbols become immutable strings
+  * `:foo == "foo".freeze`

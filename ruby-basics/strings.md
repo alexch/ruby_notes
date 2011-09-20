@@ -100,6 +100,10 @@ Takes any ruby expression, calls `to_s` on it, and smooshes it inside a string
 
     "nothing compares #{1+1} u" #=> "nothing compares 2 u"
 
+Interpolated quotes are *not* escaped
+
+    "foo #{"bar"} baz" #=> "foo bar baz"
+
 # string interpolation - advanced
 
 anything can go in there, including operators and quotes
@@ -140,15 +144,41 @@ anything can go in there, including operators and quotes
 # Digression: A Ruby Idiom    
 
     @@@ ruby
-    title.split.map{|s|s.capitalize}.join(' ')
+    s.split.map{|w|w.capitalize}.join(' ')
     
 * this technique is called *method chaining*
 * each operation changes the result of the previous operation
 * in this case, it
-  * splits a title into words
+  * splits a string into words
   * capitalizes each word
   * joins the words back together
 
+# `each` doesn't support chaining; `map` does
+
+
+    @@@ ruby
+    s.split.map{|w|w.capitalize}.join
+
+    capitalized = []
+    s.split.each{|w|
+      w.capitalize
+    }
+    capitalized.join
+
+* `each` returns the original collection
+* `map` returns a new collection
+
+# delving into map
+
+    @@@ruby
+    s                   # "foo_bar"
+      .split("_")       # ["foo", "bar"]
+      .map {|w|         # "foo", then "bar"
+        w.capitalize    # "Foo", then "Foo"
+      }                 # ["Foo", "Bar"]
+      .join("_")        # "Foo_Bar"
+ 
+ 
 # more string methods
 
 * `s.upcase`

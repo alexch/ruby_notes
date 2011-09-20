@@ -89,10 +89,10 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # Other Awesome Iterators
 
-* `select`
+* `select` (alias `find_all`)
   * returns all items for which the block returns true(ish)
 * `reject`
-  * returns all items for which the block returns true(ish)
+  * returns all items for which the block returns false(ish)
 * `collect` (alias `map`)
   * makes a new array out of whatever the block returns
 * `detect` (alias `find`)
@@ -101,7 +101,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 * `inject`
   * accumulates (huh?) -- more on this later
 
-Ref. <http://matthewcarriere.com/2008/06/23/using-select-reject-collect-inject-and-detect/>
+Ref. [Using Select Etc.](http://matthewcarriere.com/2008/06/23/using-select-reject-collect-inject-and-detect/>)
 
 # lethal `inject`ion
 
