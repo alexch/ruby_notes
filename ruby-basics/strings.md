@@ -155,7 +155,6 @@ anything can go in there, including operators and quotes
 
 # `each` doesn't support chaining; `map` does
 
-
     @@@ ruby
     s.split.map{|w|w.capitalize}.join
 

@@ -63,6 +63,8 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 "twice do" kind of almost resembles English a little, right?
 
+
+
 # Blocks can accept parameters
 
     @@@ ruby
@@ -97,6 +99,8 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # Making the default block visible
 
+`&` turns a default block into a proc
+
     @@@ ruby
     def for_each(array, &block)
       i = 0
@@ -111,4 +115,26 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
       puts "hi, #{item}"
     end
 
+# You can also use & in the caller
+
+turns a proc into a default block
+
+    p = proc {|w|w.capitalize}
+    s.split.map(&proc).join
+
+# `&` vs. `yield`
+
 Which is less confusing, `&` or `yield`?
+
+    def reverser &default_block
+      default_block.call.reverse
+    end
+
+    def reverser
+      yield.call.reverse
+    end
+
+
+# block_given?
+* `block_given?` is true if a block was passed
+

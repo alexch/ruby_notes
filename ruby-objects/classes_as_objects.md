@@ -35,3 +35,11 @@ same as...
       end
     end
 
+
+# the singleton class
+
+aka "eigenclass" (but "metaclass" is incorrect)
+
+<http://blog.madebydna.com/all/code/2011/06/24/eigenclasses-demystified.html>
+
+

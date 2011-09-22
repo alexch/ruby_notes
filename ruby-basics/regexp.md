@@ -50,4 +50,5 @@ String#gsub
 * [the Pickaxe book](http://www.ruby-doc.org/docs/ProgrammingRuby/html/language.html#UJ) has a just-the-facts-maam overview of regexps
 * [`cheat regexp`](http://cheat.errtheblog.com/s/regexp) and [`cheat regex`](http://cheat.errtheblog.com/s/regex) have slightly different cheatsheets
   * `gem install cheat` for command-line tool or see <http://cheat.errtheblog.com>
-  
+* [http://www.regular-expressions.info/tutorialcnt.html](http://www.regular-expressions.info/) has a good tutorial
+

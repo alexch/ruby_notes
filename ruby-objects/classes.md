@@ -15,23 +15,30 @@ Ref. WGR Chapter 3, Organizing objects with classes
 <!SLIDE incremental>
 # The Linugistic Metaphor
 
-* Objects are nouns
-* Methods are verbs
-* Attributes are adjectives
+Think of objects as *things* that can be *described* and can *do* things, or...
+
+  * Objects are nouns
+  * Methods are verbs
+  * Attributes are adjectives
 
 # Constructors
 
 * To *instantiate* an object, call the *new* method on its class
-* *new* does some stuff then turns around and calls *initialize* on the new instance
 
-        @@@ ruby
-        class Thing
-          def initialize
-            puts "Hi!"
-          end
-        end
+    @@@ ruby
+    class Thing
+      def initialize
+        puts "Hi!"
+      end
+    end
 
-        thing = Thing.new  # *not* Thing.initialize!
+    thing = Thing.new  # *not* Thing.initialize!
+
+# What does `new` do?
+
+1. allocates memory for the instance
+2. calls *initialize* on the new instance
+3. returns a pointer to the instance
 
 # Instance methods
 
@@ -97,10 +104,29 @@ is the same as
 
         @@@ ruby
         class Thing
-          attr_reader :foo  #=>  def foo; @foo; end
-          attr_writer :foo  #=>  def foo=(x); @foo = x; end
-          attr_accessor :foo  #=> both of the above
+          attr_reader :age    #  def age; @age; end
+          attr_writer :age    #  def age=(x); @age = x; end
+          attr_accessor :age  # both of the above
         end
+        
+        # works kind of like this
+        def Class.attr_reader name
+          eval("def #{name}; @#{name}; end")
+        end
+        
+# Constructor plus Attributes
+
+    @@@ruby
+    class Person
+      attr_accessor :age
+      def initialize
+        @age = 20
+      end
+    end
+
+    alice = Person.new
+    alice.age #=> 20
+
 
 <!SLIDE >
 # Attribute Shortcuts (cont.)
@@ -117,6 +143,7 @@ is the same as
 * Wait a second!
 * Q: Where are `attr_reader` _et al._ defined?
 * A: They are *class methods* of `Object`
+* A: Or maybe they're *instance methods* of `Class`; I'm not sure.
 
 <!SLIDE >
 # Attribute Shortcuts (cont.)
@@ -135,7 +162,7 @@ is the same as
     end
 
     alice.age = 16
-    alice.child? #=> false
+    alice.child? #=> true
     
 Note: query methods return a boolean by *convention* only
 

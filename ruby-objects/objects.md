@@ -8,16 +8,15 @@ Ref: WGR Chapter 2. Objects, methods, and local variables
 Note: Following WGR's lead, in this section we define methods on instances (not on classes), to keep the lessons simple.
 
 <!SLIDE incremental>
-
 # What is an object?
 
-An object encapsulates state and behavior.
+* An object encapsulates state and behavior.
 
-*encapsulate* - put like things together; keep unlike things apart
+* *encapsulate* - put like things together; keep unlike things apart
 
-*state* - data, variables, properties, attributes, constants
+* *state* - data, variables, properties, attributes, constants
 
-*behavior* - methods
+* *behavior* - methods
 
 # Objects vs. classes
 
@@ -141,6 +140,18 @@ Ref. _The Well-Grounded Rubyist_ PDF, Fig. 2.1
 
 also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
 
+    >> thing = Object.new
+    => #<Object:0x007f86e485c3a8>
+    >> thing.methods(false)
+    => []
+    >> def thing.talk; puts "hi"; end
+    => nil
+    >> thing.methods(false)
+    => [:talk]
+
+    >> "goo".methods.grep(/sub/)
+    => [:sub, :gsub, :sub!, :gsub!]
+    
 # The `respond_to?` method
 
     @@@ ruby
