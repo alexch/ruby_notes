@@ -73,3 +73,9 @@ Conceived by Sarah Allen and Alex Chaffee
     cd learn_ruby
 
     open index.html in browser
+
+# The most important thing
+
+## READ THE ERROR
+
+This is actually very difficult to do, and very easy to miss.

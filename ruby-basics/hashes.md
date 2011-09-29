@@ -42,6 +42,17 @@ Ruby 1.9 only:
 
     {foo: "bar", baz: "baf"}
 
+# hash parameters plus hash literals => concision
+
+These are all equivalent:
+
+    @@@ruby
+    User.new({:name => "Alex", :email => "alex@stinky.com"})
+    User.new(:name => "Alex", :email => "alex@stinky.com")
+    User.new :name => "Alex", :email => "alex@stinky.com"
+    User.new name: "Alex", email: "alex@stinky.com"
+    User.new name:"Alex", email:"alex@stinky.com"
+
 # Hash access
 
     hash[:foo] = "bar"
@@ -62,6 +73,5 @@ braces are optional...
 ...**if** the hash is the final argument
 
 (except for a default block)
-
 
 TODO: more on hashes

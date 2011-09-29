@@ -1,20 +1,30 @@
 <!SLIDE subsection>
-# Control Flow
+# Conditionals
 
 Ref. WGR Chapter 6, Control-flow techniques
 
-(TODO: make a consistent "boolean operators and conditional" teaching flow)
+In this section we cover truth, falsiness, and conditions.
 
 # Truthiness and Falsiness
 
-## Falsy
+![truthiness.png](truthiness.png)
+
+(*not* in the Steven Colbert sense)
+
+!SLIDE
+* Truthy things make "if" succeed
+* Falsey things make "if" fail
+
+## Falsey Things
 * `nil`
 * false
 
-## Truthy
+## Truthy Things
+* true
 * 0
 * ""
-* anything else
+* pretty much anything else
+
 
 # `if`
 
@@ -24,7 +34,7 @@ Ref. WGR Chapter 6, Control-flow techniques
 
 * if `condition` is *truthy* then execute `statement`
 
-# variants of `if`
+# one-line `if`
     
     if condition then statement end
 
@@ -128,7 +138,7 @@ and assuming `x` is a number, `!x` will always be `false`
   * unless you really know what you're doing `:-)`
   * **double negatives are not unconfusing**
 
-# Logic is hard (let's go shopping)
+# Logic is hard
 
     >> not nil
     => true
@@ -154,6 +164,8 @@ and assuming `x` is a number, `!x` will always be `false`
     => true
     >> not x==y
     => true
+    
+## (...let's go shopping)
 
 # assignment in conditionals
 
@@ -205,4 +217,18 @@ and assuming `x` is a number, `!x` will always be `false`
 
     >> 1.is_a? Fixnum
     => true
+
+# a note on Boolean
+
+There is no Boolean class in Ruby
+
+Only `TrueClass` and `FalseClass`
+
+(I'm not really sure why)
+
+# `!!`
+
+* `!!` converts anything into either true (if it's truthy) or false (if it's falsey)
+* but cool Rubyists never use `!!` 
+  * they're down with truthiness
 

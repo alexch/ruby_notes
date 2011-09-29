@@ -5,8 +5,6 @@
 
 This section is intended as a brief, lightweight overview of the Ruby language; following sections will cover all these topics in much more detail. Students are encouraged to ask questions, but instructors are encouraged to answer, "We'll cover that later."
 
-(Originally based upon [Ruby Quickstart for Refugees](https://gist.github.com/190567) but improved by many.)
-
 !SLIDE
 
 # Ruby vs. Rails
@@ -69,8 +67,8 @@ I tried to make people enjoy programming and concentrate on the fun and creative
 
 # Ruby Language Overview
 
-* Dynamically typed
 * Interpreted
+* Dynamically typed
 * Object oriented
 * Blocks / lambdas / closures
 * Perl-like regular expressions
@@ -85,7 +83,7 @@ I tried to make people enjoy programming and concentrate on the fun and creative
     >> 4+4
     => 8
 
-Please fire up `irb` on your computer and try this out!
+Please fire up `irb` on your computer and try this out right now!
 
 # Every statement has a value
 
@@ -150,6 +148,14 @@ Solution: always put operators on top line
     >> "Hello".gsub("H", "h").reverse
     => "olleh"
 
+# Ruby has hash comments, like perl
+
+    @@@ ruby
+    # is a comment
+    2 + 2 # is a comment
+
+Ruby has a syntax for multiline comments too, but it's silly and nobody uses it.
+
 !SLIDE
 # Variables are declared implicitly
 
@@ -159,21 +165,12 @@ Solution: always put operators on top line
     full_name = first_name + last_name
     #=> "SantaClaus"
 
-# String interpolation
-
-    @@@ ruby
-    "boyz #{1 + 1} men"
-    => "boyz 2 men"
-
-* Any Ruby code can go inside the braces
-* It gets evaluated and stuck inside the string
-
 !SLIDE custom
 # Built-in Types
 
 * Numbers
-  * `42`
-  * `3.14159`
+  * `42` (Fixnum)
+  * `3.14159` (Float)
 * Booleans
   * `true`
   * `false`
@@ -189,23 +186,46 @@ Solution: always put operators on top line
   * `/fo*/i`
 * Arrays
   * `["apple", "banana"]`
+* Ranges
+  * `(1..10)`
 * Hashes
   * `{:apple => 'red', :banana => 'yellow'}`
   * `{apple: 'red', banana: 'yellow'}`
-* Ranges
-  * `(1..10)`
+
+# String interpolation
+
+    @@@ ruby
+    "boyz #{1 + 1} men"
+    => "boyz 2 men"
+
+* Any Ruby code can go inside the braces
+* It gets evaluated and stuck inside the string
+
+# equal, double-equal, and threequal
+
+* `x = 1` means "put the value `1` in the variable `x`"
+* `x == 2` means "`true` if `x` is `2`, otherwise `false`"
+* `x === 3` means the same as `==` but sometimes more
+  * threequal is rarely used
+
+# Ruby syntax cheatsheet
+
+![cheatsheet](cheatsheet/cheatsheet.png)
+
+(_The Well-Grounded Rubyist_, p. 5, section 1.1.2)
 
 # Functions
 
     @@@ ruby
-    def add(a,b)
+    def add a, b
       a + b
     end
 
-    add(2, 2) 
+    add 2, 2
     #=> 4
 
 * Note: no 'return' required
+* `def add(a, b)` is also legal
 
 # Classes and methods
 
@@ -215,37 +235,30 @@ Solution: always put operators on top line
         a + b
       end
     end
+    
+    calc = Calculator.new
+    calc.add(2, 2)
+    #=> 4
 
 * a *function* inside a *class* is called a *method*
 
-# bang and question methods
+# Classes
+
+* A class defines a group of behaviors (methods)
+* Every object has a class, `Object` if nothing else
+
+# Messages and Methods
+
+* an object is referenced by a variable or a literal
+* the dot operator (`.`) sends a message to an object
+* an object receives a *message* and invokes a *method*
+* with no dot, the default object (`self`) is the receiver
+
+# bang and question mark methods
 
 * method names can end with `!` or `?`
-  * `!` means "watch out!"
   * `?` means "boolean"
-  
-# equal, double-equal, and threequal
-
-* `x = 1` means "put the value `1` in the variable `x`"
-* `x == 2` means "`true` if `x` is `2`, otherwise `false`"
-* `x === 3` means the same as `==` but sometimes more
-
-# Ruby syntax cheatsheet
-
-![cheatsheet](cheatsheet/cheatsheet.png)
-
-(_The Well-Grounded Rubyist_, p. 5, section 1.1.2)
-
-# Ruby identifiers
-
-* `local_variable` - start with letter or underscore, contain letters, numbers, underscored
-* `@instance_variable` - start with `@`
-* `@@class_variable` - start with `@@`
-* `$global_variable` - start with `$`
-* `Constant` - start with uppercase letter
-* `method_name?` - same as local, but can end with `?` or `!` or `=`
-* keywords - about 40 reserved words (`def`) and weirdos (`__FILE__`)
-* literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes
+  * `!` means "watch out!"
 
 # Ruby Naming Conventions
 
@@ -259,6 +272,18 @@ constants are in `ALL_CAPS`
 >
 > -- Anon.
 
+# Ruby Identifiers
+
+* `local_variable` - start with letter or underscore, contain letters, numbers, underscored
+* `@instance_variable` - start with `@`
+* `@@class_variable` - start with `@@`
+* `$global_variable` - start with `$`
+* `Constant` or `CONSTANT` - must start with uppercase letter
+* `ClassName` - capitalized camel case
+* `method_name?` - like a local variable, but can end with `?` or `!` or `=`
+* keywords - about 40 reserved words (`def`) and weirdos (`__FILE__`)
+* literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes, etc.
+
 # Variable Scopes
 
     @@@ ruby
@@ -268,18 +293,6 @@ constants are in `ALL_CAPS`
     $var  # global variable
     VAR   # constant
 
-# Messages and Methods
-
-* an object is referenced by a variable or a literal
-* the dot operator (`.`) sends a message to an object
-* an object receives a *message* and invokes a *method*
-* with no dot, the default object (`self`) is the receiver
-
-# Classes
-
-* A class defines a group of behaviors (methods)
-* Every object has a class, `Object` if nothing else
-
 # `load` and `require`
 
 * `load` inserts a file's contents into the current file
@@ -287,23 +300,6 @@ constants are in `ALL_CAPS`
   * skips already-loaded files
   * omits the trailing `.rb`
   * can also be used for extensions written in C (`.so`, `.dll`, etc.)
-
-# Hash mark comments, like perl
-
-    @@@ ruby
-    # is a comment
-    2 + 2 # is a comment
-
-Ruby has a syntax for multiline comments too, but it's silly and nobody uses it.
-
-# Bundler vs. RVM
-
-* RVM manages multiple gemsets on a single machine
-* Bundler manages the same gemset on multiple machines
-
-# irb's REPL
-
-Read Eval Print Loop
 
 # Credits
 

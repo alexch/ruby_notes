@@ -20,23 +20,34 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
 * Interactive Ruby Browser
 * aka "the ruby console"
 * interprets Ruby one line at a time
-* Simple Prompt:
+  * REPL: Read Eval Print Loop
 
-        irb --simple-prompt
+# uncluttering irb's cluttered prompt
 
-    or
 
-        echo "IRB.conf[:PROMPT_MODE] = :SIMPLE" >> ~/.irbrc
+    irb --simple-prompt
 
+or
+
+    echo "IRB.conf[:PROMPT_MODE] = :SIMPLE" >> ~/.irbrc
 
 # ri and rdoc
 
-* generate and/or display documentation
+* if you're running `rvm`, do this right now:
+
+        rvm docs generate
+    
+* rdoc generates and displays documentation
   * per file or class or gem
-* `ri` can be useful, but usually not sufficient
-* <http://gotapi.com/rubyrails> is a great RDoc browser
-* RDoc Syntax described at <http://rdoc.rubyforge.org/RDoc/Markup.html>
+  * documentation comes from inside source code
+  * RDoc Syntax described at <http://rdoc.rubyforge.org/RDoc/Markup.html>
   
+# web docs
+* [gotapi.com/rubyrails](http://gotapi.com/rubyrails)
+* [api.rubyonrails.org](http://api.rubyonrails.org/)
+* `gem server` launches an rdoc browser locally
+* [railscasts.com](http://railscasts.com/)
+
 # cheat
 
 * a text-only command-line wiki
@@ -65,6 +76,13 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
 * `gem install foo` - downloads and installs the "foo" gem from rubygems.org
 * `gem`, `rvm` and `bundler` live in uneasy harmony
 
+# gem plugins
+* installed as gems, but extend the `gem` command
+* for example, `open_gem` which opens the source code for a gem in your editor
+
+        gem install open_gem
+        gem open rake
+
 # bundler
 
 * manages lots of different sets of gems and versions thereof
@@ -88,6 +106,19 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
 * overlaps with `gem` and Bundler
   * in sometimes odd ways
 
+# Bundler vs. RVM
+
+* RVM manages multiple gemsets on a single machine
+* Bundler manages the same gemset on multiple machines
+
 # RSpec
 
 * testing framework
+* describe, it, before, after, should
+
+# dotfiles
+
+* Are you on Unix/OSX? Check out Alex's dotfiles repo
+
+    <http://github.com/alexch/dotfiles>
+    
