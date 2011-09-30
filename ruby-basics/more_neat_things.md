@@ -186,9 +186,6 @@ These are equivalent:
         @name
       end
       
-!SLIDE subsection
-# Iterators and Blocks
-
 # Array Iterators
 
     @@@ ruby
@@ -238,3 +235,4 @@ These are equivalent:
         => ["HELLO", "WORLD"]
 
 * `{|string| string.upcase}` defines a block
+

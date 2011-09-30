@@ -43,6 +43,7 @@ or
   * RDoc Syntax described at <http://rdoc.rubyforge.org/RDoc/Markup.html>
   
 # web docs
+* [ruby-doc.org](http://ruby-doc.org)
 * [gotapi.com/rubyrails](http://gotapi.com/rubyrails)
 * [api.rubyonrails.org](http://api.rubyonrails.org/)
 * `gem server` launches an rdoc browser locally

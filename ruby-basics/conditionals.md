@@ -11,10 +11,10 @@ In this section we cover truth, falsiness, and conditions.
 
 (*not* in the Steven Colbert sense)
 
-!SLIDE
 * Truthy things make "if" succeed
 * Falsey things make "if" fail
 
+!SLIDE
 ## Falsey Things
 * `nil`
 * false

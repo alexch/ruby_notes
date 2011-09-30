@@ -3,23 +3,25 @@
 
 Ref. WGR Section 6.3, "Iterators and code blocks"
 
-# do...end
+# First-Class Functions
 
-    @@@ruby
-    3.times do 
-      puts "Hip! Hip! Hooray!"
-    end
+* `do...end` defines a *block*
+* also known as a *closure* or a *proc* or a *lambda* or a *function pointer*
+
+# do...end vs {...}
 
 * Anywhere you see "do" in Ruby, it's the start of a *block*
-* Also known as a *closure* or a *proc* or a *lambda*
-* Blocks 
 
-# {...}
-
-    @@@ruby
-    3.times { puts "Hip! Hip! Hooray!" } 
+        @@@ruby
+        3.times do 
+          puts "Hip! Hip! Hooray!"
+        end
 
 * Blocks can also be wrapped in curly braces
+
+        @@@ruby
+        3.times { puts "Hip! Hip! Hooray!" } 
+
 * By convention, braces are for a single line, do...end for multiple lines
 
 # What are blocks like?

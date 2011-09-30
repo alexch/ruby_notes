@@ -160,7 +160,7 @@ anything can go in there, including operators and quotes
 
     capitalized = []
     s.split.each{|w|
-      w.capitalize
+      capitalized << w.capitalize
     }
     capitalized.join
 
@@ -173,11 +173,11 @@ anything can go in there, including operators and quotes
     s                   # "foo_bar"
       .split("_")       # ["foo", "bar"]
       .map {|w|         # "foo", then "bar"
-        w.capitalize    # "Foo", then "Foo"
+        w.capitalize    # "Foo", then "Bar"
       }                 # ["Foo", "Bar"]
-      .join("_")        # "Foo_Bar"
- 
- 
+      .join(" ")        # "Foo Bar"
+
+
 # more string methods
 
 * `s.upcase`
@@ -188,7 +188,6 @@ anything can go in there, including operators and quotes
 * `s.chomp`
   * removes the final character, but only if it's a "\n"
 * `s.center(width)`
-* `s.delete(substr)`
 
 some of these have `!` versions which modify the string in place
 

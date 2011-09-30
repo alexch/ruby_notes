@@ -84,4 +84,24 @@ When calling a method, if the final argument is a hash, you can **leave off** th
     print_value_plus 2, :x => 1, :y => 2
     # same as...
     print_value_plus(2, {:x => 1, :y => 2})
+    # same as...
+    print_value_plus 2, x: 1, y: 2
 
+# the "options hash" pattern
+
+To pass *variable* parameters, or to pass *named* parameters, you can use an *options hash*:
+
+    @@@ruby
+    bake("bread", :dough => "sour")
+    bake("pizza", :toppings => ["pepperoni", "onions"])    
+    
+    def bake(meal, options = {})
+      if meal == "bread"
+        d = options[:dough] || "rye"
+        puts "baking a nice #{d} loaf"
+      elsif meal == "pizza"
+        toppings = options[:toppings] || ["plain"]
+        puts "ordering a #{toppings.join("-")} pizza"
+      end
+    end
+    
