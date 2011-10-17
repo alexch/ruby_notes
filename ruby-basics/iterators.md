@@ -15,7 +15,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 # `times` is on your side
 
     potatoes = nil
-    3.my_times do |i|
+    3.times do |i|
       potatoes = i+1
       puts "#{potatoes} potato"
     end
@@ -24,16 +24,14 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 # implementing `times` using `until`
 
     @@@ruby
-    class Integer
-      def my_times
+    def times x
         i = 0
-        until i == self
+        until i == x
           yield i
           i += 1
         end
       end
     end
-    
 
 # to `each` his own
 
@@ -43,12 +41,12 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # warning: each returns the *collection*, not the *value*
 
-    def count_chars strings
+    def count_chars a
       c = 0
-      strings.each do |s|
-        c += s.length
-      end
-      c
+      a.each do |s|
+        c += s.length   # this returns c
+      end               # but this returns a
+      c                 # so this returns c (again)
     end
 
     count_chars ["apple", "banana", "cherry"]
@@ -57,13 +55,11 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 # implementing `each` using `until`
 
     @@@ruby
-    class Array
-      def my_each
-        i = 0
-        until i == size
-          yield self[i]
-          i += 1
-        end
+    def each a
+      i = 0
+      until i == a.size
+        yield a[i]
+        i += 1
       end
     end
 
@@ -77,14 +73,12 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 # implementing `map` using `each`
 
     @@@ruby
-    class Array
-      def my_map
-        a = []
-        each do |item|
-          a << yield(item)
-        end
-        a
+    def map h
+      a = []
+      h.each do |item|
+        a << yield(item)
       end
+      a
     end
 
 # Other Awesome Iterators
@@ -121,4 +115,8 @@ Ref. [Using Select Etc.](http://matthewcarriere.com/2008/06/23/using-select-reje
       [1,2,3].sum #=> 6
 
 * To help understand this, write out a table with the values of t, n, and the return value for each iteration.
+
+# more help
+
+<http://fablednet.posterous.com/thinking-about-iterators>
 

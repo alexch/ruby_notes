@@ -22,13 +22,13 @@ This section is intended as a brief, lightweight overview of the Ruby language; 
 
 Q: Did you have a guiding philosophy when designing Ruby?
 
-A: Yes, it's called the "principle of least surprise." 
+A: Yes, it's called the "principle of least surprise."
 
-I believe people want to express themselves when they program. 
+I believe people want to express themselves when they program.
 
-They don't want to fight with the language. 
+They don't want to fight with the language.
 
-Programming languages must feel natural to programmers. 
+Programming languages must feel natural to programmers.
 
 I tried to make people enjoy programming and concentrate on the fun and creative part of programming when they use Ruby.
 
@@ -49,16 +49,9 @@ I tried to make people enjoy programming and concentrate on the fun and creative
 
 * Ruby 1.0 released in 1996
   * Fully Open Source
-* Many implementations
-  * MRI
-    * REE
-    * Kiji
-  * JRuby
-  * Rubinius
-  * MagLev
-  * MacRuby
-  * IronRuby
-  
+
+![many rubies](rubies.png)
+
 # Versions common today
 
 * MRI 1.8.7
@@ -90,13 +83,13 @@ Please fire up `irb` on your computer and try this out right now!
     @@@ ruby
     >> 2 + 2
     => 4
-    
+
     >> (2+2).zero?
     => false
-    
+
     >> "foo" if false
     => nil
-    
+
     >> puts "foo"
     foo
     => nil
@@ -114,26 +107,27 @@ These are equivalent:
       x + 1
     end
 
-    def inc(x) x + 1; end
 
     def inc(x); x + 1; end
 
     def inc(x) x + 1; end
-    
+
+
+
 # Line Break Gotcha
 
     @@@ ruby
     x = 1 + 2
     x #=> 3
-    
+
     x = 1
-      + 2      
+      + 2
     x #=> 1
 
 Solution: always put operators on top line
 
     x = 1 +
-        2      
+        2
     x #=> 3
 
 # Use parens when you need them
@@ -235,7 +229,7 @@ Ruby has a syntax for multiline comments too, but it's silly and nobody uses it.
         a + b
       end
     end
-    
+
     calc = Calculator.new
     calc.add(2, 2)
     #=> 4
@@ -305,5 +299,5 @@ constants are in `ALL_CAPS`
 
 * "Ruby Intro" slides based on [Ruby Quickstart for Refugees](https://gist.github.com/190567) by [Jacob Rothstein](http://about.me/jbr)
 * Improved by Alex Chaffee, Sarah Allen, Wolfram Arnold
-  
-  
+
+

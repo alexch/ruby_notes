@@ -27,9 +27,9 @@ Note: Following WGR's lead, in this section we define methods on instances (not 
 # Creating an object
 
     @@@ ruby
-    thing = Object.new
+    cookie = Object.new
 
-* now `thing` refers to an object *instance*
+* now `cookie` refers to an object *instance*
   * unique storage location in memory
   * *instance data* stored in that location
 
@@ -92,88 +92,7 @@ Ref. WGR Ch.2, Section 2.3.1
 * Now the instance containing "apple" is *unreferenced*
 * So it can (and eventually will) be *garbage collected*
 
----
-
-# Defining behavior
-
-    @@@ ruby
-    def thing.talk
-      puts "I'm a thing"
-    end
-    
-* talk is a *method*
-  * aka function, procedure, subroutine
-* `def thing.` ("def thing dot") means "define a method *on* thing"
-
-# Invoking behavior
-
-Behavior comes from *messages* and *methods*.
-
-    @@@ ruby
-    thing.talk
-
-prints `I'm a thing` to the console
-
-* the object `thing` receives the message `talk` and executes the method `talk`
-* dot (`.`) is the *message operator*
-
-# Why sending messages?
-
-## Rather than calling functions?
-
-* A function call (in compiled languages) is guaranteed to be made
-* A message may or may not be received
-
-!SLIDE
-# Method Definition Schematic
-![method definition](method_definition.png)
-
-Ref. _The Well-Grounded Rubyist_ PDF, Fig. 2.1
-
-# The `methods` method
-
-    @@@ ruby
-    >> thing.methods
-    => [:greet, :eat, :to_fahrenheit, :nil?, ...]
-    >> thing.methods(false)
-    => [:greet, :eat, :to_fahrenheit]
-
-also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
-
-    >> thing = Object.new
-    => #<Object:0x007f86e485c3a8>
-    >> thing.methods(false)
-    => []
-    >> def thing.talk; puts "hi"; end
-    => nil
-    >> thing.methods(false)
-    => [:talk]
-
-    >> "goo".methods.grep(/sub/)
-    => [:sub, :gsub, :sub!, :gsub!]
-    
-# The `respond_to?` method
-
-    @@@ ruby
-    if thing.respond_to? :talk
-      thing.talk
-    else
-      puts "thing is mute"
-    end
-
-# Sending a message by name
-
-    @@@ ruby
-    >> thing.age
-    => 16
-    >> thing.send(:age)
-    => 16
-    >> property = "age"
-    => "age"
-    >> thing.send(property)
-    => 16
-
-# References and side effects
+# Side effects
 
 * a variable is a *reference* to an *instance* (persistent location in memory)
 * if you have several references to the same instance, odd things can happen
@@ -185,18 +104,109 @@ also useful: `thing.methods.sort`, `thing.methods.grep(/age/)`
         teacher
         => "ALICE"
 
+!SLIDE subsection
+# Behavior
+
+# Defining methods
+
+    @@@ ruby
+    cookie = Object.new
+    
+    def cookie.talk
+      puts "I'm a cookie"
+    end
+    
+* talk is a *method*
+  * aka function, procedure, subroutine
+* `def cookie.` ("def cookie dot") means "define a method *on* cookie"
+
+# Invoking methods
+
+Behavior comes from *messages* and *methods*.
+
+    @@@ ruby
+    cookie.talk
+
+prints `I'm a cookie` to the console
+
+* the object `cookie` receives the message `talk` and executes the method `talk`
+* dot (`.`) is the *message operator*
+
+!SLIDE
+# Method Definition Schematic
+![method definition](method_definition.png)
+
+Ref. _The Well-Grounded Rubyist_ PDF, Fig. 2.1
+
+# The `methods` method
+
+    @@@ ruby
+    >> cookie.methods
+    => [:greet, :eat, :to_fahrenheit, :nil?, ...]
+    >> cookie.methods(false)
+    => [:greet, :eat, :to_fahrenheit]
+
+also useful: `cookie.methods.sort`, `cookie.methods.grep(/age/)`
+
+    >> cookie = Object.new
+    => #<Object:0x007f86e485c3a8>
+    >> cookie.methods(false)
+    => []
+    >> def cookie.talk; puts "hi"; end
+    => nil
+    >> cookie.methods(false)
+    => [:talk]
+
+    >> "goo".methods.grep(/sub/)
+    => [:sub, :gsub, :sub!, :gsub!]
+    
+# The `respond_to?` method
+
+    @@@ ruby
+    if cookie.respond_to? :talk
+      cookie.talk
+    else
+      puts "cookie is mute"
+    end
+
+# Sending a message by name
+
+    @@@ ruby
+    # equivalent:
+    cookie.talk
+    cookie.send(:talk)
+    method_name = "talk"
+    cookie.send(talk)
+
+!SLIDE subsection
+# State
+
+# Instance variables are stored in the object
+
+    def cookie.chips=(num_chips)
+      @chips = num_chips
+    end
+
+    def cookie.yummy?
+      @chips > 100
+    end
+
+    cookie.chips = 500
+    cookie.yummy?   #=> true
+
+
 # Duping and freezing and cloning
 
 * `dup` makes a copy of the object's data, so you can change it without affecting the original
 * `freeze` makes it so when you try to modify an object, it raises an exception instead
 * `clone` is like `dup`, but cloning a frozen object freezes the new clone too
-  * also it copies the singleton methods
+  * also `clone` copies the singleton methods
   
-          >> thing.methods(false)
+          >> cookie.methods(false)
           => [:talk, :yell]
-          >> thing.clone.methods(false)
+          >> cookie.clone.methods(false)
           => [:talk, :yell]
-          >> thing.dup.methods(false)
+          >> cookie.dup.methods(false)
           => []
 
 

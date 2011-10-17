@@ -123,3 +123,9 @@ or
 
     <http://github.com/alexch/dotfiles>
     
+# git
+
+![Git CheatSheet](https://github.com/nerdgirl/git-cheatsheet-visual/raw/master/gitcheatsheet.png)
+
+* <https://github.com/nerdgirl/git-cheatsheet-visual>
+    

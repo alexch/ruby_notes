@@ -68,14 +68,24 @@ Conceived by Sarah Allen and Alex Chaffee
 
 # Let's get started
 
+Install Ruby, then open a terminal window and type this:
+
     git clone https://github.com/alexch/learn_ruby.git
 
     cd learn_ruby
 
     open index.html in browser
 
-# The most important thing
+# Very Important!
 
 ## READ THE ERROR
 
 This is actually very difficult to do, and very easy to miss.
+
+## Make your console window REALLY TALL
+
+## When you get an error, SCROLL UP and read down STARTING from where YOU HIT RETURN
+
+
+
+

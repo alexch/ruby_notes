@@ -33,10 +33,10 @@ Schematically:
     @@@ ruby
     class BasicObject
     end
-    class Object
+    class Object < BasicObject
       include Kernel
     end
-    class String
+    class String < Object
       include Comparable
     end
 

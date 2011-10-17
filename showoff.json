@@ -7,10 +7,12 @@
     "credits.md",
 
     "ruby-intro.md",
-    
-    "ruby-basics/more_neat_things.md",
+
     "ruby-basics/tools.md",
+
     "ruby-basics/rspec.md",
+
+    "ruby-basics/more_neat_things.md",
 
     "ruby-basics/functions.md",
 
@@ -36,33 +38,34 @@
     "ruby-basics/collections.md",
     "ruby-basics/arrays.md",
     /* todo: lab on arrays */
-    
+
     "ruby-basics/ranges.md",
     "ruby-basics/hashes.md",
 
     /* todo: lab on hashes */
-    
+
     "ruby-basics/blocks.md",
-    
+
     "# Lab: Blocks, Performance Monitor",
-    
+
     "ruby-basics/iterators.md",
+
+    "ruby-basics/block_scope.md",
 
 
     "ruby-basics/regexp.md",
 
-    
+    "ruby-objects/waka-waka.md",
+
     /* day two */
 
     "ruby-objects/objects.md",
     "ruby-objects/classes.md",
 
     "# Labs:\n* Hello Friend\n* Temperature Object\n* Book Titles\n* Timer\n* Dictionary\n",
-    
-    "ruby-objects/waka-waka.md",
 
     "# Lab:\n* RPN Calculator",
-    
+
     "ruby-objects/class_inheritance.md",
     "ruby-objects/dispatch.md",
 
@@ -81,7 +84,7 @@
 
     "ruby-basics/exceptions.md",
     /* todo: exception exercise */
-    
+
     "ruby-advanced/more_blocks.md",
     "ruby-basics/enumerators_advanced.md",
     "ruby-objects/classes_as_objects.md"

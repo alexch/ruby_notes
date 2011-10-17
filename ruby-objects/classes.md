@@ -25,14 +25,14 @@ Think of objects as *things* that can be *described* and can *do* things, or...
 
 * To *instantiate* an object, call the *new* method on its class
 
-    @@@ ruby
-    class Thing
-      def initialize
-        puts "Hi!"
-      end
-    end
+        @@@ ruby
+        class Thing
+          def initialize
+            puts "Hi!"
+          end
+        end
 
-    thing = Thing.new  # *not* Thing.initialize!
+        thing = Thing.new  # *not* Thing.initialize!
 
 # What does `new` do?
 
