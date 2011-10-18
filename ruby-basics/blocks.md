@@ -13,14 +13,14 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 * Anywhere you see "do" in Ruby, it's the start of a *block*
 
         @@@ruby
-        3.times do 
+        3.times do
           puts "Hip! Hip! Hooray!"
         end
 
 * Blocks can also be wrapped in curly braces
 
         @@@ruby
-        3.times { puts "Hip! Hip! Hooray!" } 
+        3.times { puts "Hip! Hip! Hooray!" }
 
 * By convention, braces are for a single line, do...end for multiple lines
 
@@ -46,7 +46,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
         def foo
           yield
         end
-    
+
         foo do
           puts "hi"
         end
@@ -89,6 +89,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
         yield array[i]
         i += 1
       end
+      array
     end
 
     a = ["alice", "bob", "charlie"]
@@ -110,8 +111,9 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
         block.call(array[i])
         i += 1
       end
+      array
     end
-    
+
     a = ["alice", "bob", "charlie"]
     for_each(a) do |item|
       puts "hi, #{item}"

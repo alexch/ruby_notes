@@ -27,9 +27,9 @@ Note: Following WGR's lead, in this section we define methods on instances (not 
 # Creating an object
 
     @@@ ruby
-    cookie = Object.new
+    thing = Object.new
 
-* now `cookie` refers to an object *instance*
+* now `thing` refers to an object *instance*
   * unique storage location in memory
   * *instance data* stored in that location
 
@@ -53,7 +53,7 @@ Note: Following WGR's lead, in this section we define methods on instances (not 
 # Literals create instances
 
     @@@ ruby
-    fruit = "apple"        
+    fruit = "apple"
     dessert = "apple"
 
 * `fruit` refers to a new object *instance*
@@ -62,7 +62,7 @@ Note: Following WGR's lead, in this section we define methods on instances (not 
 # References are independent of instances
 
     @@@ ruby
-    fruit = "apple"        
+    fruit = "apple"
     dessert = fruit
     fruit = "banana"
     dessert = fruit
@@ -74,21 +74,21 @@ What are the values of `fruit` and `dessert` after each line?
 How can you tell if two references point to the same instance?
 
     @@@ ruby
-    fruit = "apple"        
+    fruit = "apple"
     dessert = "apple"
     >> fruit.object_id
     => 2165091560
     >> dessert.object_id
     => 2165084200
-    
+
 Ref. WGR Ch.2, Section 2.3.1
 
 # Garbage Collection
 
     @@@ ruby
-    fruit = "apple"        
+    fruit = "apple"
     fruit = "banana"
-    
+
 * Now the instance containing "apple" is *unreferenced*
 * So it can (and eventually will) be *garbage collected*
 
@@ -111,12 +111,12 @@ Ref. WGR Ch.2, Section 2.3.1
 
     @@@ ruby
     cookie = Object.new
-    
-    def cookie.talk
-      puts "I'm a cookie"
+
+    def cookie.bake
+      puts "the oven is nice and warm"
     end
-    
-* talk is a *method*
+
+* bake is a *method*
   * aka function, procedure, subroutine
 * `def cookie.` ("def cookie dot") means "define a method *on* cookie"
 
@@ -125,11 +125,11 @@ Ref. WGR Ch.2, Section 2.3.1
 Behavior comes from *messages* and *methods*.
 
     @@@ ruby
-    cookie.talk
+    cookie.bake
 
 prints `I'm a cookie` to the console
 
-* the object `cookie` receives the message `talk` and executes the method `talk`
+* the object `cookie` receives the message `bake` and executes the method `bake`
 * dot (`.`) is the *message operator*
 
 !SLIDE
@@ -142,9 +142,9 @@ Ref. _The Well-Grounded Rubyist_ PDF, Fig. 2.1
 
     @@@ ruby
     >> cookie.methods
-    => [:greet, :eat, :to_fahrenheit, :nil?, ...]
+    => [:nil?, :===, :=~, :!~, :eql?, ...]
     >> cookie.methods(false)
-    => [:greet, :eat, :to_fahrenheit]
+    => [:bake]
 
 also useful: `cookie.methods.sort`, `cookie.methods.grep(/age/)`
 
@@ -152,31 +152,31 @@ also useful: `cookie.methods.sort`, `cookie.methods.grep(/age/)`
     => #<Object:0x007f86e485c3a8>
     >> cookie.methods(false)
     => []
-    >> def cookie.talk; puts "hi"; end
+    >> def cookie.bake; puts "hi"; end
     => nil
     >> cookie.methods(false)
-    => [:talk]
+    => [:bake]
 
     >> "goo".methods.grep(/sub/)
     => [:sub, :gsub, :sub!, :gsub!]
-    
+
 # The `respond_to?` method
 
     @@@ ruby
-    if cookie.respond_to? :talk
-      cookie.talk
+    if cookie.respond_to? :bake
+      cookie.bake
     else
-      puts "cookie is mute"
+      puts "cookie is unbakable"
     end
 
 # Sending a message by name
 
     @@@ ruby
     # equivalent:
-    cookie.talk
-    cookie.send(:talk)
-    method_name = "talk"
-    cookie.send(talk)
+    cookie.bake
+    cookie.send(:bake)
+    method_name = "bake"
+    cookie.send(method_name)
 
 !SLIDE subsection
 # State
@@ -201,11 +201,11 @@ also useful: `cookie.methods.sort`, `cookie.methods.grep(/age/)`
 * `freeze` makes it so when you try to modify an object, it raises an exception instead
 * `clone` is like `dup`, but cloning a frozen object freezes the new clone too
   * also `clone` copies the singleton methods
-  
+
           >> cookie.methods(false)
-          => [:talk, :yell]
+          => [:bake, :yell]
           >> cookie.clone.methods(false)
-          => [:talk, :yell]
+          => [:bake, :yell]
           >> cookie.dup.methods(false)
           => []
 

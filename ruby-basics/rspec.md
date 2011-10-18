@@ -69,6 +69,9 @@
       it "counts data" do
         Counter.new(@data).count.should == 4
       end
+      it "adds data too" do
+        Counter.new(@data).sum.should == 6
+      end
     end
 
 * `before` blocks will be executed before *each* of the specs in that `describe` block

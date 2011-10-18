@@ -3,12 +3,13 @@
 
     @@@ ruby
     class Fixnum
-      def even?
-        self % 2 == 0
+      def divisible_by? n
+        self % n == 0
       end
     end
 
-    1.even? #=> false
+    4.divisible_by? 2 #=> true
+    4.divisible_by? 3 #=> false
 
 # Reopening classes
 
@@ -21,7 +22,7 @@
             @last_name
           end
         end
-        
+
         class Student
           def first_name
             @first_name

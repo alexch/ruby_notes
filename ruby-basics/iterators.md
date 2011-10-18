@@ -1,6 +1,6 @@
 <!SLIDE subsection>
-# Iterators 
- 
+# Iterators
+
 Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # Loops as Methods
@@ -61,6 +61,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
         yield a[i]
         i += 1
       end
+      a
     end
 
 # the `map` is not the territory
@@ -73,9 +74,9 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 # implementing `map` using `each`
 
     @@@ruby
-    def map h
+    def map input
       a = []
-      h.each do |item|
+      input.each do |item|
         a << yield(item)
       end
       a
@@ -111,7 +112,7 @@ Ref. [Using Select Etc.](http://matthewcarriere.com/2008/06/23/using-select-reje
           inject(0) {|t,n| t + n}
         end
       end
-      
+
       [1,2,3].sum #=> 6
 
 * To help understand this, write out a table with the values of t, n, and the return value for each iteration.
