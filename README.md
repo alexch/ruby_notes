@@ -19,7 +19,7 @@ Alex has been improving showoff; until his latest patches get accepted and relea
     
 After installing, run
 
-    showoff serve
+    showoff serve 
 
 This will launch a local Sinatra server on port 9090. Open your browser to `localhost:9090`. On a Mac you can run:
 

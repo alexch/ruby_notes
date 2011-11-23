@@ -5,8 +5,6 @@
 
 This section is intended as a brief, lightweight overview of the Ruby language; following sections will cover all these topics in much more detail. Students are encouraged to ask questions, but instructors are encouraged to answer, "We'll cover that later."
 
-!SLIDE
-
 # Ruby vs. Rails
 
 ## Ruby is a Language
@@ -34,7 +32,6 @@ I tried to make people enjoy programming and concentrate on the fun and creative
 
 &nbsp;&nbsp;- [Matz](http://linuxdevcenter.com/pub/a/linux/2001/11/29/ruby.html) (Yukihiro Matsumoto), Ruby creator
 
-!SLIDE incremental
 # Ruby Philosophy, Applied
 
 * Ruby has a *humane interface*
@@ -86,6 +83,9 @@ Please fire up `irb` on your computer and try this out right now!
 
     >> (2+2).zero?
     => false
+
+    >> "foo" if true
+    => "foo"
 
     >> "foo" if false
     => nil

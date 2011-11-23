@@ -1,9 +1,9 @@
 {
   "name": "Ruby For Programmers",
-  "description": "a four-night introduction to the Ruby programming language",
+  "description": "a two-day introduction to the Ruby programming language",
   "sections": [
     "000_setup.md",
-    "night_class.md",
+    "current_class.md",
     "credits.md",
 
     "ruby-intro.md",
