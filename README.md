@@ -12,18 +12,22 @@ We use a Ruby app called `showoff` to generate and serve the slides.
 
 Alex has been improving showoff; until his latest patches get accepted and released, you will have to download and install his version, as follows:
 
-    git clone git://github.com/alexch/showoff.git
-    cd showoff
-    bundle install --without optional
-    rake gem:install
+    gem uninstall -a showoff  # if this fails with "cannot uninstall", don't worry and just continue
+    gem install showoff-alexch
     
 After installing, run
 
-    showoff serve 
+    showoff serve --split
 
-This will launch a local Sinatra server on port 9090. Open your browser to `localhost:9090`. On a Mac you can run:
+This will launch a local Sinatra server on port 9090. Open your browser to `localhost:9090`. 
+
+On a Mac you can run:
 
     open http://localhost:9090
+
+On Windows I think you can run:
+
+    start http://localhost:9090
 
 Use arrow keys to navigate slides. Press '?' to see a help window.
 
