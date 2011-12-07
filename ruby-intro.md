@@ -221,6 +221,12 @@ Ruby has a syntax for multiline comments too, but it's silly and nobody uses it.
 * Note: no 'return' required
 * `def add(a, b)` is also legal
 
+# Interlude
+
+Are you sick of hearing me speak?
+
+If so, do a lab: 01_temperature is right up your alley.
+
 # Classes and methods
 
     @@@ ruby

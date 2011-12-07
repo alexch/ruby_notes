@@ -124,7 +124,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 turns a proc into a default block
 
     p = proc {|w|w.capitalize}
-    s.split.map(&proc).join
+    s.split.map(&p).join
 
 # `&` vs. `yield`
 
@@ -135,7 +135,7 @@ Which is less confusing, `&` or `yield`?
     end
 
     def reverser
-      yield.call.reverse
+      yield.reverse
     end
 
 

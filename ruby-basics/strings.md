@@ -141,7 +141,7 @@ anything can go in there, including operators and quotes
   * or you can pass in a delimiter
 * `join` turns an array into a string
     
-# Digression: A Ruby Idiom    
+# Chaining: A Ruby Idiom    
 
     @@@ ruby
     s.split.map{|w|w.capitalize}.join(' ')

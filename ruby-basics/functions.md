@@ -34,11 +34,11 @@ In Ruby, every expression evaluates to some value
 # Arguments vs. Parameters
 
     @@@ ruby
-    def thing.to_fahrenheit(celcius)
+    def to_fahrenheit(celcius)
       celcius * 9.0 / 5 + 32
     end
     boiling = 100
-    thing.to_fahrenheit(boiling)
+    to_fahrenheit(boiling)
 
 * Technically speaking, *arguments* are passed and *parameters* are declared
 * Note that the variable names don't have to match!
@@ -48,13 +48,13 @@ In Ruby, every expression evaluates to some value
 # Splat arguments
 
     @@@ ruby
-    def thing.greet(greeting, *names)
+    def greet(greeting, *names)
       names.each do |name|
         puts "#{greeting}, #{name}!"
       end
     end
 
-    >> thing.greet("Hello", "Alice", "Bob", "Charlie")
+    >> greet("Hello", "Alice", "Bob", "Charlie")
     Hello, Alice!
     Hello, Bob!
     Hello, Charlie!
@@ -62,14 +62,14 @@ In Ruby, every expression evaluates to some value
 # Default values
 
     @@@ ruby
-    def thing.eat(food = "chicken")
+    def eat(food = "chicken")
       puts "Yum, #{food}!"
     end
 
-    >> thing.eat
+    >> eat
     Yum, chicken!
 
-    >> thing.eat "arugula"
+    >> eat "arugula"
     Yum, arugula!
 
 # The default hash parameter

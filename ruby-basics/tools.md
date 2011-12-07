@@ -29,6 +29,10 @@ Ref: WGR Chapter 1. Bootstrapping your Ruby literacy
 
 or
 
+    alias irb="irb --simple-prompt"
+
+or
+
     echo "IRB.conf[:PROMPT_MODE] = :SIMPLE" >> ~/.irbrc
 
 # ri and rdoc
