@@ -45,16 +45,16 @@ Three dots: exclusive
 * Ranges are primarily used for 
   * looping
   
-        @@@ruby
-        (1..10).each do |i|
-          puts "#{i} mississippi"
-        end
+            @@@ruby
+            (1..10).each do |i|
+              puts "#{i} mississippi"
+            end
 
   * string or array indexing
 
-        @@@ruby
-        >> "my bologna has a first name"[3..10]
-        => "bologna "
+            @@@ruby
+            >> "my bologna has a first name"[3..10]
+            => "bologna "
 
 # Range methods
 

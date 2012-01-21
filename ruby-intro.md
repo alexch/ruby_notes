@@ -282,7 +282,7 @@ constants are in `ALL_CAPS`
 * `ClassName` - capitalized camel case
 * `method_name?` - like a local variable, but can end with `?` or `!` or `=`
 * keywords - about 40 reserved words (`def`) and weirdos (`__FILE__`)
-* literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=2}` for hashes, etc.
+* literals - `"hi"` for strings, `[1,2]` for arrays, `{:a=>1, :b=>2}` for hashes, etc.
 
 # Variable Scopes
 

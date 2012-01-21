@@ -202,11 +202,12 @@ also useful: `cookie.methods.sort`, `cookie.methods.grep(/age/)`
 * `clone` is like `dup`, but cloning a frozen object freezes the new clone too
   * also `clone` copies the singleton methods
 
-          >> cookie.methods(false)
-          => [:bake, :yell]
-          >> cookie.clone.methods(false)
-          => [:bake, :yell]
-          >> cookie.dup.methods(false)
-          => []
+              @@@ruby          
+              >> cookie.methods(false)
+              => [:bake, :yell]
+              >> cookie.clone.methods(false)
+              => [:bake, :yell]
+              >> cookie.dup.methods(false)
+              => []
 
 

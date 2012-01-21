@@ -102,17 +102,17 @@ is the same as
 <!SLIDE >
 # Attribute Shortcuts
 
-        @@@ ruby
-        class Thing
-          attr_reader :age    #  def age; @age; end
-          attr_writer :age    #  def age=(x); @age = x; end
-          attr_accessor :age  # both of the above
-        end
-        
-        # works kind of like this
-        def Class.attr_reader name
-          eval("def #{name}; @#{name}; end")
-        end
+    @@@ ruby
+    class Thing
+      attr_reader :age    #  def age; @age; end
+      attr_writer :age    #  def age=(x); @age = x; end
+      attr_accessor :age  # both of the above
+    end
+
+    # works kind of like this
+    def Class.attr_reader name
+      eval("def #{name}; @#{name}; end")
+    end
         
 # Constructor plus Attributes
 

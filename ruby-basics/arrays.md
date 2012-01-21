@@ -10,8 +10,8 @@ Ref. WGR Chapter 9, Section 9.2, Collection handling with arrays
 * zero-indexed
 * can be defined *literally* (inline) e.g.
 
-      @@@ ruby
-      fruits = ["apple", "banana"]
+        @@@ ruby
+        fruits = ["apple", "banana"]
 
 !SLIDE
 

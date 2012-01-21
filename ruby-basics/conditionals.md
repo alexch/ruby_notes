@@ -174,10 +174,10 @@ and assuming `x` is a number, `!x` will always be `false`
   * it still looks funny
   * it can be useful, e.g.
 
-        @@@ ruby
-        if (last_name = name.split.last)
-          puts last_name
-        end
+            @@@ ruby
+            if (last_name = name.split.last)
+              puts last_name
+            end
 
 # `case`
 
@@ -198,15 +198,15 @@ and assuming `x` is a number, `!x` will always be `false`
 * it's normally the same as `==` but can be overridden
   * e.g. for Class, `===` also means `is_a?`, so you can do
 
-        @@@ ruby
-        case input
-        when Fixnum
-          input
-        when String
-          input.to_i
-        when Array
-          input.first.to_i
-        end
+            @@@ ruby
+            case input
+            when Fixnum
+              input
+            when String
+              input.to_i
+            when Array
+              input.first.to_i
+            end
 
 # threequal transitivity gotcha
 

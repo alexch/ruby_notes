@@ -155,6 +155,7 @@ What do you do when you don't know what to do?
 * operators like `+`, `*`, `<<`, etc. are defined as methods
 * they can be overridden like any method
 * `String` has some great ones
+
         "abc" * 3           #=> "abcabcabc"
         "abc" << "def"      #=> "abcdef"
         "%d live crew" % 2  #=> "2 live crew"

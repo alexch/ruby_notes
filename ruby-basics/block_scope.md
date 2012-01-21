@@ -44,6 +44,6 @@
 * `name` is a parameter of the *block*
 * `s` is a parameter of `twice`
 
-Q: Which ones are available inside the block?
+Q: Which variables are available inside the block?
 
 
