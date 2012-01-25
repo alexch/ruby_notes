@@ -127,7 +127,6 @@ is the same as
     alice = Person.new
     alice.age #=> 20
 
-
 <!SLIDE >
 # Attribute Shortcuts (cont.)
 * Can also take multiple arguments
@@ -151,6 +150,17 @@ is the same as
 * Sadly, `attr_accessor` is misnamed
 * "accessor" means `reader`, but `attr_accessor` makes a reader *and* a writer
 * Should have been called just `attribute`
+
+# Lazy Initialization with Or-Equals
+
+```
+@@@ruby
+class Cookie
+  def chips
+    @chips ||= 10
+  end
+end
+```
 
 # Query methods
 
