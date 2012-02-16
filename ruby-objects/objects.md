@@ -7,16 +7,60 @@ Ref: WGR Chapter 2. Objects, methods, and local variables
 
 Note: Following WGR's lead, in this section we define methods on instances (not on classes), to keep the lessons simple.
 
+# What is an object?
+
 <!SLIDE incremental>
 # What is an object?
 
 * An object encapsulates state and behavior.
 
-* *encapsulate* - put like things together; keep unlike things apart
+  * *encapsulate* - put like things together; keep unlike things apart
 
-* *state* - data, variables, properties, attributes, constants
+  * *state* - data, variables, properties, attributes, constants
 
-* *behavior* - methods
+  * *behavior* - methods
+  
+
+# The CPU is a Honey Badger
+
+<!SLIDE>
+<img src="honeybadger.jpg" width="720" height="538">
+
+# Honey Badger Don't Care
+
+![honey badger don't care](honeybadger.jpg)
+
+* To a computer, it's all ones and zeros
+* Abstractions make your code make sense to *humans*
+
+<!SLIDE incremental>
+# Tiers of Abstraction
+
+* Variables
+  * give your data a name
+* Functions
+  * input, output, local variables
+* Closures
+  * functions plus scope
+* Objects
+  * encapsulation
+  * gives several functions a common state
+* Classes
+  * a class is a category
+  * so you don't have to keep adding the same methods onto similar objects
+
+<!SLIDE incremental>
+# The Linugistic Metaphor for Objects
+
+One way to think about objects: 
+
+Objects are *things* that can be *described* and can *do* things, or...
+
+  * Objects are nouns
+  * Methods are verbs
+  * Attributes are adjectives
+  * Classes are categories
+
 
 # Objects vs. classes
 
@@ -27,9 +71,9 @@ Note: Following WGR's lead, in this section we define methods on instances (not 
 # Creating an object
 
     @@@ ruby
-    thing = Object.new
+    cookie = Object.new
 
-* now `thing` refers to an object *instance*
+* now `cookie` refers to an object *instance*
   * unique storage location in memory
   * *instance data* stored in that location
 
@@ -44,11 +88,15 @@ Note: Following WGR's lead, in this section we define methods on instances (not 
 # References and Instances
 
 * Imagine computer memory with two compartments: *references* and *instances*
-  * also known as "the stack" and "the heap"
+  * also known as "the stack" (or "the scope") and "the heap"
 * References include *parameters* and *local variables*
 * Instances contain the "real" data
 * Each reference points at the location of an instance
   * every reference is the same size (just 32 bits, or maybe 64 bits)
+
+| Stack |     | Heap    |
+| ----- | --- | -----   |
+| fruit | ->  | "apple" |
 
 # Literals create instances
 
@@ -58,6 +106,11 @@ Note: Following WGR's lead, in this section we define methods on instances (not 
 
 * `fruit` refers to a new object *instance*
 * `dessert` refers to a *different*, new object instance
+
+| Stack |     | Heap  |
+| ----- | --- | ----- |
+| fruit | ->  | "apple" |
+| dessert | ->  | "apple" |
 
 # References are independent of instances
 
@@ -168,22 +221,15 @@ also useful: `cookie.methods.sort`, `cookie.methods.grep(/age/)`
     else
       puts "cookie is unbakable"
     end
-
-# Sending a message by name
-
-    @@@ ruby
-    # equivalent:
-    cookie.bake
-    cookie.send(:bake)
-    method_name = "bake"
-    cookie.send(method_name)
+    
+Note: Usually you don't use `respond_to` because of *duck typing*.
 
 !SLIDE subsection
 # State
 
 # Instance variables are stored in the object
 
-    def cookie.chips=(num_chips)
+    def cookie.add_chips(num_chips)
       @chips = num_chips
     end
 
@@ -191,23 +237,5 @@ also useful: `cookie.methods.sort`, `cookie.methods.grep(/age/)`
       @chips > 100
     end
 
-    cookie.chips = 500
+    cookie.add_chips(500)
     cookie.yummy?   #=> true
-
-
-# Duping and freezing and cloning
-
-* `dup` makes a copy of the object's data, so you can change it without affecting the original
-* `freeze` makes it so when you try to modify an object, it raises an exception instead
-* `clone` is like `dup`, but cloning a frozen object freezes the new clone too
-  * also `clone` copies the singleton methods
-
-              @@@ruby          
-              >> cookie.methods(false)
-              => [:bake, :yell]
-              >> cookie.clone.methods(false)
-              => [:bake, :yell]
-              >> cookie.dup.methods(false)
-              => []
-
-

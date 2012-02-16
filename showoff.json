@@ -63,6 +63,8 @@
 
     "# Labs:\n* Hello Friend\n* Temperature Object\n* Book Titles\n* Timer\n* Dictionary\n",
 
+    "ruby-objects/reopening_classes.md",
+
     "# Lab:\n* RPN Calculator",
 
     "ruby-objects/class_inheritance.md",
@@ -72,7 +74,6 @@
 
     "ruby-objects/class_methods.md",
 
-    "ruby-objects/reopening_classes.md",
     "# Labs:\n* Array Extensions\n* In Words\n",
 
 

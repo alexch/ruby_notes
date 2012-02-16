@@ -12,15 +12,6 @@ Ref. WGR Chapter 3, Organizing objects with classes
 * state is frosting
 * users are hungry!
 
-<!SLIDE incremental>
-# The Linugistic Metaphor
-
-Think of objects as *things* that can be *described* and can *do* things, or...
-
-  * Objects are nouns
-  * Methods are verbs
-  * Attributes are adjectives
-
 # Constructors
 
 * To *instantiate* an object, call the *new* method on its class
@@ -40,6 +31,8 @@ Think of objects as *things* that can be *described* and can *do* things, or...
 2. calls *initialize* on the new instance
 3. returns a pointer to the instance
 
+So by the time assignment (`=`) happens, the object has been constructed.
+
 # Instance methods
 
 * defined inside the class
@@ -53,7 +46,6 @@ Think of objects as *things* that can be *described* and can *do* things, or...
 * only visible inside the object
   * i.e. when `self` is that object
 
-<!SLIDE >
 # Getter and setter methods
 
     @@@ ruby
@@ -67,39 +59,68 @@ Think of objects as *things* that can be *described* and can *do* things, or...
     end
 
     alice = Person.new
-    alice.age = 17
+    alice.age= 17
     alice.age #=> 17
+
     alice.@age #=> SyntaxError
 
-<!SLIDE >
-# Setter sugar
-
-`alice.age=(17)`
-
-is the same as
+# Ruby's setter sugar
 
 `alice.age = 17`
 
-* Technically, it's not an assignment, it's a method call
-* But it looks like an assignment!
+is the same as
 
-<!SLIDE >
+`alice.age=(17)`
+
+* Technically, it's not an assignment, it's a method call
+* ...but it looks like an assignment!
+  * that's called "syntactic sugar" since it makes the syntax sweeter
+
 # The setter gotcha
 
 * Inside an object, you can't call that object's setter methods directly
+
+```
+@@@ruby
+class Person
+  def age=(years_old)
+    @age = years_old
+  end
+  def bar_mitzvah!
+    age = 13   # oops
+  end
+end
+```
+
 * Why not?
-  * Because "`age = 2`" looks like a *local variable* assignment, which takes precedence
+  * Because "`age = 13`" looks like a *local variable* assignment, which takes precedence
   * It _eclipses_ the setter method!
   * Syntax ambiguity! Oh noes!
-* Solution: use "`self.age = 2`"
 
-<!SLIDE >
+# The setter gotcha solved
+
+* Solution: use "`self.age`"
+  * that forces it to be a method call
+* or `@age`
+  * that's a direct instance variable reference
+
+```
+@@@ruby
+class Person
+  def age=(years_old)
+    @age = years_old
+  end
+  def bar_mitzvah!
+    self.age = 13
+  end
+end
+```
+
 # Attributes
 
 * An *attribute* is a property with named getter and/or setter methods
 * Usually corresponds to an instance variable
 
-<!SLIDE >
 # Attribute Shortcuts
 
     @@@ ruby
@@ -127,7 +148,6 @@ is the same as
     alice = Person.new
     alice.age #=> 20
 
-<!SLIDE >
 # Attribute Shortcuts (cont.)
 * Can also take multiple arguments
 
@@ -136,7 +156,6 @@ is the same as
           attr_accessor :foo, :bar
         end
 
-<!SLIDE >
 # Attribute Shortcuts (cont.)
         
 * Wait a second!
@@ -144,7 +163,6 @@ is the same as
 * A: They are *class methods* of `Object`
 * A: Or maybe they're *instance methods* of `Class`; I'm not sure.
 
-<!SLIDE >
 # Attribute Shortcuts (cont.)
         
 * Sadly, `attr_accessor` is misnamed
@@ -200,7 +218,7 @@ Note: query methods return a boolean by *convention* only
   * `.equal?` params are identical (same `object_id`)
 * `==` is what you want, unless you know otherwise
 
-# An Elegant Object
+# A Well-Encapsulated Object
 
     @@@ruby
     class Student
@@ -214,7 +232,8 @@ Note: query methods return a boolean by *convention* only
       end
     end
 
-* Why "elegant"?
+* Why is this well-encapsulated?
   * initial state established by constructor
   * internal state used by methods, not exposed by getters
+  * other objects do not have *direct* access to its internal state
 
