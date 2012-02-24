@@ -45,3 +45,7 @@
 * just muddle along and things will probably work ok
 
 
+# Block Parameters
+
+* Can use splats and defaults and tuples
+* There's also a lot of weird options, see <http://www.paperplanes.de/2012/2/16/fun-with-ruby-block-parameters.html>

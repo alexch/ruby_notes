@@ -10,6 +10,6 @@
   * _Learn to Program_ by Chris Pine <http://pine.fm/LearnToProgram/> <http://pragprog.com/book/ltp2/learn-to-program> <http://amzn.com/1934356360>
 * Open-Source License
   * either MIT or Apache or CC-BY-NC; we're still deciding
-* Presentation Engine:
-  * [showoff](https://github.com/schacon/showoff) by Scott Chacon (with improvements by Alex Chaffee)
+* Presentation Engine(s):
+  * [deck.rb](https://github.com/alexch/deck.rb) by Alex Chaffee
 

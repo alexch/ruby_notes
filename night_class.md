@@ -10,13 +10,15 @@ In Collaboration with Blazing Cloud
 
 # Schedule
 
-## Night One: Ruby Basics
+## Night 1-2: Ruby Basics
 
-## Night Two: Built-in Types
+## Night 3-4: Built-in Types
 
-## Night Three: Iterators
+## Night 5: Blocks
 
-## Night Four: The Ruby Object Model
+## Night 6: Iterators
+
+## Night 7-8: Objects
 
 ## Textbook: The Well-Grounded Rubyist
 
@@ -58,13 +60,17 @@ Conceived by Sarah Allen and Alex Chaffee
 
 # Let's get started
 
-Install Ruby, then open a terminal window and type this:
+Install Ruby, e.g.
+
+    http://installfest.railsbridge.org
+
+then open a terminal window and type this:
 
     git clone https://github.com/alexch/learn_ruby.git
 
     cd learn_ruby
 
-then open index.html in a browser
+then open `index.html` in a browser
 
 # Very Important Tips!
 

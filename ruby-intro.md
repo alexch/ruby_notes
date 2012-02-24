@@ -52,7 +52,7 @@ I tried to make people enjoy programming and concentrate on the fun and creative
 # Versions common today
 
 * MRI 1.8.7
-* MRI 1.9.2
+* MRI 1.9.2 or 1.9.3
 * JRuby
 
 # Ruby Language Overview
