@@ -10,7 +10,7 @@ Alex Chaffee <alex@stinky.com>
 
 We use a Ruby app called `deck` to generate and serve the slides. Install deck like this:
 
-    gem install deck
+    gem install deckrb
 
 ## Showing all the slides
 
