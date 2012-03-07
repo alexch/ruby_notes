@@ -133,13 +133,29 @@ anything can go in there, including operators and quotes
 
 # `split`
 
+`split` turns a string into an array
+
     "apple banana cherry".split
     => ["apple", "banana", "cherry"]
     
-* turns a string into an array
 * splits on whitespace by default
   * or you can pass in a delimiter
-* `join` turns an array into a string
+
+# `join`
+
+`join` turns an array into a string
+
+    ["apple", "banana", "cherry"].join
+    => "applebananacherry"
+
+* joins with the empty string by default
+  * or you can pass in a delimiter
+
+```
+["apple", "banana", "cherry"].join(' ')
+=> "apple banana cherry"
+
+```
     
 # Chaining: A Ruby Idiom    
 
@@ -153,19 +169,26 @@ anything can go in there, including operators and quotes
   * capitalizes each word
   * joins the words back together
 
-# `each` doesn't support chaining; `map` does
+# Gotcha: `each` doesn't chain
+
+* `each` returns the *original* collection
+* `map` returns a new collection
+
+## Solution: use `map` for chaining
 
     @@@ ruby
     s.split.map{|w|w.capitalize}.join
 
+## Solution: use `each` with an accumulator
+
+    @@@ruby
     capitalized = []
     s.split.each{|w|
       capitalized << w.capitalize
     }
     capitalized.join
 
-* `each` returns the original collection
-* `map` returns a new collection
+
 
 # delving into map
 

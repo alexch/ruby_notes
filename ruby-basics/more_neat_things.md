@@ -55,7 +55,82 @@ Equivalent:
 
 !SLIDE incremental
 
-# duck typing
+<!SLIDE incremental>
+# The Default Block
+
+* Methods can take block arguments
+* Use either `do...end` or `{...}` at the very end of the argument list
+* Inside the method, call the default block with `yield`
+
+# Iterators use the Default Block
+
+    @@@ ruby
+    fruits = ["apple, "banana", "cherry", "date"]
+    my_array.each do |item|        #<< "do" starts the block
+      puts "Yum! I love #{item}s!"
+    end                            #<< "end" ends the block   
+
+# Array Iterators
+
+    @@@ ruby
+    my_array = ["cat", "dog", "world"]
+    my_array.each do |item|
+      puts "hello " + item
+    end
+    
+* calls the block with `item = "cat"`
+* then calls the block with `item = "dog"`
+* then calls the block with `item = "world"`
+
+# Blocks are like mini-functions
+
+* Blocks can also take parameters or return a value
+* e.g. the `map` iterator translates each item in an array into a new array
+
+        @@@ ruby
+        >> ["hello", "world"].map {|string| string.upcase}
+        => ["HELLO", "WORLD"]
+
+* `{|string| string.upcase}` defines a block
+
+# Method Chaining
+
+* Chaining is a *really* cool and powerful Ruby idiom
+* It depends on these three features:
+  * Every expression has a value
+  * Every value is an object
+  * Iterators are loops inside methods
+
+# Method Chaining Example
+
+    s = "my dog has fleas"
+
+Without chaining:
+
+    words = s.split
+    words = words.map{|word| word.capitalize}
+    s = words.join(" ")
+
+With chaining:
+
+    s = "my dog has fleas"
+    s.split.map{|word| word.capitalize}.join(" ")
+
+!SLIDE
+# Reopening classes
+
+    @@@ ruby
+    class Fixnum
+      def divisible_by? n
+        self % n == 0
+      end
+    end
+
+    4.divisible_by? 2 #=> true
+    4.divisible_by? 3 #=> false
+
+
+# Duck Typing
 
 * If it looks like a duck...
 * and it quacks like a duck...
@@ -128,18 +203,6 @@ Equivalent:
 
 What do you do when you don't know what to do?
 
-!SLIDE
-# Reopening classes
-
-    @@@ ruby
-    class Fixnum
-      def divisible_by? n
-        self % n == 0
-      end
-    end
-
-    4.divisible_by? 2 #=> true
-    4.divisible_by? 3 #=> false
 
 !SLIDE incremental
 # No Function Overloading
@@ -187,53 +250,3 @@ These are equivalent:
         @name
       end
       
-# Array Iterators
-
-    @@@ ruby
-    my_array = ["cat", "dog", "world"]
-    my_array.each do |item|
-      puts "hello " + item
-    end
-    
-* calls the block with `item = "cat"`
-* then calls the block with `item = "dog"`
-* then calls the block with `item = "world"`
-
-# Hash Iterators
-
-    @@@ ruby
-    my_hash = { :species => "cat",
-                :name => "Beckett" }
-    my_hash.each do |key, value|
-      puts "My " + key.to_s + " is " + value
-    end
-
-* calls the block with `key = :species` and `value = "cat"`
-* then calls the block with `key = :name` and `value = "Beckett"`
-
-<!SLIDE incremental>
-# The Default Block
-
-* Methods can take block arguments
-* Use either `do...end` or `{...}` at the very end of the argument list
-* Inside the method, call the default block with `yield`
-
-# Iterators use the Default Block
-
-    @@@ ruby
-    fruits = ["apple, "banana", "cherry", "date"]
-    my_array.each do |item|        #<< "do" starts the block
-      puts "Yum! I love #{item}s!"
-    end                            #<< "end" ends the block   
-
-# Blocks are like mini-functions
-
-* Blocks can also take parameters or return a value
-* e.g. the `map` iterator translates each item in an array into a new array
-
-        @@@ ruby
-        >> ["hello", "world"].map {|string| string.upcase}
-        => ["HELLO", "WORLD"]
-
-* `{|string| string.upcase}` defines a block
-

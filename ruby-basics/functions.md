@@ -1,7 +1,7 @@
 !SLIDE subsection
 # Ruby Functions
 
-This section covers defining functions, passing arguments to them, and the different between parameters and arguments.
+This section covers defining functions, passing arguments to them, and the difference between parameters and arguments.
 
 Ref: WGR Chapter 2. Objects, methods, and local variables
 
