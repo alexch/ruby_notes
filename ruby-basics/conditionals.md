@@ -17,12 +17,14 @@ In this section we cover truth, falsiness, and conditions.
 !SLIDE
 ## Falsey Things
 * `nil`
-* false
+* `false`
+* that's it!
 
 ## Truthy Things
-* true
-* 0
+* `true`
+* `0`
 * ""
+* "false"
 * pretty much anything else
 
 
@@ -140,30 +142,21 @@ and assuming `x` is a number, `!x` will always be `false`
 
 # Logic is hard
 
-    >> not nil
-    => true
-    >> not 0
-    => false
-    >> 0 == false
-    => false
-    >> nil == false
-    => false
-    >> !0
-    => false
-    >> y = false
-    => false
-    >> y == false
-    => true
-    >> x = 0
-    => 0
-    >> x == y
-    => false
-    >> x != y
-    => true
-    >> !x==y
-    => true
-    >> not x==y
-    => true
+|Statement|Value|
+|---|---|
+|  not nil | true |
+|  not 0   | false |
+|  0 == false | false |
+|  nil == false | false |
+|  !0 | false |
+|  y = false | false |
+|  y == false | true |
+|  x == y | false |
+|  x != y | true |
+|  !x==y | true |
+|  not x==y | true |
+|  x = 0 |0 |
+| "foo" if (x = 0) | "foo" |
     
 ## (...let's go shopping)
 
@@ -175,7 +168,7 @@ and assuming `x` is a number, `!x` will always be `false`
   * it can be useful, e.g.
 
             @@@ ruby
-            if (last_name = name.split.last)
+            if (last_name = person.family_name)
               puts last_name
             end
 
@@ -214,6 +207,8 @@ and assuming `x` is a number, `!x` will always be `false`
     => true
     >> 1 === Fixnum
     => false
+
+### Solution: use `is_a?` instead:
 
     >> 1.is_a? Fixnum
     => true

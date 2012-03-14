@@ -37,21 +37,59 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 >
 > -- Wolfram Arnold
 
+# `proc`
+
+* The `proc` keyword defines a block
+* You can store that block into a variable
+* You can call that block with the `call` method
+
+```
+@@@ruby
+say_hi = proc { puts "hi" }
+say_hi.call  # prints "hi\n"
+```
+
+## procs can take parameters too
+
+```
+@@@ruby
+capitalize_it = proc { |word| word.capitalize }
+capitalize_it.call("banana")   #=> "Banana"
+capitalize_it.call("cherry")   #=> "Cherry"
+```
+
+# Passing Blocks to Methods Explicitly with Procs
+
+`twice_do` is a less cool version of `times` that takes a proc parameter
+
+    @@@ ruby
+    def twice_do(action)
+      action.call
+      action.call
+    end
+
+You can assign a proc to a variable and pass it as a parameter
+
+    say_hi = proc do
+      puts "hi!"
+    end
+    twice_do(say_hi)  # prints "hi!\n" twice
+
+You can also define proc *inline* rather than assigning it to a variable
+
+    twice_do(proc do
+      puts "hi!"
+    end)  # prints "hi!\n" twice
+
+
 # The Default Block
 
-* Every method, no matter what its parameter list, might get an optional magic block parameter
+* Every method, no matter what its parameter list, might get an optional magic invisible block parameter
 * This is called "the default block" and the method can call it using `yield`
 
-        @@@ ruby
-        def foo
-          yield
-        end
+# Passing Blocks to Methods Implicitly with the Default Block
 
-        foo do
-          puts "hi"
-        end
-
-# `yield` calls the default block
+`twice` is a less cool version of `times` that takes a default block (invisible parameter)
 
     @@@ ruby
     def twice
@@ -60,14 +98,12 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
     end
 
     twice do
-      puts "hi"
+      puts "hi!"
     end
 
 "twice do" kind of almost resembles English a little, right?
 
-
-
-# Blocks can accept parameters
+# The default block can accept parameters
 
     @@@ ruby
     def foo
@@ -79,10 +115,11 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
       puts "hi, #{name}"
     end
 
-# Block parameters vs. Function parameters
+# Passing Blocks Implicitly
+
+`for_each` is a less cool version of `each` that uses the default block
 
     @@@ ruby
-    # for_each is a less cool version of `each`
     def for_each(array)
       i = 0
       while i < array.size
@@ -92,8 +129,8 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
       array
     end
 
-    a = ["alice", "bob", "charlie"]
-    for_each(a) do |item|
+    names = ["alice", "bob", "charlie"]
+    for_each(names) do |item|
       puts "hi, #{item}"
     end
 
@@ -102,7 +139,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # Making the default block visible
 
-`&` turns a default block into a proc
+`&` turns the default block into a proc
 
     @@@ ruby
     def for_each(array, &block)
@@ -123,8 +160,8 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 turns a proc into a default block
 
-    p = proc {|w|w.capitalize}
-    s.split.map(&p).join
+    capitalize_word = proc {|w|w.capitalize}
+    s.split.map(&capitalize_word).join
 
 # `&` vs. `yield`
 

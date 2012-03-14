@@ -41,8 +41,9 @@ Ref. WGR Chapter 9, Section 9.2, Collection handling with arrays
     a.concat ["w"] #=> ["x", "y", "z", "w"]
 
 * `concat` and `+` make a copy
-* `push` and `+=` are destructive
+* `push` and `<<` are destructive
   * Q: Why doesn't push end in a bang?
+* `+=` makes a copy but also changes the reference
 
 # `size` isn't everything
 
@@ -59,7 +60,11 @@ Arrays are zero-indexed
     fruit[2] #=> "cherry"
     fruit[3] #=> nil
 
-Q: which is better -- zero-based indexing or one-based indexing?
+## Question: which is better?
+
+### zero-based indexing 
+### or
+### one-based indexing?
 
 # Zero Is Better Than One
 * Think of the index as pointing to the **space between** items

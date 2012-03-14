@@ -174,12 +174,12 @@ anything can go in there, including operators and quotes
 * `each` returns the *original* collection
 * `map` returns a new collection
 
-## Solution: use `map` for chaining
+### Solution: use `map` for chaining
 
     @@@ ruby
     s.split.map{|w|w.capitalize}.join
 
-## Solution: use `each` with an accumulator
+### Solution: use `each` with an accumulator
 
     @@@ruby
     capitalized = []
