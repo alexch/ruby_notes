@@ -1,54 +1,22 @@
-# Ruby For Programmers
+!SLIDE
+# Ruby and Rails Bootcamp
 
 Taught by Alex Chaffee
 
-<alex@stinky.com>
-
-GitHub/Twitter/LinkedIn/Google: alexch
-
-In Collaboration with Blazing Cloud
+  * alex@stinky.com
+  * GitHub/Twitter/LinkedIn: alexch
 
 # Schedule
 
-## Night 1-2: Ruby Basics
+## Mon/Tue -- Ruby
 
-## Night 3-4: Built-in Types
+Textbook: The Well-Grounded Rubyist
 
-## Night 5: Blocks
+Exercises: Learn Ruby Test First
 
-## Night 6: Iterators
+## Wed/Thu/Fri -- Rails
 
-## Night 7-8: Objects
-
-## Textbook: The Well-Grounded Rubyist
-
-## Exercises: Learn Ruby Test First
-<http://testfirst.org/learn_ruby>
-
-# Important Note
-
-## We Will **Not** Cover Everything
-
-# Ruby Basics
-
-* Ruby Overview
-* Command-line Tools
-* Core Ruby
-  * Syntax
-  * Functions
-  * Control Flow
-  * Built-in Types
-* Collections
-* Blocks and Iterators
-
-# The Ruby Object Model
-
-* Objects
-* Classes
-* Inheritance
-* Dispatching
-* Modules
-* Scope
+Textbook and Exercises: Rails Tutorial by Michael Hartl
 
 # Test-First Teaching
 
@@ -77,6 +45,7 @@ then open `index.html` in a browser
 ## Arrange Your Windows
 
   * Make your console window REALLY TALL
+  * *Don't* overlap your windows
 
 ## READ THE ERROR
 

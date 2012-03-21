@@ -25,14 +25,14 @@
 # locals, function parameters, block parameters
 
     @@@ruby
-    def twice s
+    def twice_with s
       yield s
       yield s
     end
 
     def flatter person
       message = "you are great"
-      twice(person) do |name|
+      twice_with(person.upcase) do |name|
         puts "#{message}, #{name}!"
       end
     end
@@ -46,4 +46,20 @@
 
 Q: Which variables are available inside the block?
 
+# Nested Scopes
 
+* Every function call creates a new *parent scope*
+* A block inside that function creates a *child scope*
+* Variable lookup proceeds up the scope chain
+
+def 
+
+# Great Power, Great Responsibility
+
+* Closures drag data along with them
+  * Sometimes they drag more than you intended
+* Possible dangers:
+  * memory leaks
+  * side effects
+  * namespace collision
+  

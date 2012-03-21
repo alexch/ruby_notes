@@ -45,13 +45,15 @@ or
   * per file or class or gem
   * documentation comes from inside source code
   * RDoc Syntax described at <http://rdoc.rubyforge.org/RDoc/Markup.html>
-  
+
 # web docs
 * [ruby-doc.org](http://ruby-doc.org)
 * [gotapi.com/rubyrails](http://gotapi.com/rubyrails)
 * [api.rubyonrails.org](http://api.rubyonrails.org/)
 * `gem server` launches an rdoc browser locally
+* 
 * [railscasts.com](http://railscasts.com/)
+* [destroyallsoftware.com](http://destroyallsoftware.com/)
 
 # cheat
 

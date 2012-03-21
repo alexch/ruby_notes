@@ -3,25 +3,7 @@
 
 Ref. WGR Chapter 6, Control-flow techniques
 
-Most people don't use loops, they use iterators, so you can just skim this part.
-
-# `loop`
-
-    @@@ ruby
-    loop do
-      puts "All work and no play makes Jack a dull boy."
-    end
-
-To get out, use `break`:
-
-    @@@ ruby
-    loop do
-      puts "All work and no play makes Jack a dull boy."
-      break if rand > 0.9
-    end
-    
-* Note: `loop` needs a `do` keyword
-* That's because it's really an *iterator*
+Most people don't use loops, they use *iterators*, so you can just skim this part.
 
 # `while`
 
@@ -36,6 +18,8 @@ To get out, use `break`:
 
 # `until`
 
+`until` is the opposite of `while`
+
     @@@ ruby
     until rand > 0.9
       puts "All work and no play makes Jack a dull boy."
@@ -45,17 +29,27 @@ To get out, use `break`:
       puts "All work and no play makes Jack a dull boy."
     end until rand > 0.9
 
-# single-line versions
+# `while` and `until` both have one-line versions
 
     @@@ ruby
     puts "All work etc." while rand < 0.9
     puts "All work etc." until rand > 0.9
 
-# `for`
+# `for in`
 
     @@@ ruby
     fruits = ["apple", "banana", "cherry"]
-    for f in fruits
-      puts "I love #{f}!"
+    for fruit in fruits
+      puts "I love #{fruit}!"
     end
+
+...but don't use `for in`! Instead use `each`:
+
+    @@@ ruby
+    fruits = ["apple", "banana", "cherry"]
+    fruits.each do |fruit|
+      puts "I love #{fruit}!"
+    end
+
+
 

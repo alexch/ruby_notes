@@ -42,7 +42,7 @@ Ruby 1.9 only:
 
     {foo: "bar", baz: "baf"}
 
-# hash parameters plus hash literals => concision
+# hash parameters plus hash literals => named parameters
 
 These are all equivalent:
 
@@ -52,6 +52,7 @@ These are all equivalent:
     User.new :name => "Alex", :email => "alex@stinky.com"
     User.new name: "Alex", email: "alex@stinky.com"
     User.new name:"Alex", email:"alex@stinky.com"
+    User.new email:"alex@stinky.com", name:"Alex"
 
 # Hash access
 

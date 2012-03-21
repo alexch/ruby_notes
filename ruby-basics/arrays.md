@@ -20,7 +20,17 @@ Ref. WGR Chapter 9, Section 9.2, Collection handling with arrays
     a.push "four" #=> [1, 2, 3, "four"]
     a.pop         #=> "four"
     a             #=> [1, 2, 3]
+    
+    
     a[0]          #=> 1
+    a.first       #=> 1
+    a[a.size-1]   #=> 3
+    a.last        #=> 3
+
+    a = [1, 2, 3]
+    a.unshift "zero" #=> ["zero", 1, 2, 3]
+    a.shift          #=> "zero"
+    a                #=> [1, 2, 3]
 
 # Adding to an array
 
@@ -29,20 +39,22 @@ Ref. WGR Chapter 9, Section 9.2, Collection handling with arrays
     a << "x"       #=> ["x"]
 
 `<<` is the "shovel" operator
+it's an alias for push
 
-# More ways to add to an array
+# Adding two arrays to get a third with `concat`
 
     @@@ ruby
-    a = ["x"]
-    a.push "y"     #=> ["x", "y"]
+    a = ["x", "y"]
+
     a + "z"        #=> can't convert String into Array
     a + ["z"]      #=> ["x", "y", "z"] (but a is unchanged)
-    a += ["z"]     #=> ["x", "y", "z"]
+    a += ["z"]     #=> ["x", "y", "z"] (and a is changed)
+    
     a.concat ["w"] #=> ["x", "y", "z", "w"]
 
 * `concat` and `+` make a copy
 * `push` and `<<` are destructive
-  * Q: Why doesn't push end in a bang?
+  * NB:  push doesn't end in a bang!
 * `+=` makes a copy but also changes the reference
 
 # `size` isn't everything
@@ -67,6 +79,12 @@ Arrays are zero-indexed
 ### one-based indexing?
 
 # Zero Is Better Than One
+
+* If you use 0-based indexing
+  * and you always use less than, not <=
+  * then you never have to add or subtract one
+  * so you have less change of an off-by-one error
+
 * Think of the index as pointing to the **space between** items
 
 ![array indexing](array_indexing.png)
@@ -142,4 +160,6 @@ moral: setting past the end autofills with `nil`
         => [[0, 0, 0, 0], [0, 1, 2, 3], [0, 2, 4, 6], [0, 3, 6, 9]]
         >> times_table[2][3]
         => 6
+        >> times_table[2]
+        => [0, 2, 4, 6]
                 

@@ -1,9 +1,9 @@
 {
   "name": "Ruby For Programmers",
-  "description": "an eight-night introduction to the Ruby programming language",
+  "description": "an introduction to the Ruby programming language",
   "sections": [
     "000_setup.md",
-    "night_class.md",
+    "bootcamp.md",
     "credits.md",
 
     "ruby-intro.md",
@@ -26,6 +26,9 @@
     "ruby-basics/strings.md",
 
     "# Lab: Simon Says",
+    
+    "ruby-basics/regexp.md",
+    
     "# Ablay: Igpay Atinlay",
 
     "ruby-basics/symbols.md",
@@ -33,7 +36,6 @@
     "ruby-basics/loops.md",
 
     "# Lab: Mega Calculator",
-
     "ruby-basics/collections.md",
     "ruby-basics/arrays.md",
     /* todo: lab on arrays */
@@ -47,12 +49,8 @@
 
     "# Lab: Blocks, Performance Monitor",
 
-    "ruby-basics/iterators.md",
-
     "ruby-basics/block_scope.md",
-
-
-    "ruby-basics/regexp.md",
+    "ruby-basics/iterators.md",
 
     "ruby-objects/waka-waka.md",
 

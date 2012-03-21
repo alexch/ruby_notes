@@ -62,11 +62,12 @@ Objects are *things* that can be *described* and can *do* things, or...
   * Classes are categories
 
 
-# Objects vs. classes
+# Objects vs. Classes
 
 * objects are more fundamental than classes
 * in Ruby, you can add behavior to an object directly
-* class inheritance is complicated; we'll cover that later
+* class inheritance is complicated
+  * we'll cover it later
 
 # Creating an object
 
@@ -239,3 +240,27 @@ Note: Usually you don't use `respond_to` because of *duck typing*.
 
     cookie.add_chips(500)
     cookie.yummy?   #=> true
+
+# Self
+
+* All OO programs suffer from multiple personality disorder
+* `self` is the *default message receiver*
+* `self` is set *invisibly* to always point to the *current object*
+
+# Self Example
+
+```
+@@@ruby
+def cookie.preheat
+  @temp = 350
+end
+
+def cookie.bake
+  preheat unless @temp > 300
+  @baked = true
+end
+```
+
+* inside `bake` the call to `preheat` goes to `self`
+
+

@@ -142,10 +142,10 @@ You can also define proc *inline* rather than assigning it to a variable
 `&` turns the default block into a proc
 
     @@@ ruby
-    def for_each(array, &block)
+    def for_each(array, &p)
       i = 0
       while i < array.size
-        block.call(array[i])
+        p.call(array[i])
         i += 1
       end
       array

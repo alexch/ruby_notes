@@ -9,20 +9,13 @@ Ref. WGR Chapter 9, Collection and container objects
 
 # Array vs. Hash
 
----
-* An array is an ordered list of values
-* A hash is an unordered set of key/value pairs
+| Array | Hash |
+|---|---|
+| ordered list of values | unordered set of key/value pairs |
+| has an *index* that must be an integer | has a *key* that can be any object (number, string, another hash, etc.) |
+| also called List, Vector, Stack(?) | Hash is also called Map, Dictionary |
+| literals are defined with [ ] |  literals are defined with { } |
+| accessed with [ ] | **also** accessed with [ ] |
 
----
-* An array has an index that must be an integer
-* A hash has a key that can be any object (number, string, another hash, etc.)
 
----
-* Array is also called List, Vector
-* Hash is also called Map, Dictionary
-
----
-* Array literals are defined with [ ]
-* Hash literals are defined with { }
-* **both** are accessed with [ ]
 

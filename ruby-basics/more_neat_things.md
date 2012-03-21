@@ -65,7 +65,7 @@ Equivalent:
 # Iterators use the Default Block
 
     @@@ ruby
-    fruits = ["apple, "banana", "cherry", "date"]
+    fruits = ["apple", "banana", "cherry", "date"]
     my_array.each do |item|        #<< "do" starts the block
       puts "Yum! I love #{item}s!"
     end                            #<< "end" ends the block   
@@ -203,7 +203,6 @@ With chaining:
 
 What do you do when you don't know what to do?
 
-
 !SLIDE incremental
 # No Function Overloading
 
@@ -222,31 +221,4 @@ What do you do when you don't know what to do?
         "abc" * 3           #=> "abcabcabc"
         "abc" << "def"      #=> "abcdef"
         "%d live crew" % 2  #=> "2 live crew"
-        
-!SLIDE
-# or-equals
 
-    def name
-      @name ||= "Anonymous"
-    end
-    
-* Means "if `@name` has a value, cool, but otherwise make it `'Anonymous'`"
-* Relies on "logical or" and "nil is false" semantics
-* There's also "plus-equals" (`+=`) and so forth
-
-# or-equals expanded
-
-These are equivalent:
-
-      @@@ruby
-      @name ||= "Alex"
-
-      @name || (@name = "Alex")
-
-      if (@name != nil)
-        @name
-      else
-        @name = "Alex"
-        @name
-      end
-      

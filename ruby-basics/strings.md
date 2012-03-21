@@ -126,6 +126,8 @@ anything can go in there, including operators and quotes
 
 # `gsub`
 
+munges a string
+
     s.gsub(/xyz/, "pdq")
 
 * performs a regular expression search-and-replace on the string
@@ -156,7 +158,17 @@ anything can go in there, including operators and quotes
 => "apple banana cherry"
 
 ```
-    
+
+# Core Mungers Summary
+
+| Method | turns a(n)... | into a(n)... |
+|---|---|---|
+| split | String | Array |
+| join | Array | String |
+| gsub | String | String |
+| map | Array | Array |
+
+
 # Chaining: A Ruby Idiom    
 
     @@@ ruby
@@ -187,8 +199,6 @@ anything can go in there, including operators and quotes
       capitalized << w.capitalize
     }
     capitalized.join
-
-
 
 # delving into map
 

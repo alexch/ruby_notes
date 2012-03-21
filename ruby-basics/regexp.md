@@ -5,11 +5,24 @@ Regular expressions are terribly powerful, and terribly complicated. They could 
 
 Ref. WGR Chapter 11, Regular expressions and regexp-based string operations
 
-# regex literals
+# regexp literals
+
+**slashes** define a regular expression literally (inline)
 
     @@@ ruby
+    foo_matcher = /foo/
+    
+The above regexp will match a string containing "foo" anywhere inside it
+
+    @@@ ruby
+    ooo_matcher = /oo*/
+
+The above regexp will match a string containing "o" or "oo" or "ooo" (and so on) anywhere inside it
+
+# a more complicated regexp
+
     word_exp = /\b[a-z]*\b/i
-  
+
 * **slashes** delineate the pattern
 * **backslash b** means "match a word boundary"
 * **brackets** delineate a match of a single character (aka "character class")
@@ -19,13 +32,43 @@ Ref. WGR Chapter 11, Regular expressions and regexp-based string operations
 
 So the above expression will match any word containing only normal English letters, in any combination of upper- or lowercase.
 
-# regex operators
+# regexp operators: equal tilde
 
 **equal tilde** returns the position in the string that matches, or `nil` if no match
 
     @@@ ruby
     >> "abcde" =~ /bcd/
     => 1
+    
+Note that the return value is *truthy* if the string is a match, and *falsey* if it's not, which lets you use it inside conditionals:
+
+    @@@ ruby
+    if ("abcde" =~ /bcd/)
+      puts "yay! it matches!"
+    end
+
+# regexp globals
+
+* After a successful match, some *global variables* are set
+  * `$1` is the *first substring match*
+  * `$2` is the *second substring match*
+  * etc.
+  * substrings are defined with parentheses
+
+```
+@@@ruby
+if "foobar" =~ /foo(.*)/ then 
+  puts "The matching substring was #{$1}"
+end
+ # prints "The matching substring was bar"
+```
+
+### See Also
+
+  * [$1 and \1 in Ruby](http://stackoverflow.com/questions/288573/1-and-1-in-ruby)
+  * [Class Regexp rubydoc](http://ruby-doc.org/core-1.9.3/Regexp.html) section on "Capturing"
+
+# regexp operators: bang tilde
     
 **bang tilde** returns `false` if the string matches, or `true` if it doesn't
 
@@ -35,14 +78,42 @@ So the above expression will match any word containing only normal English lette
     >> "abcde" !~ /bcd/
     => false
 
-# operations that use regexes
+# some methods that can use regexes
 
-String#split
+`String.split`
   
-Array#grep
+`String.[]`
 
-String#gsub
+`String.sub` and `String.gsub`
 
+    >> "foobar".sub("foo", "baz")
+    => "bazbar"
+    >> "foobar".sub(/foo/, "baz")
+    => "bazbar"
+    >> "foobar".sub(/fo*/, "baz")
+    => "bazbar"
+    >> "fooooooobar".sub(/fo*/, "baz")
+    => "bazbar"
+    >> "fooooooobarfoo".sub(/fo*/, "baz")
+    => "bazbarfoo"
+    >> "fooooooobarfoo".gsub(/fo*/, "baz")
+    => "bazbarbaz"
+    
+
+`Array.grep`
+
+    >> "foo bar baz".split.grep(/f../)
+    => ["foo"]
+    >> "foo bar baz".split.grep(/b../)
+    => ["bar", "baz"]
+    
+
+# MatchData
+
+* If you need more control you can use the `match` method
+* It returns a `MatchData` object which is rather complex
+* See rubydoc for [Regexp](http://ruby-doc.org/core-1.9.3/Regexp.html) and
+[MatchData](http://ruby-doc.org/core-1.9.3/MatchData.html)
 
 # learning more
 

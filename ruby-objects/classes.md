@@ -15,6 +15,7 @@ Ref. WGR Chapter 3, Organizing objects with classes
 # Constructors
 
 * To *instantiate* an object, call the *new* method on its class
+* The *new* method then calls *initialize*
 
         @@@ ruby
         class Thing
@@ -38,6 +39,15 @@ So by the time assignment (`=`) happens, the object has been constructed.
 * defined inside the class
 * instance methods are shared among all instances
 * same behavior, but different data
+
+```
+@@@ruby
+class Cookie
+  def bake
+    @temp = 350
+  end
+end
+```
 
 # Instance variables
 
@@ -130,11 +140,6 @@ end
       attr_accessor :age  # both of the above
     end
 
-    # works kind of like this
-    def Class.attr_reader name
-      eval("def #{name}; @#{name}; end")
-    end
-        
 # Constructor plus Attributes
 
     @@@ruby
@@ -218,22 +223,41 @@ Note: query methods return a boolean by *convention* only
   * `.equal?` params are identical (same `object_id`)
 * `==` is what you want, unless you know otherwise
 
+# A Poorly-Encapsulated Object
+
+    @@@ruby
+    class BadStudent
+      attr_accessor :first_name, :last_name
+    end
+
+    joe = BadStudent.new
+    joe.first_name = "Joe"
+    joe.last_name = "Blow"
+    puts joe.first_name + " " + joe.last_name
+
+
 # A Well-Encapsulated Object
 
     @@@ruby
-    class Student
+    class GoodStudent
       def initialize first_name, last_name
-        @first_name = first_name
-        @last_name = last_name
+        @first_name, @last_name = first_name, last_name
       end
-  
-      def name
+
+      def full_name
         "#{@first_name} #{@last_name}"
       end
     end
+
+    jane = GoodStudent.new("Jane", "Brain")
+    puts jane.full_name
+
 
 * Why is this well-encapsulated?
   * initial state established by constructor
   * internal state used by methods, not exposed by getters
   * other objects do not have *direct* access to its internal state
+  * if requirements change, code only changes in one place
+     * e.g. adding a middle name
+* Both *shorter* and *safer* than a poorly-encapsulated object
 

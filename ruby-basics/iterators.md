@@ -41,6 +41,7 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # warning: each returns the *collection*, not the *value*
 
+    @@@ruby
     def count_chars a
       c = 0
       a.each do |s|
@@ -106,16 +107,18 @@ Ref. [Using Select Etc.](http://matthewcarriere.com/2008/06/23/using-select-reje
 
 # `inject` example
 
-      @@@ruby
+    @@@ruby
       class Array
         def sum
-          inject(0) {|t,n| t + n}
+          self.inject(0) do |total, current| 
+            total + current
+          end
         end
       end
 
       [1,2,3].sum #=> 6
 
-* To help understand this, write out a table with the values of t, n, and the return value for each iteration.
+* To help understand this, write out a table with the values of total, current, and the return value for each iteration.
 
 # more help
 

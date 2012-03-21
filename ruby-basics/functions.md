@@ -77,15 +77,17 @@ In Ruby, every expression evaluates to some value
 When calling a method, if the final argument is a hash, you can **leave off** the curly braces
 
     @@@ ruby
-    def print_value_plus(amount, hash)
-      hash.each_pair {|k,v| puts v + amount }
+    def add_to_x_and_y(amount, vals)
+      vals[:x] + vals[:y] + amount
     end
     
-    print_value_plus 2, :x => 1, :y => 2
-    # same as...
     print_value_plus(2, {:x => 1, :y => 2})
     # same as...
+    print_value_plus 2, :x => 1, :y => 2
+    # same as...
     print_value_plus 2, x: 1, y: 2
+    # same as...
+    print_value_plus 2, y: 2, x: 1
 
 # the "options hash" pattern
 
@@ -95,13 +97,15 @@ To pass *variable* parameters, or to pass *named* parameters, you can use an *op
     bake("bread", :dough => "sour")
     bake("pizza", :toppings => ["pepperoni", "onions"])    
     
-    def bake(meal, options = {})
-      if meal == "bread"
+    def bake(dish, options = {})
+      if dish == "bread"
         d = options[:dough] || "rye"
         puts "baking a nice #{d} loaf"
-      elsif meal == "pizza"
+
+      elsif dish == "pizza"
         toppings = options[:toppings] || ["plain"]
         puts "ordering a #{toppings.join("-")} pizza"
+
       end
     end
     

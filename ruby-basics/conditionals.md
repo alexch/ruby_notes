@@ -130,7 +130,7 @@ and assuming `x` is a number, `!x` will always be `false`
 
 * it can make your code read better
 
-        wear_sweater unless summer? or sweater?
+        wear_sweater unless summer? or wearing_sweater?
 
 * it can also make your code read worse
 
@@ -146,17 +146,17 @@ and assuming `x` is a number, `!x` will always be `false`
 |---|---|
 |  not nil | true |
 |  not 0   | false |
+|  !0 | false |
 |  0 == false | false |
 |  nil == false | false |
-|  !0 | false |
 |  y = false | false |
 |  y == false | true |
+|  x = 0 |0 |
+| "foo" if (x = 0) | "foo" |
 |  x == y | false |
 |  x != y | true |
 |  !x==y | true |
 |  not x==y | true |
-|  x = 0 |0 |
-| "foo" if (x = 0) | "foo" |
     
 ## (...let's go shopping)
 
@@ -169,6 +169,7 @@ and assuming `x` is a number, `!x` will always be `false`
 
             @@@ ruby
             if (last_name = person.family_name)
+              # person.family_name is not nil, so...
               puts last_name
             end
 
@@ -219,7 +220,7 @@ There is no Boolean class in Ruby
 
 Only `TrueClass` and `FalseClass`
 
-(I'm not really sure why)
+(Why? [This guy knows the answer.](http://stackoverflow.com/a/3194797/190135))
 
 # `!!`
 
@@ -227,3 +228,31 @@ Only `TrueClass` and `FalseClass`
 * but cool Rubyists never use `!!` 
   * they're down with truthiness
 
+# or-equals
+
+    def name
+      @name ||= "Anonymous"
+    end
+    
+* Means "if `@name` has a value, cool, but otherwise make it `'Anonymous'`"
+* Relies on "logical or" and "nil is falsey" semantics
+* There's also "plus-equals" (`+=`) and so forth
+
+# or-equals expanded
+
+These are equivalent:
+
+    @@@ruby
+    # with or-equals
+    @name ||= "Alex"
+
+    # as a boolean expression
+    @name || (@name = "Alex")
+
+    # with an if statement
+    if (@name != nil)
+      @name
+    else
+      @name = "Alex"
+    end
+      
