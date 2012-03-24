@@ -72,6 +72,8 @@ Ref. WGR Chapter 4, Modules and program organization
   * `include Config`
 * **extend** mixes in a module into `self`, usually to add class methods
   * `extend Config`
+* **`<`** inherits a superclass (pronounced "inherits from")
+  * `class BetterString < String`
 
 <!SLIDE incremental>
 # module lookup gotchas
@@ -80,12 +82,14 @@ Ref. WGR Chapter 4, Modules and program organization
 * If two modules define the same method, then the *last* one to be included wins
 * If you include a module twice, then the second inclusion is *ignored*, so it's still further back on the lookup chain
 
-        @@@ ruby
-        class Foo
-          include A
-          include B
-          include A  #<< ignored!
-        end
+```
+@@@ ruby
+class Foo
+  include A
+  include B
+  include A  #<< ignored!
+end
+```
 
 <!SLIDE subsection>
 # Using Modules for Organization

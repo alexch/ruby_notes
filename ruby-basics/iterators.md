@@ -14,22 +14,29 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 # `times` is on your side
 
+    @@@ruby
     potatoes = nil
     3.times do |i|
       potatoes = i+1
       puts "#{potatoes} potato"
     end
     puts potatoes + 1
+    
+prints
+
+    1 potato
+    2 potato
+    3 potato
+    4
 
 # implementing `times` using `until`
 
     @@@ruby
     def times x
-        i = 0
-        until i == x
-          yield i
-          i += 1
-        end
+      i = 0
+      until i == x
+        yield i
+        i += 1
       end
     end
 

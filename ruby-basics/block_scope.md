@@ -52,8 +52,6 @@ Q: Which variables are available inside the block?
 * A block inside that function creates a *child scope*
 * Variable lookup proceeds up the scope chain
 
-def 
-
 # Great Power, Great Responsibility
 
 * Closures drag data along with them

@@ -12,19 +12,83 @@ Ref. WGR Chapter 3, Organizing objects with classes
 * state is frosting
 * users are hungry!
 
+# Example Class
+
+```
+@@@ruby
+class Cookie
+  def sweeten(more_chips = 10)
+    @chips ||= 0    # lazy initialization
+    @chips += more_chips
+  end
+  
+  def yummy?
+    @chips and @chips >= 20
+  end
+end
+```
+
+# Creating and Using Objects
+
+* To *create* an object, call the *new* method on its class
+
+        cookie = Cookie.new
+
+* To *call a method* an object, use the *dot* operator
+
+        cookie.sweeten(50)
+        cookie.yummy?      #=> true
+
+
 # Constructors
 
 * To *instantiate* an object, call the *new* method on its class
 * The *new* method then calls *initialize*
 
         @@@ ruby
-        class Thing
+        class Cookie
           def initialize
-            puts "Hi!"
-          end
+            @chips = 0
+          end          
         end
 
-        thing = Thing.new  # *not* Thing.initialize!
+        cookie = Cookie.new  # *not* Cookie.initialize!
+
+# Active vs. Lazy Initialization
+
+Active initialization (inside the constructor) leads to simpler code elsewhere in the object, since other methods can assume the instance variables are ready to roll.
+
+### Active Initialization
+
+    @@@ ruby
+    class Cookie
+      def initialize
+        @chips = 0    # active initialization
+      end
+  
+      def sweeten(more_chips = 10)
+        @chips += more_chips
+      end
+
+      def yummy?
+        @chips >= 20
+      end  
+    end
+    
+### Lazy Initialization
+
+    @@@ruby
+    class Cookie
+      def sweeten(more_chips = 10)
+        @chips ||= 0    # lazy initialization
+        @chips += more_chips
+      end
+
+      def yummy?
+        @chips and      # defensive coding
+          @chips >= 20
+      end
+    end
 
 # What does `new` do?
 
@@ -32,7 +96,7 @@ Ref. WGR Chapter 3, Organizing objects with classes
 2. calls *initialize* on the new instance
 3. returns a pointer to the instance
 
-So by the time assignment (`=`) happens, the object has been constructed.
+So by the time assignment (`=`) happens, the object has been constructed and initialized.
 
 # Instance methods
 
@@ -121,6 +185,9 @@ class Person
     @age = years_old
   end
   def bar_mitzvah!
+    @age = 13
+  end
+  def bat_mitzvah!
     self.age = 13
   end
 end
@@ -132,6 +199,8 @@ end
 * Usually corresponds to an instance variable
 
 # Attribute Shortcuts
+
+aka "macros"
 
     @@@ ruby
     class Thing
@@ -166,7 +235,7 @@ end
 * Wait a second!
 * Q: Where are `attr_reader` _et al._ defined?
 * A: They are *class methods* of `Object`
-* A: Or maybe they're *instance methods* of `Class`; I'm not sure.
+* A: Or maybe they're *instance methods* of `Class` or `Module`; I'm not sure.
 
 # Attribute Shortcuts (cont.)
         

@@ -40,7 +40,7 @@ of both class A and class B
   * more later
 
 <!SLIDE>
-# Inheritance Example
+# A More Realistic Inheritance Example
 
     @@@ ruby
     class Rectangle
@@ -51,6 +51,7 @@ of both class A and class B
         @width * @height
       end
     end
+    
     class Square < Rectangle
       def initialize(width)
         super(width, width)

@@ -1,6 +1,13 @@
 <!SLIDE subsection>
 # Class Methods and Constants
 
+"class methods" are actually
+
+  * instance methods
+  * on the eigenclass
+  * of the class object
+
+
 # Defining class methods 
 ## (from outside the class)
 
