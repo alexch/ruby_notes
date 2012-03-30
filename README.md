@@ -14,7 +14,7 @@ We use a Ruby app called `deck` to generate and serve the slides. Install deck l
 
 ## Showing all the slides
 
-    deck run showoff.json
+    deck showoff.json
     
 This will launch a local web server on port 4333. Open your browser to `localhost:4333`. 
 
@@ -32,11 +32,11 @@ Use arrow keys to navigate slides. Press '?' to see a help window.
 
 Same as above, but specify the slide files you want, e.g.
 
-    deck run ruby-basics/strings.md
+    deck ruby-basics/strings.md
 
 or 
 
-    deck run ruby-objects/objects.md ruby-objects/classes.md
+    deck ruby-objects/objects.md ruby-objects/classes.md
 
 
 # Editing slides
