@@ -46,8 +46,8 @@ Remember, `self` points to the *class* inside a class definition.
         @first, @last, @age = first, last, age
       end
     end
-
-    >> alice = Person.from_string("Alice Andrews 17")
+    
+    >> alice = Person.new("Alice", "Andrews", 17)
     => #<Person:0x000001009eca90 
        @first="Alice", @last="Andrews", @age=17>
        

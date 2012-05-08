@@ -2,86 +2,59 @@
   "name": "Ruby For Programmers",
   "description": "an introduction to the Ruby programming language",
   "sections": [
-    "000_setup.md",
     "bootcamp.md",
     "credits.md",
-
     "ruby-intro.md",
-
     "ruby-basics/tools.md",
     "ruby-basics/rspec.md",
-
     "ruby-basics/more_neat_things.md",
-
     "ruby-basics/functions.md",
-
     "# Lab: Hello",
-
     "ruby-basics/types.md",
     "ruby-basics/numbers.md",
-
     "# Lab: Temperature",
     "# Lab: Calculator",
-
     "ruby-basics/strings.md",
-
-    "# Lab: Simon Says",
-    
+    "# Lab: Simon Says",    
     "ruby-basics/regexp.md",
-    
     "# Ablay: Igpay Atinlay",
-
     "ruby-basics/symbols.md",
     "ruby-basics/conditionals.md",
     "ruby-basics/loops.md",
-
     "# Lab: Mega Calculator",
     "ruby-basics/collections.md",
     "ruby-basics/arrays.md",
     /* todo: lab on arrays */
-
     "ruby-basics/ranges.md",
     "ruby-basics/hashes.md",
-
     /* todo: lab on hashes */
-
     "ruby-basics/blocks.md",
-
     "# Lab: Blocks, Performance Monitor",
-
     "ruby-basics/block_scope.md",
     "ruby-basics/iterators.md",
-
     "ruby-objects/waka-waka.md",
-
+    
     /* day two */
-
+    "ruby-objects/tiers.md",
     "ruby-objects/objects.md",
     "ruby-objects/classes.md",
-
-    "# Labs:\n* Hello Friend\n* Temperature Object\n* Book Titles\n* Timer\n* Dictionary\n",
-
-    "# Lab:\n* RPN Calculator",
-
+    "# Lab:\n* Hello Friend\n",
+    /* todo: creation patterns */
     "ruby-objects/class_inheritance.md",
+    "# Lab:\n* Temperature Object\n* Book Titles\n* Timer\n* Dictionary\n",
+    "# Lab:\n* RPN Calculator",
     "ruby-objects/dispatch.md",
-
     "# Lab:\n* XML Builder",
-
     "ruby-objects/class_methods.md",
-
     "ruby-objects/reopening_classes.md",
-    
     "# Labs:\n* Array Extensions\n* In Words\n",
-
     "ruby-objects/modules.md",
-    "ruby-objects/scope.md",
+    "ruby-objects/variable_scope.md",
+    "ruby-objects/method_scope.md",
 
     "# Advanced Topics",
-
     "ruby-basics/exceptions.md",
     /* todo: exception exercise */
-
     "ruby-advanced/more_blocks.md",
     "ruby-basics/enumerators_advanced.md",
     "ruby-objects/classes_as_objects.md"

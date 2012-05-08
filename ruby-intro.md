@@ -32,7 +32,7 @@ I tried to make people enjoy programming and concentrate on the fun and creative
 
 &nbsp;&nbsp;- [Matz](http://linuxdevcenter.com/pub/a/linux/2001/11/29/ruby.html) (Yukihiro Matsumoto), Ruby creator
 
-# Ruby Philosophy, Applied
+# Ruby Philosophy: Humane Interface
 
 * Ruby has a *humane interface*
   * many ways to do things
@@ -75,7 +75,19 @@ I tried to make people enjoy programming and concentrate on the fun and creative
 
 Please fire up `irb` on your computer and try this out right now!
 
-# Every statement has a value
+# Everything's an Object
+
+    @@@ ruby
+    >> 2.class
+    => Fixnum
+    
+    >> 2.to_s
+    => "2"
+
+    >> 2.to_s.class
+    => String
+
+# Everything Has a Value
 
     @@@ ruby
     >> 2 + 2
@@ -84,35 +96,72 @@ Please fire up `irb` on your computer and try this out right now!
     >> (2+2).zero?
     => false
 
-    >> "foo" if true
-    => "foo"
+    >> if true then "yes" end
+    => "yes"
 
-    >> "foo" if false
+    >> if false then "yes" end
     => nil
+
+# Output vs Value
 
     >> puts "foo"
     foo
     => nil
+    
+The *output* is `foo\n` but the *value* is `nil`
 
-# Optional semicolons, parens, and `return`
+# Blocks are like mini-functions
 
-These are equivalent:
+* Blocks can also take parameters or return a value
+* e.g. the `map` iterator translates each item in an array into a new array
 
-    @@@ ruby
-    def inc(x)
-      return x + 1;
-    end
+        @@@ ruby
+        >> ["hello", "world"].map {|string| string.upcase}
+        => ["HELLO", "WORLD"]
 
-    def inc x
-      x + 1
-    end
+* `{|string| string.upcase}` defines a block
 
+# Method Chaining
 
-    def inc(x); x + 1; end
+* Chaining is a *really* cool and powerful Ruby idiom
+* It depends on these three features:
+  * Every expression has a value
+  * Every value is an object
+  * Iterators are loops inside methods
 
-    def inc(x) x + 1; end
+# Method Chaining Example
 
+    s = "my dog has fleas"
 
+Without chaining:
+
+    words = s.split
+    words = words.map{|word| word.capitalize}
+    s = words.join(" ")
+
+With chaining:
+
+    s = "my dog has fleas"
+    s.split.map{|word| word.capitalize}.join(" ")
+
+# Optional Punctuation
+
+* semicolons, parens, and `return` are optional
+
+* These are equivalent:
+
+        @@@ ruby
+        def inc(x)
+          return x + 1;
+        end
+
+        def inc x
+          x + 1
+        end
+
+        def inc(x); x + 1; end
+
+        def inc(x) x + 1; end
 
 # Line Break Gotcha
 

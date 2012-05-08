@@ -189,7 +189,7 @@ munges a string
 ### Solution: use `map` for chaining
 
     @@@ ruby
-    s.split.map{|w|w.capitalize}.join
+    s.split.map{|w|w.capitalize}.join(' ')
 
 ### Solution: use `each` with an accumulator
 
@@ -198,7 +198,7 @@ munges a string
     s.split.each{|w|
       capitalized << w.capitalize
     }
-    capitalized.join
+    capitalized.join(' ')
 
 # delving into map
 

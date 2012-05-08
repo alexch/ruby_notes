@@ -1,0 +1,99 @@
+# Ruby Outline
+
+1. Introduction
+
+  * History
+  * Ruby vs. Rails
+  * The Ruby Philosophy
+    * Humane Interface
+    * Everything's An Object
+    * Everything Has A Value
+    * Method Chaining
+    * Optional Punctuation
+    * Blocks
+    * The Default Block
+    * Reopening Classes
+    * Declarative vs. Algorithmic
+    
+  * Ruby Overview
+
+  * The Ruby Ecosystem
+    * ruby implementations
+    * tools
+    * docs
+    * guides
+    * testing
+    * rspec
+
+2. Fundamentals
+
+2a. Variables and Functions
+
+  * scope, heap, and references
+  * variable assignment
+  * parallel assignment
+  * functions
+
+2b. Scalar Types
+
+  * Numbers
+  * Strings
+  * Regular Expressions
+  * Symbols
+  
+2c. Logic
+
+  * Truthiness
+  * Boolean
+  * Conditionals
+
+2c. Loops and Collections
+
+  * Loops (briefly)
+  * "each", the universal iterator
+  * Arrays
+  * Ranges
+  * Hashes
+
+3. Blocks
+
+  * tiers of abstraction
+  * closures
+  * the default block
+  * block scope
+  * iterators
+
+4. Objects
+
+  * objects
+  * self
+  * classes
+  
+5. Objects (Intermediate)
+  
+  * class inheritance
+  * reopening classes and monkey patching
+  * class methods
+  * modules
+    * modules as mixins
+    * modules as namespaces
+    * include and extend
+  * method dispatching (simplified)
+
+6. Objects (Advanced)
+
+  * eigenclasses
+  * method dispatching (actual)
+  * class methods
+  * metaprogramming
+  * method scope
+  * variable scope
+
+7. Input/Output
+
+  * print and puts
+  * console output
+  * stdout and stderr
+  * console input
+  * File
+

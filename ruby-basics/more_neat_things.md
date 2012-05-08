@@ -31,17 +31,6 @@ This section is a continuation of "ruby intro", covering more advanced topics. I
     "1".to_i     #=> 1
     :hello.class #=> Symbol
 
-# Methods are messages
-
-Equivalent:
-
-    @@@ ruby
-    thing.munge(4, 10)
-    thing.munge 4, 10
-    thing.send "munge", 4, 10
-    
-> send the object `thing` the message `munge` with the parameters `4` and `10`
-
 # Operators are Methods
 
 Equivalent:
@@ -66,7 +55,7 @@ Equivalent:
 
     @@@ ruby
     fruits = ["apple", "banana", "cherry", "date"]
-    my_array.each do |item|        #<< "do" starts the block
+    fruits.each do |item|        #<< "do" starts the block
       puts "Yum! I love #{item}s!"
     end                            #<< "end" ends the block   
 
@@ -82,41 +71,6 @@ Equivalent:
 * then calls the block with `item = "dog"`
 * then calls the block with `item = "world"`
 
-# Blocks are like mini-functions
-
-* Blocks can also take parameters or return a value
-* e.g. the `map` iterator translates each item in an array into a new array
-
-        @@@ ruby
-        >> ["hello", "world"].map {|string| string.upcase}
-        => ["HELLO", "WORLD"]
-
-* `{|string| string.upcase}` defines a block
-
-# Method Chaining
-
-* Chaining is a *really* cool and powerful Ruby idiom
-* It depends on these three features:
-  * Every expression has a value
-  * Every value is an object
-  * Iterators are loops inside methods
-
-# Method Chaining Example
-
-    s = "my dog has fleas"
-
-Without chaining:
-
-    words = s.split
-    words = words.map{|word| word.capitalize}
-    s = words.join(" ")
-
-With chaining:
-
-    s = "my dog has fleas"
-    s.split.map{|word| word.capitalize}.join(" ")
-
-!SLIDE
 # Reopening classes
 
     @@@ ruby
@@ -128,7 +82,6 @@ With chaining:
 
     4.divisible_by? 2 #=> true
     4.divisible_by? 3 #=> false
-
 
 # Duck Typing
 
@@ -196,12 +149,6 @@ With chaining:
 * Cucumber
 * Rspec
 * etc.
-
-!SLIDE
-
-# the `method_missing` method
-
-What do you do when you don't know what to do?
 
 !SLIDE incremental
 # No Function Overloading

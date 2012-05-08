@@ -80,7 +80,8 @@
     "# Labs:\n* Array Extensions\n* In Words\n",
 
     "ruby-objects/modules.md",
-    "ruby-objects/scope.md",
+    "ruby-objects/variable_scope.md",
+    "ruby-objects/method_scope.md",
 
     "# Advanced Topics",
 

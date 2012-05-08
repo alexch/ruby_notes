@@ -129,5 +129,5 @@ Ref. [Using Select Etc.](http://matthewcarriere.com/2008/06/23/using-select-reje
 
 # more help
 
-<http://fablednet.posterous.com/thinking-about-iterators>
+* Visualizing iterators with colored block diagrams: <http://fablednet.posterous.com/thinking-about-iterators>
 
