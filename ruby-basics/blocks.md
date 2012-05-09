@@ -103,21 +103,51 @@ You can also define proc *inline* rather than assigning it to a variable
 
 "twice do" kind of almost resembles English a little, right?
 
+# `yield` turns prose into poetry
+
+Which is more beautiful?
+
+Using procs:
+
+    @@@ ruby
+    def twice_do block
+      block.call
+      block.call
+    end
+    
+    twice_do(proc { puts "hi" })
+
+Using the default block:
+
+    @@@ ruby
+    def twice
+      yield
+      yield
+    end
+
+    twice { puts "hi" }
+
+
 # The default block can accept parameters
 
     @@@ ruby
-    def foo
-      yield "alice"
-      yield "bob"
+    def twice
+      yield 0
+      yield 1
     end
 
-    foo do |name|
-      puts "hi, #{name}"
+    twice do |i|
+      puts "#{i+1} Mississippi"
     end
+
+prints 
+
+    1 Mississippi
+    2 Mississippi
 
 # Passing Blocks Implicitly
 
-`for_each` is a less cool version of `each` that uses the default block
+`for_each` is a less cool version of `Array.each`
 
     @@@ ruby
     def for_each(array)
@@ -136,6 +166,33 @@ You can also define proc *inline* rather than assigning it to a variable
 
 * `array` is a parameter to the `for_each` function
 * `item` is a parameter to the block
+
+# Blocks can also return values
+
+`map_it` is a less cool version of `Array.map`
+
+    @@@ ruby
+    def map_it(array)
+      i = 0
+      out = []
+      while i < array.size
+        out << yield(array[i])
+        i += 1
+      end
+      out
+    end
+
+    names = ["alice", "bob", "charlie"]
+    map_it(names) do |item|
+      item.reverse
+    end
+    #=> ["ecila", "bob", "eilrahc"]
+
+# block_given?
+* `block_given?` is true if a block was passed
+* common use:
+
+        yield if block_given?
 
 # Making the default block visible
 
@@ -163,19 +220,5 @@ turns a proc into a default block
     capitalize_word = proc {|w|w.capitalize}
     s.split.map(&capitalize_word).join
 
-# `&` vs. `yield`
 
-Which is less confusing, `&` or `yield`?
-
-    def reverser &default_block
-      default_block.call.reverse
-    end
-
-    def reverser
-      yield.reverse
-    end
-
-
-# block_given?
-* `block_given?` is true if a block was passed
 

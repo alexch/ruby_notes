@@ -4,38 +4,59 @@
 Ref. WGR Chapter 4, Modules and program organization
 
 <!SLIDE>
-# Modules and Mixins
+# Modules as namespaces
+
+```
+@@@ ruby
+module Speakers
+  class Hello
+    def say_hello
+      puts "hi"
+    end
+  end
+end
+```
+
+From outside the module:
+
+```
+x = Speakers::Hello.new
+x.say_hello
+```
+
+# Modules as mixins
+
+```
+@@@ ruby
+module Greetings
+  def greet
+    puts "Hello!"
+  end
+end
+```
 
 * Any class (or object) can *include* a Module
   * also known as *mixing in*
   * so Modules are also called Mixins
 * Modules provide *behavior* but no *state*
   * more precisely, they affect the extending object's state
-  
+
+# Module usage
+    
+    @@@ ruby
+    class Person
+      include Greetings
+    end
+    
+    alice = Person.new
+    alice.greet
+
+
 # Multiple modules
 
 * You can mix in as many modules as you like
 * Resembles multiple inheritance, but less confusing
 
-# Module definition
-
-    @@@ ruby
-    module Greeter
-      def greet
-        puts "Hello!"
-      end
-    end
-    
-# Module usage
-    
-    @@@ ruby
-    class Person
-      include Greeter
-    end
-    
-    alice = Person.new
-    alice.greet
-    
 # Modules cannot be instantiated
 
     Greeter.new #=> undefined method `new' for Greeter:Module

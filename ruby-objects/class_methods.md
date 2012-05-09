@@ -13,21 +13,27 @@
 
     @@@ ruby
     def Person.oldest(people)
-      people.max_by(:&age)  # nevermind
+      people.sort_by {|p| p.age}.last
     end
 
-# Defining class methods
 ## (from inside the class)
 
     @@@ ruby
     class Person
       def self.oldest(people)
-        people.max_by(:&age)  # nevermind
+        people.sort_by {|p| p.age}.last
       end
     end
 
-Remember, `self` points to the *class* inside a class definition.
+* `self` points to the *class* inside a class definition... 
+* ...so `def self.oldest` is the same as `def Person.oldest`
 
+---
+
+* By the way, here's an even cooler way to implement that method:
+
+        people.max_by(:&age)
+         
 # Uses of class methods
 
 * utility functions
