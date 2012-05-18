@@ -14,7 +14,7 @@ We use a Ruby app called `deck` to generate and serve the slides. Install deck l
 
 ## Showing all the slides
 
-    deck showoff-bootcamp.json
+    deck showoff.json
     
 This will launch a local web server on port 4333. Open your browser to `localhost:4333`. 
 

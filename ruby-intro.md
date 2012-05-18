@@ -108,7 +108,21 @@ Please fire up `irb` on your computer and try this out right now!
     foo
     => nil
     
-The *output* is `foo\n` but the *value* is `nil`
+The *output* is `foo\n` but the *value* is `nil`.
+
+# Printing
+
+* `print` prints its arg
+* `puts` prints its arg plus a newline
+* `p` *inspects* and prints its arg plus a newline
+
+# Advanced Printing
+* `pp` *pretty-prints* its arg plus a newline
+  * `require "pp"`
+* `d` is even prettier than `pp`
+  * provided by the `wrong` gem
+  * `require "wrong"; include Wrong::D`
+  * if x is 10, `d { x }` prints `x is 10`
 
 # Blocks are like mini-functions
 
@@ -128,6 +142,8 @@ The *output* is `foo\n` but the *value* is `nil`
   * Every expression has a value
   * Every value is an object
   * Iterators are loops inside methods
+* So you can call a method on *anything*
+  * including the result of an iterator
 
 # Method Chaining Example
 
@@ -162,6 +178,32 @@ With chaining:
         def inc(x); x + 1; end
 
         def inc(x) x + 1; end
+        
+# Poetry vs Prose
+
+Other languages are prose:
+
+    @@@ Java
+    public String titleize(s) {
+      String words = s.split(" ");
+      String titleized = "";
+      for(int i =0; i < words.length ; i++) {
+        char capLetter = Character.toUpperCase(words[i].charAt(0));
+        String capWord =  capLetter + words[i].substring(1, words[i].length());
+        titleized += capWord + " ";
+      }
+      return titleized.trim();
+    }
+
+Ruby is poetry:
+
+    @@@ Ruby
+    def titleize s
+      s.split.map{|word| word.capitalize}.join(" ")
+    end
+
+Cf. **declarative** vs. **algorithmic**
+
 
 # Line Break Gotcha
 
@@ -349,6 +391,7 @@ constants are in `ALL_CAPS`
   * skips already-loaded files
   * omits the trailing `.rb`
   * can also be used for extensions written in C (`.so`, `.dll`, etc.)
+
 
 # Credits
 
