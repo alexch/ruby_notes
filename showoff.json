@@ -10,24 +10,30 @@
     "ruby-basics/more_neat_things.md",
     "ruby-basics/functions.md",
     "# Lab: Hello",
+    
     "ruby-basics/types.md",
     "ruby-basics/numbers.md",
     "# Lab: Temperature",
     "# Lab: Calculator",
+
+    "ruby-basics/conditionals.md",
     "ruby-basics/strings.md",
-    "# Lab: Simon Says",    
+    "ruby-basics/chaining.md",
+    "# Lab: Simon Says",
+    
     "ruby-basics/regexp.md",
     "# Ablay: Igpay Atinlay",
     "ruby-basics/symbols.md",
-    "ruby-basics/conditionals.md",
     "ruby-basics/loops.md",
     "# Lab: Mega Calculator",
+    
     "ruby-basics/collections.md",
     "ruby-basics/arrays.md",
     /* todo: lab on arrays */
     "ruby-basics/ranges.md",
     "ruby-basics/hashes.md",
     /* todo: lab on hashes */
+    
     "ruby-basics/blocks.md",
     "# Lab: Blocks, Performance Monitor",
     "ruby-basics/block_scope.md",

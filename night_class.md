@@ -12,13 +12,13 @@ In Collaboration with Blazing Cloud
 
 ## Night 1-2: Ruby Basics
 
-## Night 3-4: Built-in Types
+## Night 3: Built-in Types
 
-## Night 5: Blocks
+## Night 4: Blocks
 
-## Night 6: Iterators
+## Night 5: Iterators
 
-## Night 7-8: Objects
+## Night 6: Objects
 
 ## Textbook: The Well-Grounded Rubyist
 
