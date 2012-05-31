@@ -19,6 +19,12 @@ In Ruby, every expression evaluates to some value
     >> "zero" if (2+2).zero?
     => nil
 
+# Function values
+
+The value of a function is the value of the final statement
+
+(or the value sent to `return` if that comes first)
+
 # Parameters and return values
 
     @@@ ruby
@@ -82,10 +88,13 @@ When calling a method, if the final argument is a hash, you can **leave off** th
     end
     
     print_value_plus(2, {:x => 1, :y => 2})
+    
     # same as...
     print_value_plus 2, :x => 1, :y => 2
+    
     # same as...
     print_value_plus 2, x: 1, y: 2
+    
     # same as...
     print_value_plus 2, y: 2, x: 1
 
@@ -94,18 +103,12 @@ When calling a method, if the final argument is a hash, you can **leave off** th
 To pass *variable* parameters, or to pass *named* parameters, you can use an *options hash*:
 
     @@@ruby
-    bake("bread", :dough => "sour")
-    bake("pizza", :toppings => ["pepperoni", "onions"])    
+    bake("Rubylicious", :flour => "sour")
+    bake("Rubynickel", :milk => "butter")
     
-    def bake(dish, options = {})
-      if dish == "bread"
-        d = options[:dough] || "rye"
-        puts "baking a nice #{d} loaf"
-
-      elsif dish == "pizza"
-        toppings = options[:toppings] || ["plain"]
-        puts "ordering a #{toppings.join("-")} pizza"
-
-      end
+    def bake(name, options = {})
+      flour = options[:flour] || "rye"
+      milk = options[:milk] || "cream"
+      puts "baking a nice #{flour} loaf with #{milk}"
     end
-    
+

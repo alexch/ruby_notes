@@ -241,7 +241,6 @@ Solution: always put operators on top line
 
 Ruby has a syntax for multiline comments too, but it's silly and nobody uses it.
 
-!SLIDE
 # Variables are declared implicitly
 
     @@@ ruby
@@ -250,7 +249,6 @@ Ruby has a syntax for multiline comments too, but it's silly and nobody uses it.
     full_name = first_name + last_name
     #=> "SantaClaus"
 
-!SLIDE custom
 # Built-in Types
 
 * Numbers

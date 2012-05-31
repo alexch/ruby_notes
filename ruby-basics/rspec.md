@@ -4,7 +4,7 @@
 # describe
 
     @@@ruby
-    describe Foo do
+    describe Cookie do
     end
 
 * defines a *context*
@@ -13,7 +13,7 @@
 # it
 
     @@@ruby
-    describe Foo do
+    describe Cookie do
       it "bars" do
       end
     end
@@ -25,10 +25,10 @@
 # should
 
     @@@ruby
-    describe Foo do
-      it "has a bar" do
-        f = Foo.new
-        f.bar.should == 72
+    describe Cookie do
+      it "has the right amount of chips" do
+        f = Cookie.new
+        f.chips.should == 72
       end
     end
 
@@ -39,10 +39,10 @@
 # matchers
 
     @@@ruby
-    describe Foo do
-      it "has a bar" do
-        f = Foo.new
-        f.bar.should be_within(5).of(70)
+    describe Cookie do
+      it "has approximately 70 chips" do
+        f = Cookie.new
+        f.chips.should be_within(5).of(70)
       end
     end
 

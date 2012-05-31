@@ -6,7 +6,8 @@ Ref. WGR Chapter 7, Built-in essentials
 # Built-in Types
 
 * Numbers
-  * `42`
+  * `42` (Fixnum)
+  * `3.14159` (Float)
 * Booleans
   * `true`
   * `false`
@@ -15,14 +16,20 @@ Ref. WGR Chapter 7, Built-in essentials
   * `'banana'`
 * Symbols
   * `:apple`
+
+# Built-in Types (cont.)
+
+* Regular Expressions
+  * `/fo*/i`
 * Arrays
   * `["apple", "banana"]`
-* Hashes
-  * `{:apple => 'red', :banana => 'yellow'}`
 * Ranges
   * `(1..10)`
+* Hashes
+  * `{:apple => 'red', :banana => 'yellow'}`
+  * `{apple: 'red', banana: 'yellow'}`
 
-# to_x
+# to_*
 
 * `to_i` converts to integer
 * `to_f` converts to float

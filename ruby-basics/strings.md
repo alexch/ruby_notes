@@ -163,64 +163,24 @@ munges a string
 
 | Method | turns a(n)... | into a(n)... |
 |---|---|---|
-| split | String | Array |
-| join | Array | String |
-| gsub | String | String |
-| map | Array | Array |
-
-
-# Chaining: A Ruby Idiom    
-
-    @@@ ruby
-    s.split.map{|w|w.capitalize}.join(' ')
-    
-* this technique is called *method chaining*
-* each operation changes the result of the previous operation
-* in this case, it
-  * splits a string into words
-  * capitalizes each word
-  * joins the words back together
-
-# Gotcha: `each` doesn't chain
-
-* `each` returns the *original* collection
-* `map` returns a new collection
-
-### Solution: use `map` for chaining
-
-    @@@ ruby
-    s.split.map{|w|w.capitalize}.join(' ')
-
-### Solution: use `each` with an accumulator
-
-    @@@ruby
-    capitalized = []
-    s.split.each{|w|
-      capitalized << w.capitalize
-    }
-    capitalized.join(' ')
-
-# delving into map
-
-    @@@ruby
-    s                   # "foo_bar"
-      .split("_")       # ["foo", "bar"]
-      .map {|w|         # "foo", then "bar"
-        w.capitalize    # "Foo", then "Bar"
-      }                 # ["Foo", "Bar"]
-      .join(" ")        # "Foo Bar"
-
+| split | String | Array  |
+| join  | Array  | String |
+| gsub  | String | String |
+| map   | Array  | Array  |
 
 # more string methods
 
-* `s.upcase`
-* `s.downcase`
-* `s.capitalize`
-* `s.strip`
-  * removes whitespace, not clothes, from the ends of the string
-* `s.chomp`
+* `upcase`
+* `downcase`
+* `capitalize`
+* `reverse`
+  * `"stressed".reverse => "desserts"`
+* `strip`
+  * removes whitespace (not clothes) from the ends of the string
+* `chomp`
   * removes the final character, but only if it's a "\n"
-* `s.center(width)`
+* `center(width)`
 
 some of these have `!` versions which modify the string in place
 
+# next: chaining

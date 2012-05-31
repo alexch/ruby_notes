@@ -30,11 +30,19 @@ In this section we cover truth, falsiness, and conditions.
 
 # `if`
 
-    if condition
+    if condition then
       statement
     end
 
 * if `condition` is *truthy* then execute `statement`
+
+* `then` is optional, so you normally use
+
+        if condition
+          statement
+        end
+
+
 
 # one-line `if`
     
@@ -159,6 +167,25 @@ and assuming `x` is a number, `!x` will always be `false`
 |  not x==y | true |
     
 ## (...let's go shopping)
+
+# Comparison or Assignment?
+
+|Language | Statement | Purpose |
+|---|---|---|
+| mathematics | X = 2  | comparison |
+| Basic       | LET X = 2 | assignment |
+| | | |
+| Fortran     | X = 2  | assignment :-( |
+|             | X == 2 | comparison |
+| | | |
+| Algol, Pascal | X := 2 | assignment :-) |
+|             | X = 2  | comparison :-) |
+
+<i>
+  "A **notorious example for a bad idea** was the choice of the equal sign to denote assignment. It goes back to Fortran in 1957 and **has blindly been copied by armies of language designers**. Why is it a bad idea? Because it overthrows a century old tradition to let "=" denote a comparison for equality, a predicate which is either true or false. But Fortran made it to mean assignment, the enforcing of equality. In this case, the operands are on unequal footing: The left operand (a variable) is to be made equal to the right operand (an expression). x = y does not mean the same thing as y = x."
+
+— [Niklaus Wirth](http://en.wikipedia.org/wiki/Assignment_%28computer_science%29#Assignment_versus_equality), Good Ideas, Through the Looking Glass (2005)
+</i>
 
 # assignment in conditionals
 
