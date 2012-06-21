@@ -18,19 +18,21 @@ This section is intended as a brief, lightweight overview of the Ruby language; 
 <!SLIDE subsection incremental>
 # Ruby Philosophy
 
-Q: Did you have a guiding philosophy when designing Ruby?
+Matz (Yukihiro Matsumoto), Ruby creator, says:
 
-A: Yes, it's called the "principle of least surprise."
+"I believe people want to express themselves when they program. They don't want to fight with the language."
 
-I believe people want to express themselves when they program.
+"Programming languages must feel natural to programmers."
 
-They don't want to fight with the language.
+"I tried to make people enjoy programming and concentrate on the fun and creative part of programming when they use Ruby."
 
-Programming languages must feel natural to programmers.
+"For me the purpose of life is partly to have joy. Programmers often feel joy when they can concentrate on the creative side of programming, So Ruby is designed to make programmers happy."
 
-I tried to make people enjoy programming and concentrate on the fun and creative part of programming when they use Ruby.
+"I wanted a scripting language that was more powerful than Perl, and more object-oriented than Python." 
 
-&nbsp;&nbsp;- [Matz](http://linuxdevcenter.com/pub/a/linux/2001/11/29/ruby.html) (Yukihiro Matsumoto), Ruby creator
+* <http://linuxdevcenter.com/pub/a/linux/2001/11/29/ruby.html>
+* <http://www.ruby-lang.org/en/about/>
+
 
 # Ruby Philosophy: Humane Interface
 
