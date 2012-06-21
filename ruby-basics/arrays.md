@@ -38,24 +38,32 @@ Ref. WGR Chapter 9, Section 9.2, Collection handling with arrays
     a = []
     a << "x"       #=> ["x"]
 
-`<<` is the "shovel" operator
-it's an alias for push
-
-# Adding two arrays to get a third with `concat`
+`<<` (pronounced "shovel") does a `push` -- adds an item to the end of an array -- DESTRUCTIVE!
 
     @@@ ruby
-    a = ["x", "y"]
+    a = []
+    a + ["x"]       #=> ["x"]
 
-    a + "z"        #=> can't convert String into Array
-    a + ["z"]      #=> ["x", "y", "z"] (but a is unchanged)
-    a += ["z"]     #=> ["x", "y", "z"] (and a is changed)
+`+` does a `concat` -- adds two arrays together and makes a new array -- safe!
+
+# plus-equals
+
+* for Strings and Arrays, plus-equals uses `concat`, not `append`
+* that means it makes a copy, but then reassigns the variable
+* so it feels destructive, but isn't
+
+
+        @@@ ruby
+        a = ["x", "y"]
+
+        a + "z"        #=> can't convert String into Array
+        a + ["z"]      #=> ["x", "y", "z"] (but a is unchanged)
+        a += ["z"]     #=> ["x", "y", "z"] (and a is changed)
     
-    a.concat ["w"] #=> ["x", "y", "z", "w"]
-
-* `concat` and `+` make a copy
-* `push` and `<<` are destructive
-  * NB:  push doesn't end in a bang!
-* `+=` makes a copy but also changes the reference
+        a = b = ["x"]
+        a += ["y"]
+        a #=> ["x", "y"]
+        b #=> ["x"]
 
 # `size` isn't everything
 

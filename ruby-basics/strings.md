@@ -173,6 +173,7 @@ munges a string
 * `upcase`
 * `downcase`
 * `capitalize`
+  * upcases the first letter and *downcases the rest*
 * `reverse`
   * `"stressed".reverse => "desserts"`
 * `strip`
