@@ -58,7 +58,7 @@ end
 
 Active initialization (inside the constructor) leads to simpler code elsewhere in the object, since other methods can assume the instance variables are ready to roll.
 
-### Active Initialization
+# Active Initialization
 
     @@@ ruby
     class Cookie
@@ -75,7 +75,7 @@ Active initialization (inside the constructor) leads to simpler code elsewhere i
       end  
     end
     
-### Lazy Initialization
+# Lazy Initialization
 
     @@@ruby
     class Cookie
