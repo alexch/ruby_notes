@@ -14,7 +14,7 @@
 
     @@@ruby
     describe Cookie do
-      it "bars" do
+      it "tastes yummy" do
       end
     end
 
@@ -26,9 +26,9 @@
 
     @@@ruby
     describe Cookie do
-      it "has the right amount of chips" do
-        f = Cookie.new
-        f.chips.should == 72
+      it "tastes yummy" do
+        cookie = Cookie.new
+        cookie.chips.should == 72
       end
     end
 
@@ -41,8 +41,8 @@
     @@@ruby
     describe Cookie do
       it "has approximately 70 chips" do
-        f = Cookie.new
-        f.chips.should be_within(5).of(70)
+        cookie = Cookie.new
+        cookie.chips.should be_within(5).of(70)
       end
     end
 
