@@ -2,8 +2,6 @@
 
 Taught by Alex Chaffee
 
-at Blazing Cloud
-
 these slides are available at <http://github.com/alexch/ruby_notes>
 
 # Test-First Teaching

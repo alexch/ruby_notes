@@ -42,7 +42,7 @@ prints
 
 # to `each` his own
 
-    ["apple", "banana", "cherry"].my_each do |fruit|
+    ["apple", "banana", "cherry"].each do |fruit|
       puts "I love #{fruit}!"
     end
 
