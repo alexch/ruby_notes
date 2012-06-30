@@ -94,7 +94,7 @@ Objects are *things* that can be *described* and can *do* things, or...
 
 What are the values of `fruit` and `dessert` after each line?
 
-# Object ID
+# Object Identity
 
 How can you tell if two references point to the same instance?
 
@@ -107,6 +107,16 @@ How can you tell if two references point to the same instance?
     => 2165084200
 
 Ref. WGR Ch.2, Section 2.3.1
+
+# Object Equality
+
+* Many ways to compare objects
+  * `==` params are equal (overridable)
+  * `.eql?` params are equal *and* the same type
+  * `.equal?` params are identical (same `object_id`)
+* `==` is usually what you want
+
+Note that `.equal?` is not guaranteed since bizarrely, some objects override `.equal?` to do something else. If you really want to know if two variables reference the same instance, compare their `object_id`s.
 
 # Garbage Collection
 
@@ -222,16 +232,20 @@ Note: Usually you don't use `respond_to` because of *duck typing*.
 
 ```
 @@@ruby
-def cookie.preheat
-  @temp = 350
+def cookie.yummy?
+  @chips > 100
 end
 
-def cookie.bake
-  preheat unless @temp > 300
-  @baked = true
+def cookie.add_chips(num_chips = 10)
+  @chips 
+  @chips += num_chips
+end
+
+def cookie.yummify
+  add_chips until yummy?
 end
 ```
 
-* inside `bake` the call to `preheat` goes to `self`
+* inside `yummify` the call to `yummy?` goes to `self`
 
 

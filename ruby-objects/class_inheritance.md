@@ -66,6 +66,6 @@ of both class A and class B
 
 * inheritance is often more trouble than it's worth
 * there are many ways to solve object-oriented design problems
-* also try *delegation*, *configuration*, etc.
+* also try Modules, *delegation*, *configuration*, etc.
 
 

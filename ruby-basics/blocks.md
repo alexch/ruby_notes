@@ -3,12 +3,30 @@
 
 Ref. WGR Section 6.3, "Iterators and code blocks"
 
-# First-Class Functions
+# What is a block?
 
-* `do...end` defines a *block*
-* also known as a *closure* or a *proc* or a *lambda* or a *function pointer*
+> a block is a chunk of code
 
-# do...end vs {...}
+the term "block" overlaps with the terms...
+
+* closure
+* lambda 
+* anonymous function
+* function pointer
+* callback
+* runnable
+* functor
+* delegate
+
+# function vs. block vs. proc
+
+* a **function** is a chunk of code starting with `def`
+* a **block** is a chunk of code starting with `do`
+* a **proc** is an *object* that points to a *block*
+
+(In Ruby, only a *proc* can be stored in a variable or named parameter.)
+
+# How do you declare a block?
 
 * Anywhere you see "do" in Ruby, it's the start of a *block*
 
@@ -22,20 +40,21 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
         @@@ruby
         3.times { puts "Hip! Hip! Hooray!" }
 
-* By convention, braces are for a single line, do...end for multiple lines
-
-# What are blocks like?
-
-* anonymous functions
-* function pointers
-* callbacks
-* runnable objects
+* braces are for a single line, `do...end` for multiple lines
 
 # What are blocks for?
 
-> A block is a piece of code that is declared but not run in the place it's written. The idea is to leave it up to the receiver of the block to decide when to call it.
->
-> -- Wolfram Arnold
+A block is a piece of code that is declared but not run in the place it's written. The idea is to leave it up to the receiver of the block to decide when to call it. -- Wolfram Arnold
+
+So you use blocks for...
+
+* stashing away some code to be run later
+  * callbacks
+  * initializers
+* separating the body of a loop from the loop itself
+  * iterators
+* running some extra code before and/or after
+* making your code look cool
 
 # `proc`
 
@@ -220,5 +239,12 @@ turns a proc into a default block
     capitalize_word = proc {|w|w.capitalize}
     s.split.map(&capitalize_word).join
 
+# lambdas
 
+Ruby also has a keyword `lambda` that works just like `proc`, except for a few technical details.
+
+* a lambda *enforces arity* (the number of parameters)
+* in a lambda, `return` exits the *block*, not the *enclosing method*
+
+`proc` is easier to use but `lambda` is more nerdy
 

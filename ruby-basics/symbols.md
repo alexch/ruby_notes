@@ -26,3 +26,4 @@ They also look better in code and are easier to type (by one character).
   * keep the symbol syntax
   * symbols become immutable strings
   * `:foo == "foo".freeze`
+* See [Why are symbols not frozen strings?](http://stackoverflow.com/questions/11085564/why-are-symbols-not-frozen-strings) on StackOverflow

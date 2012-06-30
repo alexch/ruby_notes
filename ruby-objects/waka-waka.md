@@ -9,21 +9,23 @@
 * `<>` *angle brackets* or *less than, greater than*
 * `^` *caret*
 * `#` *hash*
-* ! *bang*
-* \" *quote* or *double quote*
-* \' *tick* or *single quote*
-* \` *backtick*
+* `!` *bang*
+* " *quote* or *double quote*
+* ' *tick* or *single quote*
+* ` *backtick*
 * `_` *underscore* (not underline)
 * `*` *splat* or *star* or *asterisk*
 * `.` *dot* (not period)
 * `|` *pipe* or *vertical bar*
 * `~` *tilde*
+* `@` *at* or *at sign*
+* `&` *ampersand*
 * `=>` *hashrocket*
 * `<=>` *flying saucer*
 
 # Waka Waka Poem
 
-> The following poem appeared in the May/June 1990 issue of Infocus magazine and has since been floating around the Internet. The original authors were Fred Bremmer and Steve Kroese of Calvin College & Seminary of Grand Rapids, Michigan.
+The following poem appeared in the May/June 1990 issue of Infocus magazine and has since been floating around the Internet. The original authors were Fred Bremmer and Steve Kroese of Calvin College & Seminary of Grand Rapids, Michigan.
 
     < > ! * ' ' #
     ^ " ` $ $ -

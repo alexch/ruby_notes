@@ -28,11 +28,11 @@ The value of a function is the value of the final statement
 # Parameters and return values
 
     @@@ ruby
-    def to_fahrenheit(celcius)
-      celcius * 9.0 / 5 + 32
+    def to_fahrenheit(celsius)
+      celsius * 9.0 / 5 + 32
     end
 
-* `celcius` is a parameter
+* `celsius` is a parameter
 * the value of a function is the value of the final statement
   * in this case, the only statement
 * the keyword `return` is available, but usually unnecessary
@@ -40,15 +40,15 @@ The value of a function is the value of the final statement
 # Arguments vs. Parameters
 
     @@@ ruby
-    def to_fahrenheit(celcius)
-      celcius * 9.0 / 5 + 32
+    def to_fahrenheit(celsius)
+      celsius * 9.0 / 5 + 32
     end
     boiling = 100
     to_fahrenheit(boiling)
 
 * Technically speaking, *arguments* are passed and *parameters* are declared
 * Note that the variable names don't have to match!
-* In this code, `boiling` is an argument and `celcius` is a parameter
+* In this code, `boiling` is an argument and `celsius` is a parameter
   * In practice, the two terms are interchangeable
 
 # Splat arguments
@@ -103,6 +103,7 @@ When calling a method, if the final argument is a hash, you can **leave off** th
 To pass *variable* parameters, or to pass *named* parameters, you can use an *options hash*:
 
     @@@ruby
+    bake("Wheat")
     bake("Rubylicious", :flour => "sour")
     bake("Rubynickel", :milk => "butter")
     

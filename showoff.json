@@ -34,8 +34,11 @@
     /* todo: lab on hashes */
     
     "ruby-basics/blocks.md",
-    "# Lab: Blocks, Performance Monitor",
+    "# Lab: Blocks",
     "ruby-basics/block_scope.md",
+    "ruby-basics/stubbing.md",
+    "# Lab: Performance Monitor",
+    
     "ruby-basics/iterators.md",
     "ruby-objects/waka-waka.md",
     

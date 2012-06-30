@@ -230,6 +230,11 @@ aka "macros"
           attr_accessor :foo, :bar
         end
 
+        thing = Thing.new
+        => #<Thing:0x007fe008897278>
+        >> thing.methods
+        => [:foo, :foo=, :bar, :bar=,
+
 # Attribute Shortcuts (cont.)
         
 * Wait a second!
@@ -284,14 +289,6 @@ Note: query methods return a boolean by *convention* only
 * normally there's a non-bang equivalent
 * in ActiveRecord, "`!`" means: raise exception if failure
 
-# Object equality
-
-* Many ways to compare objects
-  * `==` params are equal (overridable)
-  * `.eql?` params are equal *and* the same type
-  * `.equal?` params are identical (same `object_id`)
-* `==` is what you want, unless you know otherwise
-
 # A Poorly-Encapsulated Object
 
     @@@ruby
@@ -321,6 +318,7 @@ Note: query methods return a boolean by *convention* only
     jane = GoodStudent.new("Jane", "Brain")
     puts jane.full_name
 
+# A Well-Encapsulated Object (cont)
 
 * Why is this well-encapsulated?
   * initial state established by constructor

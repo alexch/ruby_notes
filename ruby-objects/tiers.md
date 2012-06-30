@@ -14,15 +14,23 @@
 # Tiers of Abstraction
 
 * Variables
-  * give your data a name
+  * give a name to a chunk of data
+
 * Functions
-  * input, output, local variables
+  * give a name to a chunk of code
+  * encapsulate input, output, and local variables
+
 * Closures
-  * functions plus scope
+  * function plus scope of defining function
+  * allow several chunks of code to share state
+
+* Structs
+  * put several pieces of related data together
+
 * Objects
-  * encapsulation
-  * gives several functions a common state
+  * encapsulate data *and* behavior
+  * allow several chunks of code to share extra state
+
 * Classes
-  * a class is a category
-  * so you don't have to keep adding the same methods onto similar objects
+  * reuse code and data for different instances
 

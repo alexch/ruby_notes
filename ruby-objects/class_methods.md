@@ -8,15 +8,14 @@
   * of the class object
 
 
-# Defining class methods 
-## (from outside the class)
+# Defining class methods (from outside the class)
 
     @@@ ruby
     def Person.oldest(people)
       people.sort_by {|p| p.age}.last
     end
 
-## (from inside the class)
+# Defining class methods (from inside the class)
 
     @@@ ruby
     class Person

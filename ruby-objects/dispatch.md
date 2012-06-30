@@ -63,6 +63,20 @@ Useful for "builder pattern" objects
 
 *Ref. WGR Section 4.3. The method_missing method*
 
+    @@@ ruby
+    class Thing
+      def method_missing method_name, *args
+        puts method_name.to_s.reverse
+        args.reverse
+      end
+    end
+
+    t = Thing.new
+    t.whatever "hee", "haw"
+
+    revetahw
+    => ["haw", "hee"]
+
 # `method_missing` + `super`
 
 From inside `method_missing`, `super` looks up the chain for another `method_missing` method

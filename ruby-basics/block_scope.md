@@ -25,14 +25,14 @@
 # locals, function parameters, block parameters
 
     @@@ruby
-    def twice_with s
-      yield s
-      yield s
+    def twice_with word
+      yield word
+      yield word.upcase
     end
 
     def flatter person
       message = "you are great"
-      twice_with(person.upcase) do |name|
+      twice_with(person) do |name|
         puts "#{message}, #{name}!"
       end
     end
@@ -42,7 +42,7 @@
 * `person` is a parameter of `flatter`
 * `message` is a local variable of `flatter`
 * `name` is a parameter of the *block*
-* `s` is a parameter of `twice`
+* `word` is a parameter of `twice_with`
 
 Q: Which variables are available inside the block?
 
@@ -52,7 +52,7 @@ Q: Which variables are available inside the block?
 * A block inside that function creates a *child scope*
 * Variable lookup proceeds up the scope chain
 
-# Great Power, Great Responsibility
+# With Great Power Comes Great Responsibility
 
 * Closures drag data along with them
   * Sometimes they drag more than you intended

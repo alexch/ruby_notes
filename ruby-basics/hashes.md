@@ -75,4 +75,19 @@ braces are optional...
 
 (except for a default block)
 
-TODO: more on hashes
+# `merge` to combine two hashes
+
+Here's a handy trick:
+
+    class Hash
+      alias_method :<<, :merge!
+      alias_method :+, :merge
+    end
+
+    {foo: 1} << {bar: 2}
+    => {:foo=>1, :bar=>2}   # destructive
+
+    {foo: 1} + {bar: 2}
+    => {:foo=>1, :bar=>2}   # creative
+
+
