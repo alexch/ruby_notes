@@ -11,6 +11,11 @@ Alex Chaffee <alex@stinky.com>
 We use a Ruby app called `deck` to generate and serve the slides. Install deck like this:
 
     gem install deckrb
+    
+And of course, before you can see these slides, you need to clone this repo and change into its directory:
+
+    git clone https://github.com/alexch/ruby_notes.git
+    cd ruby_notes
 
 ## Showing all the slides
 
