@@ -3,6 +3,7 @@
 | default block |   | anonymous block |
 | default hash |    | automatic hash |
 | case |  actually comprises many cases | switch |
+| equal? |compares identity (object_id), not equality | identical? |
 
 
 

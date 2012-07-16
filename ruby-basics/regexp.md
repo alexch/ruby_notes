@@ -50,17 +50,25 @@ Note that the return value is *truthy* if the string is a match, and *falsey* if
 # regexp globals
 
 * After a successful match, some *global variables* are set
+  * `$~` is what it matched
   * `$1` is the *first substring match*
   * `$2` is the *second substring match*
   * etc.
-  * substrings are defined with parentheses
+  * substrings are defined with parentheses in the regexp
 
 ```
 @@@ruby
-if "foobar" =~ /foo(.*)/ then 
+if "foobar" =~ /foo(.*)/ then
+  puts "The matching string was #{$~}"
   puts "The matching substring was #{$1}"
 end
- # prints "The matching substring was bar"
+```
+
+Prints this:
+
+```
+The matching string was foobar
+The matching substring was bar
 ```
 
 ### See Also
