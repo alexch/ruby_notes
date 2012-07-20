@@ -1,4 +1,3 @@
-<!SLIDE subsection>
 # Code Blocks
 
 Ref. WGR Section 6.3, "Iterators and code blocks"
@@ -9,14 +8,8 @@ Ref. WGR Section 6.3, "Iterators and code blocks"
 
 the term "block" overlaps with the terms...
 
-* closure
-* lambda 
-* anonymous function
-* function pointer
-* callback
-* runnable
-* functor
-* delegate
+> closure, proc, lambda, function, function pointer, anonymous function, 
+> callback, runnable, functor, delegate
 
 # function vs. block vs. proc
 
@@ -51,6 +44,7 @@ So you use blocks for...
 * stashing away some code to be run later
   * callbacks
   * initializers
+  * asynchronous IO
 * separating the body of a loop from the loop itself
   * iterators
 * running some extra code before and/or after

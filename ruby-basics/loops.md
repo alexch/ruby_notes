@@ -32,8 +32,8 @@ Most people don't use loops, they use *iterators*, so you can just skim this par
 # `while` and `until` both have one-line versions
 
     @@@ ruby
-    puts "All work etc." while rand < 0.9
-    puts "All work etc." until rand > 0.9
+    puts "For he's a jolly good fellow!" while rand < 0.9
+    puts "For he's a jolly good fellow!" until rand > 0.9
 
 # `for in`
 

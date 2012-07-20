@@ -65,11 +65,12 @@
     /* todo: exception exercise */
     "ruby-advanced/more_blocks.md",
     "ruby-basics/enumerators_advanced.md",
-    "ruby-objects/classes_as_objects.md"
+    "ruby-objects/classes_as_objects.md",
 
     /* "ruby-basics/time.md", */
     /* "ruby-basics/io.md",  */
     /* todo: file/io exercise, like scraper */
 
+    "bad_names.md"
   ]
 }

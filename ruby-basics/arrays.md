@@ -15,22 +15,32 @@ Ref. WGR Chapter 9, Section 9.2, Collection handling with arrays
 
 !SLIDE
 
+# Arrays act like stacks
+
     @@@ ruby
     a = [1, 2, 3]
     a.push "four" #=> [1, 2, 3, "four"]
     a.pop         #=> "four"
     a             #=> [1, 2, 3]
-    
-    
-    a[0]          #=> 1
-    a.first       #=> 1
-    a[a.size-1]   #=> 3
-    a.last        #=> 3
+
+## or like queues
 
     a = [1, 2, 3]
     a.unshift "zero" #=> ["zero", 1, 2, 3]
     a.shift          #=> "zero"
     a                #=> [1, 2, 3]
+
+## or like sets
+
+    a = [1, 2, 3]
+    a.include?(2)  #=> true
+
+# `first` and `last`
+    
+    a[0]          #=> 1
+    a.first       #=> 1
+    a[a.size-1]   #=> 3
+    a.last        #=> 3
 
 # Adding to an array
 

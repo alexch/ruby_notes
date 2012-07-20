@@ -5,16 +5,24 @@ Ref. WGR Chapter 8, Section 8.1, Working with strings
 
 # String literals
 
-* double-quotes `"foo"`
-  * allow interpolation, e.g. `"Welcome, #{name}"`
-* single-quotes `'foo'`
-  * no interpolation
+* double-quotes allow *interpolation* and *escaping*
+
+        "\t"  #=> "\t"
+        name = "alice"
+        "hello, #{name}" #=> "hello, alice"
+    
+* single-quotes are more literal-minded
+
+        '\t' #=> "\\t"
+
+# weirdo string literals
+
 * %Q -- `%Q{don't worry, "man"}`
     * just like double-quote only you don't need a backslash for "
 * %q -- `%q{don't #{interpolate}, "man"}`
   * just like single-quote only you don't need a backslash for '
-* %Q, %q -- any delimiter will do
-  * `%Q|...|`, `%Q{...}`, `%Q(...)`, etc.
+* any delimiter will do
+  * `%Q{...}`, `%Q(...)`, `%Q|...|`, etc.
 
 # Multiline strings
 
@@ -50,7 +58,7 @@ Ref. WGR Chapter 8, Section 8.1, Working with strings
       x
     end
     
-# Here docs don't have to end the expression
+<!--# Here docs don't have to end the expression
 
     @@@ruby
     x = <<-NUM.to_i * 10
@@ -59,6 +67,7 @@ Ref. WGR Chapter 8, Section 8.1, Working with strings
     x  # => 50
 
 Weird, huh?
+-->
 
 # substrings
 
@@ -86,13 +95,24 @@ Weird, huh?
 
 # adding strings
 
-    s = "xyz" 
-    s + "pdq"  #=> "xyzpdq"
-    s          #=> "xyz"
+plus makes a new string
+
+    s = "dog" 
+    s + "cow"  #=> "dogcow"
+    s          #=> "dog"
+
+shovel changes the original string
     
-    s = "xyz"
-    s << "pdq" #=> "xyzpdq"
-    s          #=> "xyzpdq"
+    s = "dog"
+    s << "cow" #=> "dogcow"
+    s          #=> "dogcow"
+
+plus-equal makes a new string but changes the variable
+
+    s = "dog"
+    s += "cow" #=> "dogcow"
+    s          #=> "dogcow"
+
 
 # string interpolation
 
@@ -100,33 +120,29 @@ Takes any ruby expression, calls `to_s` on it, and smooshes it inside a string
 
     "nothing compares #{1+1} u" #=> "nothing compares 2 u"
 
-Interpolated quotes are *not* escaped
-
-    "foo #{"bar"} baz" #=> "foo bar baz"
-
-# string interpolation - advanced
-
 anything can go in there, including operators and quotes
 
-    "i love #{girlfriend or "nobody"}"
-
-`nil.to_s` is the empty string, which can be convenient
-
-    "i love #{girlfriend.name if girlfriend}"
+    "i love #{@girlfriend or "nobody"}"
 
 # string comparison
 
+Strings are == if their characters are the same
+
+    "alice" == "alice"  #=> true
+
+Characters are compared in ASCII order (not Unicode or Collation order)
+
     "a" < "b"    #=> true
-    "a" < "A"    #=> false
+    "a" < "Z"    #=> false
+
+The "flying saucer" operator is used for sorting
+
     "a" <=> "b"  #=> -1
-    
-* `Array#sort` uses `<=>`
-  * the "flying saucer" operator
-* `String#==` compares the characters in each string
+    ["d", "o", "g"].sort #=> ["d", "g", "o"]
 
 # `gsub`
 
-munges a string
+`gsub` munges a string
 
     s.gsub(/xyz/, "pdq")
 
@@ -183,5 +199,3 @@ munges a string
 * `center(width)`
 
 some of these have `!` versions which modify the string in place
-
-# next: chaining
